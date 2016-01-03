@@ -25,6 +25,7 @@
   "dependencies": {
     "debug": "^2.2.0",
     "dotenv": "^1.2.0",
+    "firebase": "^2.3.2",
     "history": "^1.17.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
