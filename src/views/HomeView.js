@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { actions as counterActions } from 'redux/modules/counter'
+import { actions as counterActions } from 'actions/counter'
 // import { firebase } from 'redux/utils/secret'
 import styles from './HomeView.scss'
-import Firebase from 'firebase'
+// import Firebase from 'firebase'
 
 // We define mapStateToProps where we'd normally use
 // the @connect decorator so the data requirements are clear upfront, but then

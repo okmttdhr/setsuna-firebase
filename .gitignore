@@ -6,4 +6,4 @@ node_modules
 dist
 coverage
 
-src/redux/utils/secret.js
+src/utils/secret.js

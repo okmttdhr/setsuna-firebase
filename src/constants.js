@@ -1,0 +1,5 @@
+const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
+
+export default {
+  COUNTER_INCREMENT
+}
