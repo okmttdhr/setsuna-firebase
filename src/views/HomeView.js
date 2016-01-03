@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { actions as counterActions } from '../redux/modules/counter'
-import { firebase } from '../redux/utils/secret'
+// import { firebase } from '../redux/utils/secret'
 import styles from './HomeView.scss'
 import Firebase from 'firebase'
 
@@ -21,23 +21,33 @@ export class HomeView extends React.Component {
   }
 
   firebaseTest () {
-    const ref = new Firebase(firebase.demoRef)
-    const usersRef = ref.child('users')
-    usersRef.set({
-      alanisawesome: {
-        date_of_birth: 'June 23, 1912',
-        full_name: 'Alan Turing'
-      },
-      gracehop: {
-        date_of_birth: 'December 9, 1906',
-        full_name: 'Grace Hopper'
-      }
-    })
+    // const ref = new Firebase(firebase.demoRef)
+    // const usersRef = ref.child('users')
+    // usersRef.set({
+    //   alanisawesome: {
+    //     date_of_birth: 'June 23, 1912',
+    //     full_name: 'Alan Turing'
+    //   },
+    //   gracehop: {
+    //     date_of_birth: 'December 9, 1906',
+    //     full_name: 'Grace Hopper'
+    //   }
+    // })
+    //
+    // const postsRef = ref.child('posts')
+    // postsRef.push().set({
+    //   author: 'alanisawesomeaaa',
+    //   title: 'The Turing Machine'
+    // })
 
-    const postsRef = ref.child('posts')
-    postsRef.push().set({
-      author: 'alanisawesomeaaa',
-      title: 'The Turing Machine'
+    // Get a database reference to our posts
+    const ref = new Firebase('https://docs-examples.firebaseio.com/web/saving-data/fireblog/posts')
+
+    // Attach an asynchronous callback to read the data at our posts reference
+    ref.on('value', function (snapshot) {
+      console.log(snapshot.val())
+    }, function (errorObject) {
+      console.log('The read failed: ' + errorObject.code)
     })
   }
 
@@ -61,7 +71,7 @@ export class HomeView extends React.Component {
         </button>
         <button
           className='btn btn-default'
-          onClick={::this.firebaseTest()}>
+          onClick={::this.firebaseTest}>
           Firebase
         </button>
         <hr />
