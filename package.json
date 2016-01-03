@@ -8,7 +8,7 @@
     "compile": "node -r dotenv/config --harmony bin/compile",
     "lint": "eslint . ./",
     "lint:fix": "npm run lint -- --fix",
-    "start": "npm run dev",
+    "start": "npm run dev:no-debug",
     "dev": "node -r dotenv/config bin/server --hot",
     "dev:nw": "npm run dev -- --nw",
     "dev:no-debug": "npm run dev -- --no_debug",

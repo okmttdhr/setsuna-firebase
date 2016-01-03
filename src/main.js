@@ -1,8 +1,8 @@
 import { createHistory, useBasename } from 'history'
 import { syncReduxAndRouter } from 'redux-simple-router'
-import routes from './routes'
-import Root from './containers/Root'
-import configureStore from './redux/configureStore'
+import routes from 'routes'
+import Root from 'containers/Root'
+import configureStore from 'redux/configureStore'
 
 const history = useBasename(createHistory)({
   basename: __BASENAME__

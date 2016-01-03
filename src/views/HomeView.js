@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { actions as counterActions } from '../redux/modules/counter'
-// import { firebase } from '../redux/utils/secret'
+import { actions as counterActions } from 'redux/modules/counter'
+// import { firebase } from 'redux/utils/secret'
 import styles from './HomeView.scss'
 import Firebase from 'firebase'
 
