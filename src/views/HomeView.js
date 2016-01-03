@@ -40,15 +40,24 @@ export class HomeView extends React.Component {
     //   title: 'The Turing Machine'
     // })
 
-    // Get a database reference to our posts
-    const ref = new Firebase('https://docs-examples.firebaseio.com/web/saving-data/fireblog/posts')
+    // const ref = new Firebase('https://dinosaur-facts.firebaseio.com/dinosaurs')
+    // ref.orderByChild('height').on('child_added', function (snapshot) {
+    //   console.log(snapshot.key() + ' was ' + snapshot.val().height + ' meters tall')
+    // })
 
-    // Attach an asynchronous callback to read the data at our posts reference
-    ref.on('value', function (snapshot) {
-      console.log(snapshot.val())
-    }, function (errorObject) {
-      console.log('The read failed: ' + errorObject.code)
-    })
+    // const scoresRef = new Firebase("https://dinosaur-facts.firebaseio.com/scores");
+    // scoresRef.orderByValue().limitToLast(3).on("value", function(snapshot) {
+    //   snapshot.forEach(function(data) {
+    //     console.log(data);
+    //     console.log("The " + data.key() + " dinosaur's score is " + data.val());
+    //   });
+    // });
+
+    var ref = new Firebase("https://dinosaur-facts.firebaseio.com/dinosaurs");
+    ref.orderByChild("height").equalTo(25).on("child_added", function(snapshot) {
+      console.log(snapshot.val());
+      console.log(snapshot.key());
+    });
   }
 
   render () {
