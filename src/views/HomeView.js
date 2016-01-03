@@ -40,24 +40,42 @@ export class HomeView extends React.Component {
     //   title: 'The Turing Machine'
     // })
 
-    // const ref = new Firebase('https://dinosaur-facts.firebaseio.com/dinosaurs')
-    // ref.orderByChild('height').on('child_added', function (snapshot) {
-    //   console.log(snapshot.key() + ' was ' + snapshot.val().height + ' meters tall')
-    // })
-
-    // const scoresRef = new Firebase("https://dinosaur-facts.firebaseio.com/scores");
-    // scoresRef.orderByValue().limitToLast(3).on("value", function(snapshot) {
-    //   snapshot.forEach(function(data) {
-    //     console.log(data);
-    //     console.log("The " + data.key() + " dinosaur's score is " + data.val());
-    //   });
+    // // see if Mary is in the 'alpha' group
+    // var ref = new Firebase("https://docs-examples.firebaseio.com/web/org/users/mchen/groups/alpha");
+    // ref.once('value', function(snap) {
+    //   console.log(snap.val());
+    //   var result = snap.val() === null ? 'is not' : 'is';
+    //   console.log('Mary ' + result + ' a member of alpha group');
     // });
 
-    var ref = new Firebase("https://dinosaur-facts.firebaseio.com/dinosaurs");
-    ref.orderByChild("height").equalTo(25).on("child_added", function(snapshot) {
-      console.log(snapshot.val());
-      console.log(snapshot.key());
-    });
+    // we would probably save a profile when we register new users on our site
+    // we could also read the profile to see if it's null
+    // here we will just simulate this with an isNewUser boolean
+    // var isNewUser = true;
+    //
+    // var ref = new Firebase(firebase.demoRef);
+    // ref.onAuth(function(authData) {
+    //   if (authData && isNewUser) {
+    //     // save the user's profile into the database so we can list users,
+    //     // use them in Security and Firebase Rules, and show profiles
+    //     ref.child("users").child(authData.uid).set({
+    //       provider: authData.provider,
+    //       name: getName(authData)
+    //     });
+    //   }
+    // });
+    //
+    // // find a suitable name based on the meta info given by each provider
+    // function getName(authData) {
+    //   switch(authData.provider) {
+    //      case 'password':
+    //        return authData.password.email.replace(/@.*/, '');
+    //      case 'twitter':
+    //        return authData.twitter.displayName;
+    //      case 'facebook':
+    //        return authData.facebook.displayName;
+    //   }
+    // }
   }
 
   render () {
