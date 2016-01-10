@@ -1,3 +1,4 @@
+import config from 'utils/config'
 import Firebase from 'firebase'
 const firebaseRef = new Firebase(config.firebase.demoRef)
 

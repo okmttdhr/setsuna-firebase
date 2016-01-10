@@ -20,29 +20,15 @@ export class HomeView extends React.Component {
     counter: React.PropTypes.number.isRequired,
     doubleAsync: React.PropTypes.func.isRequired,
     increment: React.PropTypes.func.isRequired,
-    requestCreateAuthSuccess: React.PropTypes.func.isRequired
+    createAuth: React.PropTypes.func.isRequired
   }
 
   // #TODO ロジックを上のレイヤー?に移動。要検討
   componentDidMount () {
     const authData = utils.getAuth()
     if (authData) {
-      this.props.requestCreateAuthSuccess(authData)
+      // this.props.requestCreateAuthSuccess(authData)
     }
-  }
-
-  // #TODO ロジックを(asyncな)actionに移動
-  authWithOAuthPopup () {
-    if (utils.getAuth()) return
-    firebaseRef.authWithOAuthPopup('google', (error, authData) => {
-      if (error || !authData) console.log('Login Failed!', error)
-      console.log('Authenticated successfully with payload:', authData)
-      firebaseRef.child('users').child(authData.uid).set({
-        provider: authData.provider,
-        name: authData.google.displayName
-      })
-      this.props.requestCreateAuthSuccess(authData)
-    })
   }
 
   unAuth () {
@@ -68,10 +54,12 @@ export class HomeView extends React.Component {
           Double (Async)
         </button>
         <hr />
+        {this.props.account.isFetching
+          ? <p>ログインしています</p> : null}
         {!this.props.account.token
           ? <button
             className='btn btn-default'
-            onClick={::this.authWithOAuthPopup}>
+            onClick={::this.props.createAuth()}>
             Login
           </button> : null}
         {this.props.account.token
