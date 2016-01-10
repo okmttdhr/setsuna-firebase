@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
   counter: state.counter
 })
 
-const ref = new Firebase(config.firebase.demoRef);
+const firebaseRef = new Firebase(config.firebase.demoRef)
 
 export class HomeView extends React.Component {
   static propTypes = {
@@ -18,72 +18,39 @@ export class HomeView extends React.Component {
     increment: React.PropTypes.func.isRequired
   }
 
-  componentDidMount() {
-    // Create a callback which logs the current auth state
-    // function authDataCallback(authData) {
-    //   if (authData) {
-    //     console.log("User " + authData.uid + " is logged in with " + authData.provider);
-    //   } else {
-    //     console.log("User is logged out");
-    //   }
-    // }
-    // ref.onAuth(authDataCallback);
-    // ref.offAuth(authDataCallback);
+  authWithOAuthPopup () {
+    if (this.getAuth()) return
+    firebaseRef.authWithOAuthPopup('google', function (error, authData) {
+      if (error || !authData) console.log('Login Failed!', error)
+      console.log('Authenticated successfully with payload:', authData)
+      firebaseRef.child('users').child(authData.uid).set({
+        provider: authData.provider,
+        name: authData.google.displayName
+      })
+    })
   }
 
-  firebaseTest () {
-    ref.authWithOAuthPopup("google", function(error, authData) {
-      if (error) {
-        console.log("Login Failed!", error);
-      } else {
-        console.log("Authenticated successfully with payload:", authData);
-        if (authData) {
-          // save the user's profile into the database so we can list users,
-          // use them in Security and Firebase Rules, and show profiles
-          console.log('save');
-          ref.child("users").child(authData.uid).set({
-            provider: authData.provider,
-            name: authData.google.displayName,
-          });
-        }
-
-        // // find a suitable name based on the meta info given by each provider
-        // function getName(authData) {
-        //   switch(authData.provider) {
-        //      case 'password':
-        //        return authData.password.email.replace(/@.*/, '');
-        //      case 'twitter':
-        //        return authData.twitter.displayName;
-        //      case 'facebook':
-        //        return authData.facebook.displayName;
-        //   }
-        // }
-      }
-    });
-  }
-
-  getAuth() {
-    var authData = ref.getAuth();
-
+  getAuth () {
+    const authData = firebaseRef.getAuth() || null
     if (authData) {
-      console.log("User " + authData.uid + " is logged in with " + authData.provider);
+      console.log('User ' + authData.uid + ' is logged in with ' + authData.provider)
     } else {
-      console.log("User is logged out");
+      console.log('User is logged out')
     }
+    return authData
   }
 
-  unAuth() {
-    ref.unauth();
+  unAuth () {
+    firebaseRef.unauth()
   }
 
   render () {
     return (
       <div className='container text-center'>
-        <h1>Welcome to the React Redux Starter Kit</h1>
-        <h2>
-          Sample Counter:&nbsp;
+        <h3>
+          Counter:&nbsp;
           <span className={styles['counter--green']}>{this.props.counter}</span>
-        </h2>
+        </h3>
         <button
           className='btn btn-default'
           onClick={() => this.props.increment(1)}>
@@ -94,16 +61,19 @@ export class HomeView extends React.Component {
           onClick={this.props.doubleAsync}>
           Double (Async)
         </button>
-        <button
-          className='btn btn-default'
-          onClick={::this.firebaseTest}>
-          Login
-        </button>
-        <button
-          className='btn btn-default'
-          onClick={::this.unAuth}>
-          Logout
-        </button>
+        <hr />
+        {!this.getAuth() ?
+          <button
+            className='btn btn-default'
+            onClick={::this.authWithOAuthPopup}>
+            Login
+          </button> : null}
+        {this.getAuth() ?
+          <button
+            className='btn btn-default'
+            onClick={::this.unAuth}>
+            Logout
+          </button> : null}
         <button
           className='btn btn-default'
           onClick={::this.getAuth}>
