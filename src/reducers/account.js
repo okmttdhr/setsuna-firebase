@@ -1,5 +1,6 @@
-import constants from 'constants'
 import { handleActions } from 'redux-actions'
+import { account as initialState } from 'reducers/initialState'
+import * as constants from 'constants'
 
 export default handleActions({
   [constants.REQUEST_CREATE_AUTH]: (state) => ({
@@ -27,14 +28,7 @@ export default handleActions({
     ...state,
     isFetching: false,
     errorMessage: action.payload
-  })
-}, {
-  auth: {},
-  expires: null,
-  google: {},
-  provider: null,
-  token: null,
-  uid: null,
-  isFetching: false,
-  errorMessage: ''
-})
+  }),
+
+  [constants.REQUEST_DELETE_AUTH_SUCCESS]: (state, action) => initialState
+}, initialState)

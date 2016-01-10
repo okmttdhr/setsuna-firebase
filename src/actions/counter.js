@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions'
-import constants from 'constants'
+import * as constants from 'constants'
 
 export const increment = createAction(constants.COUNTER_INCREMENT, (value = 1) => value)
 

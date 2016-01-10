@@ -1,4 +1,4 @@
-import constants from 'constants'
+import * as constants from 'constants'
 import { handleActions } from 'redux-actions'
 
 export default handleActions({

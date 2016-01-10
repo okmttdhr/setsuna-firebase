@@ -3,16 +3,12 @@ import { Link } from 'react-router'
 import counterActions from 'actions/counter'
 import accountActions from 'actions/account'
 import utils from 'utils/index'
-import config from 'utils/config'
 import styles from './HomeView.scss'
-import Firebase from 'firebase'
 
 const mapStateToProps = (state) => ({
   counter: state.counter,
   account: state.account
 })
-
-const firebaseRef = new Firebase(config.firebase.demoRef)
 
 export class HomeView extends React.Component {
   static propTypes = {
@@ -20,20 +16,13 @@ export class HomeView extends React.Component {
     counter: React.PropTypes.number.isRequired,
     doubleAsync: React.PropTypes.func.isRequired,
     increment: React.PropTypes.func.isRequired,
-    createAuth: React.PropTypes.func.isRequired
+    initAuth: React.PropTypes.func.isRequired,
+    createAuth: React.PropTypes.func.isRequired,
+    deleteAuth: React.PropTypes.func.isRequired
   }
 
-  // #TODO ロジックを上のレイヤー?に移動。要検討
   componentDidMount () {
-    const authData = utils.getAuth()
-    if (authData) {
-      // this.props.requestCreateAuthSuccess(authData)
-    }
-  }
-
-  unAuth () {
-    firebaseRef.unauth()
-    // #TODO stateを更新
+    this.props.initAuth()
   }
 
   render () {
@@ -59,13 +48,13 @@ export class HomeView extends React.Component {
         {!this.props.account.token
           ? <button
             className='btn btn-default'
-            onClick={::this.props.createAuth()}>
+            onClick={::this.props.createAuth}>
             Login
           </button> : null}
         {this.props.account.token
           ? <button
             className='btn btn-default'
-            onClick={::this.unAuth}>
+            onClick={::this.props.deleteAuth}>
             Logout
           </button> : null}
         <button
