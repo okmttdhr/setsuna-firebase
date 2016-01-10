@@ -1,32 +1,37 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { actions as counterActions } from 'actions/counter'
+import counterActions from 'actions/counter'
+import accountActions from 'actions/account'
 import config from 'utils/config'
 import styles from './HomeView.scss'
 import Firebase from 'firebase'
 
 const mapStateToProps = (state) => ({
-  counter: state.counter
+  counter: state.counter,
+  account: state.account
 })
 
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
 export class HomeView extends React.Component {
   static propTypes = {
+    account: React.PropTypes.object.isRequired,
     counter: React.PropTypes.number.isRequired,
     doubleAsync: React.PropTypes.func.isRequired,
-    increment: React.PropTypes.func.isRequired
+    increment: React.PropTypes.func.isRequired,
+    requestCreateAuthSuccess: React.PropTypes.func.isRequired
   }
 
   authWithOAuthPopup () {
     if (this.getAuth()) return
-    firebaseRef.authWithOAuthPopup('google', function (error, authData) {
+    firebaseRef.authWithOAuthPopup('google', (error, authData) => {
       if (error || !authData) console.log('Login Failed!', error)
       console.log('Authenticated successfully with payload:', authData)
       firebaseRef.child('users').child(authData.uid).set({
         provider: authData.provider,
         name: authData.google.displayName
       })
+      this.props.requestCreateAuthSuccess(authData)
     })
   }
 
@@ -62,14 +67,14 @@ export class HomeView extends React.Component {
           Double (Async)
         </button>
         <hr />
-        {!this.getAuth() ?
-          <button
+        {!this.props.account.token
+          ? <button
             className='btn btn-default'
             onClick={::this.authWithOAuthPopup}>
             Login
           </button> : null}
-        {this.getAuth() ?
-          <button
+        {this.props.account.token
+          ? <button
             className='btn btn-default'
             onClick={::this.unAuth}>
             Logout
@@ -86,4 +91,7 @@ export class HomeView extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, counterActions)(HomeView)
+export default connect(mapStateToProps, {
+  ...counterActions,
+  ...accountActions
+})(HomeView)

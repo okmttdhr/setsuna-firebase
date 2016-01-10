@@ -14,7 +14,7 @@ export const doubleAsync = () => {
   }
 }
 
-export const actions = {
+export default {
   increment,
   doubleAsync
 }
