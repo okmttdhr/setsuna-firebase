@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import counterActions from 'actions/counter'
 import accountActions from 'actions/account'
+import utils from 'utils/index'
 import config from 'utils/config'
 import styles from './HomeView.scss'
 import Firebase from 'firebase'
@@ -22,8 +23,17 @@ export class HomeView extends React.Component {
     requestCreateAuthSuccess: React.PropTypes.func.isRequired
   }
 
+  // #TODO ロジックを上のレイヤー?に移動。要検討
+  componentDidMount () {
+    const authData = utils.getAuth()
+    if (authData) {
+      this.props.requestCreateAuthSuccess(authData)
+    }
+  }
+
+  // #TODO ロジックを(asyncな)actionに移動
   authWithOAuthPopup () {
-    if (this.getAuth()) return
+    if (utils.getAuth()) return
     firebaseRef.authWithOAuthPopup('google', (error, authData) => {
       if (error || !authData) console.log('Login Failed!', error)
       console.log('Authenticated successfully with payload:', authData)
@@ -35,18 +45,9 @@ export class HomeView extends React.Component {
     })
   }
 
-  getAuth () {
-    const authData = firebaseRef.getAuth() || null
-    if (authData) {
-      console.log('User ' + authData.uid + ' is logged in with ' + authData.provider)
-    } else {
-      console.log('User is logged out')
-    }
-    return authData
-  }
-
   unAuth () {
     firebaseRef.unauth()
+    // #TODO stateを更新
   }
 
   render () {
@@ -81,7 +82,7 @@ export class HomeView extends React.Component {
           </button> : null}
         <button
           className='btn btn-default'
-          onClick={::this.getAuth}>
+          onClick={::utils.getAuth}>
           getAuth
         </button>
         <hr />

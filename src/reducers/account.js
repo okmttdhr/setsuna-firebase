@@ -20,7 +20,6 @@ export default handleActions({
       isFetching: false,
       errorMessage: ''
     }
-    localStorage.setItem('Account', JSON.stringify(nextState))
     return nextState
   },
 
