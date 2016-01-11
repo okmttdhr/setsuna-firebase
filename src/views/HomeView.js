@@ -1,27 +1,17 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import counterActions from 'actions/counter'
-import accountActions from 'actions/account'
 import styles from './HomeView.scss'
 
 const mapStateToProps = (state) => ({
-  counter: state.counter,
-  account: state.account
+  counter: state.counter
 })
 
 export class HomeView extends React.Component {
   static propTypes = {
-    account: React.PropTypes.object.isRequired,
     counter: React.PropTypes.number.isRequired,
     doubleAsync: React.PropTypes.func.isRequired,
-    increment: React.PropTypes.func.isRequired,
-    initAuth: React.PropTypes.func.isRequired,
-    createAuth: React.PropTypes.func.isRequired,
-    deleteAuth: React.PropTypes.func.isRequired
-  }
-
-  componentDidMount () {
-    this.props.initAuth()
+    increment: React.PropTypes.func.isRequired
   }
 
   render () {
@@ -42,21 +32,6 @@ export class HomeView extends React.Component {
           Double (Async)
         </button>
         <hr />
-        {this.props.account.isFetching
-          ? <p>ログインしています</p> : null}
-        {!this.props.account.token
-          ? <button
-            className='btn btn-default'
-            onClick={::this.props.createAuth}>
-            Login
-          </button> : null}
-        {this.props.account.token
-          ? <button
-            className='btn btn-default'
-            onClick={::this.props.deleteAuth}>
-            Logout
-          </button> : null}
-        <hr />
         <Link to='/about'>Go To About View</Link>
       </div>
     )
@@ -64,6 +39,5 @@ export class HomeView extends React.Component {
 }
 
 export default connect(mapStateToProps, {
-  ...counterActions,
-  ...accountActions
+  ...counterActions
 })(HomeView)
