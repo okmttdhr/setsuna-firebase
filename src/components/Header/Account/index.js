@@ -1,3 +1,5 @@
+import styles from './index.scss'
+
 export class HeaderAccount extends React.Component {
   static propTypes = {
     account: React.PropTypes.object.isRequired,
@@ -11,22 +13,29 @@ export class HeaderAccount extends React.Component {
   }
 
   render () {
+    const {account} = this.props;
     return (
-      <div className='HeaderAccount'>
-        {this.props.account.isFetching
-          ? <p>ログインしています</p> : null}
-        {!this.props.account.token
-          ? <button
-            className='btn btn-default'
-            onClick={::this.props.createAuth}>
-            Login
-          </button> : null}
-        {this.props.account.token
-          ? <button
-            className='btn btn-default'
-            onClick={::this.props.deleteAuth}>
-            Logout
-          </button> : null}
+      <div className={styles['HeaderAccount']}>
+        <div>
+          <p>{account.google.displayName}</p>
+          <p>{account.google.email}</p>
+        </div>
+        <div>
+          {account.isFetching
+            ? <p>ログインしています</p> : null}
+          {!account.token
+            ? <button
+              className='btn btn-default'
+              onClick={::this.props.createAuth}>
+              Login
+            </button> : null}
+          {account.token
+            ? <button
+              className='btn btn-default'
+              onClick={::this.props.deleteAuth}>
+              Logout
+            </button> : null}
+        </div>
       </div>
     )
   }
