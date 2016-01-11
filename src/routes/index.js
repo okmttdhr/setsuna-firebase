@@ -1,6 +1,6 @@
 import { Route, IndexRoute } from 'react-router'
 import CoreLayout from 'layouts/CoreLayout/index'
-import HomeView from 'views/HomeView'
+import HomeView from 'views/HomeView/index'
 import AboutView from 'views/AboutView'
 
 export default (

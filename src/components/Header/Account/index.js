@@ -13,7 +13,7 @@ export class HeaderAccount extends React.Component {
   }
 
   render () {
-    const {account} = this.props;
+    const {account} = this.props
     return (
       <div className={styles['HeaderAccount']}>
         <div>

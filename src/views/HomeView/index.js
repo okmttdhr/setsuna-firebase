@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import counterActions from 'actions/counter'
-import styles from './HomeView.scss'
+import styles from './index.scss'
 
 const mapStateToProps = (state) => ({
   counter: state.counter
