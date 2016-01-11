@@ -17,10 +17,11 @@ export class HomeView extends React.Component {
   render () {
     return (
       <div className='container text-center'>
-        <h3>
+        <hr />
+        <p>
           Counter:&nbsp;
           <span className={styles['counter--green']}>{this.props.counter}</span>
-        </h3>
+        </p>
         <button
           className='btn btn-default'
           onClick={() => this.props.increment(1)}>

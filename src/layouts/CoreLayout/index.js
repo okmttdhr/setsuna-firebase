@@ -1,4 +1,4 @@
-import '../styles/core.scss'
+import 'styles/core.scss'
 import styles from './index.scss'
 import Header from 'components/Header/index'
 

@@ -1,5 +1,5 @@
 import { Route, IndexRoute } from 'react-router'
-import CoreLayout from 'layouts/CoreLayout'
+import CoreLayout from 'layouts/CoreLayout/index'
 import HomeView from 'views/HomeView'
 import AboutView from 'views/AboutView'
 
