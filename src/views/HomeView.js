@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import counterActions from 'actions/counter'
 import accountActions from 'actions/account'
-import utils from 'utils/index'
 import styles from './HomeView.scss'
 
 const mapStateToProps = (state) => ({
@@ -57,11 +56,6 @@ export class HomeView extends React.Component {
             onClick={::this.props.deleteAuth}>
             Logout
           </button> : null}
-        <button
-          className='btn btn-default'
-          onClick={::utils.getAuth}>
-          getAuth
-        </button>
         <hr />
         <Link to='/about'>Go To About View</Link>
       </div>

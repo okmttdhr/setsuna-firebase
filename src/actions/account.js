@@ -39,7 +39,7 @@ function createAuth () {
       console.log('Authenticated successfully with payload:', authData)
       createUser(authData)
       dispatch(requestCreateAuthSuccess(authData))
-    })
+    }, {scope: 'email'})
   }
 }
 
