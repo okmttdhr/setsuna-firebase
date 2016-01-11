@@ -12,6 +12,38 @@ function getAuth () {
   return authData
 }
 
+/**
+ * 複数のフォームが有効がどうかを判別する。
+ * すべての要素で valid が true であることをチェックする。
+ *
+ * @param {Array} items - valid をプロパティに持つ Object の配列
+ * @return {Boolean}
+ */
+export function isVaild (items) {
+  return items.every((item) => {
+    return item.valid
+  })
+}
+
+/**
+ * 単純なテキストの値を更新する
+ *
+ * @param {Object} state - ex. this.state.taskName
+ * @param {String} value
+ * @return {Object}
+ */
+function changedValue (state, value) {
+  let valid
+  if (value) {
+    valid = true
+  } else {
+    valid = false
+  }
+  return {...state, value, valid}
+}
+
 export default {
-  getAuth
+  isVaild,
+  getAuth,
+  changedValue
 }

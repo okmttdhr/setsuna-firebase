@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import counterActions from 'actions/counter'
 import styles from './index.scss'
+import utils from 'utils/index'
 
 // #TODO remove
 import config from 'utils/config'
@@ -19,15 +20,40 @@ export class HomeView extends React.Component {
     increment: React.PropTypes.func.isRequired
   }
 
-  componentDidMount () {
-    console.log('componentDidMount');
+  constructor () {
+    super()
+    this.state = {
+      taskName: {
+        value: '',
+        valid: true
+      }
+    }
+  }
 
-    firebaseRef.child('posts').on('value', function(snapshot) {
-      snapshot.forEach(function(data) {
-        console.log(data.key());
-        console.log(data.val());
-      });
-    });
+  componentDidMount () {
+    console.log('componentDidMount')
+  }
+
+  _createTaskMaster (e) {
+    console.log(this.state)
+    e.preventDefault()
+    if (!this._isInputValid()) return
+
+    firebaseRef.child('tasks').push({
+      taskName: this.state.taskName.value
+    })
+  }
+
+  _changeTaskName (e) {
+    this.setState({
+      taskName: utils.changedValue(this.state.taskName, e.target.value)
+    })
+  }
+
+  _isInputValid () {
+    const {taskName} = this.state
+    const items = [taskName]
+    return utils.isVaild(items)
   }
 
   render () {
@@ -52,7 +78,9 @@ export class HomeView extends React.Component {
         </div>
         <hr />
         <div>
-          <input type='text' />
+          <form onSubmit={::this._createTaskMaster}>
+            <input type='text' value={this.state.taskName.value} onChange={::this._changeTaskName} />
+          </form>
         </div>
         <hr />
         <Link to='/about'>Go To About View</Link>
