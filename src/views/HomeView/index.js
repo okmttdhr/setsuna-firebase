@@ -22,23 +22,12 @@ export class HomeView extends React.Component {
   componentDidMount () {
     console.log('componentDidMount');
 
-    // console.log(config.firebase.demoRef + 'posts/-K75R4TcfPkesf8J_qiy');
-    const ref = new Firebase(config.firebase.demoRef + 'posts')
-    // const ref = new Firebase(config.firebase.demoRef + 'posts/-K75R4TcfPkesf8J_qiy')
-    // // firebaseRef.child('posts').on('value', function(snapshot) {
-    ref.on('value', function(snapshot) {
+    firebaseRef.child('posts').on('value', function(snapshot) {
       snapshot.forEach(function(data) {
         console.log(data.key());
         console.log(data.val());
       });
     });
-
-    // var scoresRef = new Firebase("https://dinosaur-facts.firebaseio.com/scores");
-    // scoresRef.orderByValue().on("value", function(snapshot) {
-    //   snapshot.forEach(function(data) {
-    //     console.log("The " + data.key() + " dinosaur's score is " + data.val());
-    //   });
-    // });
   }
 
   render () {
