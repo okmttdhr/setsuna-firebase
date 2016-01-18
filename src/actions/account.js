@@ -21,8 +21,7 @@ function initAuth () {
 
 function createUser (authData) {
   firebaseRef.child('users').child(authData.uid).set({
-    provider: authData.provider,
-    name: authData.google.displayName
+    ...authData
   })
 }
 

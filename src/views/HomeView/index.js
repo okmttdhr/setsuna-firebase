@@ -24,7 +24,7 @@ export class HomeView extends React.Component {
     super()
     this.state = {
       taskName: {
-        value: '',
+        value: null,
         valid: true
       }
     }
@@ -32,6 +32,12 @@ export class HomeView extends React.Component {
 
   componentDidMount () {
     console.log('componentDidMount')
+    firebaseRef.child('taskMasters').on('child_added', (childSnapshot) => {
+      console.log(childSnapshot.val())
+      this.setState({
+        taskName: utils.changedValue(this.state.taskName, null)
+      })
+    })
   }
 
   _createTaskMaster (e) {
@@ -39,7 +45,7 @@ export class HomeView extends React.Component {
     e.preventDefault()
     if (!this._isInputValid()) return
 
-    firebaseRef.child('tasks').push({
+    firebaseRef.child('taskMasters').push({
       taskName: this.state.taskName.value
     })
   }
