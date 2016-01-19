@@ -2,13 +2,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import counterActions from 'actions/counter'
 import styles from './index.scss'
-import utils from 'utils/index'
 import Board from 'components/Board/index'
-
-// #TODO remove
-import config from 'utils/config'
-import Firebase from 'firebase'
-const firebaseRef = new Firebase(config.firebase.demoRef)
 
 const mapStateToProps = (state) => ({
   counter: state.counter
@@ -23,44 +17,6 @@ export class HomeView extends React.Component {
 
   constructor () {
     super()
-    this.state = {
-      taskName: {
-        value: null,
-        valid: true
-      }
-    }
-  }
-
-  componentDidMount () {
-    console.log('componentDidMount')
-    firebaseRef.child('taskMasters').on('child_added', (childSnapshot) => {
-      console.log(childSnapshot.val())
-      this.setState({
-        taskName: utils.changedValue(this.state.taskName, null)
-      })
-    })
-  }
-
-  _createTaskMaster (e) {
-    console.log(this.state)
-    e.preventDefault()
-    if (!this._isInputValid()) return
-
-    firebaseRef.child('taskMasters').push({
-      taskName: this.state.taskName.value
-    })
-  }
-
-  _changeTaskName (e) {
-    this.setState({
-      taskName: utils.changedValue(this.state.taskName, e.target.value)
-    })
-  }
-
-  _isInputValid () {
-    const {taskName} = this.state
-    const items = [taskName]
-    return utils.isVaild(items)
   }
 
   render () {
@@ -85,11 +41,6 @@ export class HomeView extends React.Component {
         </div>
         <hr />
         <Board/>
-        <div>
-          <form onSubmit={::this._createTaskMaster}>
-            <input type='text' value={this.state.taskName.value} onChange={::this._changeTaskName} />
-          </form>
-        </div>
         <hr />
         <Link to='/about'>Go To About View</Link>
       </div>
