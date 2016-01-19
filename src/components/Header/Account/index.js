@@ -1,6 +1,6 @@
 import styles from './index.scss'
 
-export class HeaderAccount extends React.Component {
+export default class HeaderAccount extends React.Component {
   static propTypes = {
     account: React.PropTypes.object.isRequired,
     initAuth: React.PropTypes.func.isRequired,
@@ -40,5 +40,3 @@ export class HeaderAccount extends React.Component {
     )
   }
 }
-
-export default HeaderAccount

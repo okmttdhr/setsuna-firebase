@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import counterActions from 'actions/counter'
 import styles from './index.scss'
 import utils from 'utils/index'
+import Board from 'components/Board/index'
 
 // #TODO remove
 import config from 'utils/config'
@@ -83,6 +84,7 @@ export class HomeView extends React.Component {
           </button>
         </div>
         <hr />
+        <Board/>
         <div>
           <form onSubmit={::this._createTaskMaster}>
             <input type='text' value={this.state.taskName.value} onChange={::this._changeTaskName} />
