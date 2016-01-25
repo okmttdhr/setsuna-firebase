@@ -6,6 +6,12 @@ import styles from './index.scss'
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
 export default class PanelFuture extends React.Component {
+  static propTypes = {
+    taskMasters: React.PropTypes.object.isRequired,
+    setQuery: React.PropTypes.func.isRequired,
+    items: React.PropTypes.array.isRequired
+  }
+
   constructor () {
     super()
     this.state = {
@@ -14,15 +20,6 @@ export default class PanelFuture extends React.Component {
         valid: true
       }
     }
-  }
-
-  componentDidMount () {
-    firebaseRef.child('taskMasters').on('child_added', (childSnapshot) => {
-      console.log(childSnapshot.val())
-      this.setState({
-        taskName: utils.changedValue(this.state.taskName, null)
-      })
-    })
   }
 
   _createTaskMaster (e) {
@@ -48,6 +45,7 @@ export default class PanelFuture extends React.Component {
   }
 
   render () {
+    console.log(this.props.items)
     return (
       <div className={styles['PanelFuture']}>
         PanelFuture
