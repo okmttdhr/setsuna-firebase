@@ -29,6 +29,9 @@ export default class PanelFuture extends React.Component {
 
     firebaseRef.child('taskMasters').push({
       taskName: this.state.taskName.value
+    }, (err) => {
+      if (err) alert('保存できませんでした。時間を経ってから再度お試しください。')
+      this.setState({taskName: utils.changedValue(this.state.taskName, null)})
     })
   }
 
