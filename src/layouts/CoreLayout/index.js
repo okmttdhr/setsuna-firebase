@@ -8,11 +8,12 @@ export class CoreLayout extends React.Component {
   }
 
   render () {
+    const children = React.cloneElement(this.props.children, {apppropdesu: 'aaa'})
     return (
       <div className='page-container'>
         <Header/>
         <div className={styles['CoreLayout__viewContainer']}>
-          {this.props.children}
+          {children}
         </div>
       </div>
     )
