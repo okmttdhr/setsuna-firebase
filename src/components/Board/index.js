@@ -1,8 +1,9 @@
 import PanelFuture from 'components/Board/PanelFuture/index'
-import config from 'utils/config'
 import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
+import utils from 'utils/index'
+import config from 'utils/config'
 import styles from './index.scss'
 
 export class Board extends React.Component {
