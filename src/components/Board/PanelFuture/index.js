@@ -10,8 +10,8 @@ const firebaseRef = new Firebase(config.firebase.demoRef)
 export default class PanelFuture extends React.Component {
   static propTypes = {
     taskMasters: React.PropTypes.object.isRequired,
-    setQuery: React.PropTypes.func.isRequired,
-    items: React.PropTypes.array.isRequired
+    taskMastersFirebase: React.PropTypes.array.isRequired,
+    setQuery: React.PropTypes.func.isRequired
   }
 
   constructor () {

@@ -1,9 +1,11 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import Firebase from 'firebase'
+import config from 'utils/config'
 import counterActions from 'actions/counter'
 import taskMastersActions from 'actions/taskMasters'
-import styles from './index.scss'
 import Board from 'components/Board/index'
+import styles from './index.scss'
 
 const mapStateToProps = (state) => ({
   counter: state.counter,
@@ -16,14 +18,23 @@ export class HomeView extends React.Component {
     doubleAsync: React.PropTypes.func.isRequired,
     increment: React.PropTypes.func.isRequired,
     taskMasters: React.PropTypes.object.isRequired,
-    setQuery: React.PropTypes.func.isRequired
+    setQuery: React.PropTypes.func.isRequired,
+
+    userFirebase: React.PropTypes.object
   }
 
   constructor () {
     super()
   }
 
+  componentDidMount () {
+    const refTaskMasters = new Firebase(config.firebase.demoRef + 'taskMasters')
+    this.bindAsArray(refTaskMasters, 'taskMastersFirebase')
+  }
+
   render () {
+    console.log('これで開発進められる')
+    console.log(this.props.userFirebase)
     return (
       <div className='container text-center'>
         <hr />
@@ -44,7 +55,7 @@ export class HomeView extends React.Component {
           </button>
         </div>
         <hr />
-        <Board {...this.props} />
+        <Board {...this.props} {...this.state} />
         <hr />
         <Link to='/about'>Go To About View</Link>
       </div>
