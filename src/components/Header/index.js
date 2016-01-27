@@ -10,13 +10,12 @@ const mapStateToProps = (state) => ({
 export class Header extends React.Component {
   static propTypes = {
     user: React.PropTypes.object.isRequired,
-    userFirebase: React.PropTypes.object.isRequired,
+    userFirebase: React.PropTypes.object,
     createAuth: React.PropTypes.func.isRequired,
     deleteAuth: React.PropTypes.func.isRequired
   }
 
   render () {
-    console.log(this.props.user)
     return (
       <div className={styles['Header']}>
         <HeaderAccount {...this.props} />

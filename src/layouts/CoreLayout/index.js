@@ -5,7 +5,6 @@ import Firebase from 'firebase'
 import styles from './index.scss'
 import Header from 'components/Header/index'
 import config from 'utils/config'
-import { user as initialStateUsers } from 'reducers/initialState'
 
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
@@ -17,23 +16,25 @@ export class CoreLayout extends React.Component {
   constructor () {
     super()
     this.state = {
-      userFirebase: initialStateUsers
+      userFirebase: undefined
     }
   }
 
   componentDidMount () {
-    let uid = null
-    firebaseRef.onAuth(function (authData) {
-      if (!authData) return
-      uid = authData.auth.uid
+    firebaseRef.onAuth((authData) => {
+      const hasUserFirebaseState = this.state.userFirebase
+      if (!authData) {
+        if (!hasUserFirebaseState) return
+        this.unbind('userFirebase')
+        return
+      }
+      const uid = authData.auth.uid
+      const firebaseRefUsers = new Firebase(config.firebase.demoRef + 'users/' + uid)
+      this.bindAsObject(firebaseRefUsers, 'userFirebase')
     })
-    const refUsers = new Firebase(config.firebase.demoRef + 'users/' + uid)
-    this.bindAsObject(refUsers, 'users')
   }
 
   render () {
-    // console.log('this.state')
-    // console.log(this.state)
     const children = React.cloneElement(this.props.children, {userFirebase: this.state.userFirebase})
     return (
       <div className='page-container'>
