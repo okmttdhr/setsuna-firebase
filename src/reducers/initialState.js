@@ -9,17 +9,6 @@ export const users = {
   errorMessage: ''
 }
 
-export const account = {
-  auth: {},
-  expires: null,
-  google: {},
-  provider: null,
-  token: null,
-  uid: null,
-  isFetching: false,
-  errorMessage: ''
-}
-
 export const taskMasters = {
   query: {
     taskName: null

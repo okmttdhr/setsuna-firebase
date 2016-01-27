@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions'
-import { account as initialState } from 'reducers/initialState'
+import { users as initialState } from 'reducers/initialState'
 import * as constants from 'constants'
 
 export default handleActions({
@@ -12,12 +12,6 @@ export default handleActions({
   [constants.REQUEST_CREATE_AUTH_SUCCESS]: (state, action) => {
     const nextState = {
       ...state,
-      auth: action.payload.auth,
-      expires: action.payload.expires,
-      google: action.payload.google,
-      provider: action.payload.provider,
-      token: action.payload.token,
-      uid: action.payload.uid,
       isFetching: false,
       errorMessage: ''
     }

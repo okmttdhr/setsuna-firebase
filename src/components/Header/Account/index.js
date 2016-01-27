@@ -2,8 +2,7 @@ import styles from './index.scss'
 
 export default class HeaderAccount extends React.Component {
   static propTypes = {
-    users: React.PropTypes.object.isRequired,
-    account: React.PropTypes.object.isRequired,
+    user: React.PropTypes.object.isRequired,
     initAuth: React.PropTypes.func.isRequired,
     createAuth: React.PropTypes.func.isRequired,
     deleteAuth: React.PropTypes.func.isRequired
@@ -14,24 +13,24 @@ export default class HeaderAccount extends React.Component {
   }
 
   render () {
-    const {users} = this.props
+    const {user} = this.props
     return (
       <div className={styles['HeaderAccount']}>
-        {users.token
+        {user.token
           ? <div>
-            <p>{users.google.displayName}</p>
-            <p>{users.google.email}</p>
+            <p>{user.google.displayName}</p>
+            <p>{user.google.email}</p>
           </div> : null}
         <div>
-          {users.isFetching
+          {user.isFetching
             ? <p>ログインしています</p> : null}
-          {!users.token
+          {!user.token
             ? <button
               className='btn btn-default'
               onClick={::this.props.createAuth}>
               Login
             </button> : null}
-          {users.token
+          {user.token
             ? <button
               className='btn btn-default'
               onClick={::this.props.deleteAuth}>

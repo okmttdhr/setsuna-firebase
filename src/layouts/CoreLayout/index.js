@@ -24,7 +24,7 @@ export class CoreLayout extends React.Component {
 
   componentDidMount () {
     let uid = null
-    firebaseRef.onAuth(function(authData) {
+    firebaseRef.onAuth(function (authData) {
       if (!authData) return
       uid = authData.auth.uid
     })

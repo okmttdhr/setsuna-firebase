@@ -7,7 +7,8 @@ import configureStore from 'utils/configureStore'
 const history = useBasename(createHistory)({
   basename: __BASENAME__
 })
-const store = configureStore(window.__INITIAL_STATE__)
+
+const store = configureStore({})
 
 syncReduxAndRouter(history, store, (state) => state.router)
 
