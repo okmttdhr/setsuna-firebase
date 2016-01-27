@@ -2,11 +2,10 @@ import 'styles/core.scss'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
 import Firebase from 'firebase'
-import utils from 'utils/index'
 import styles from './index.scss'
 import Header from 'components/Header/index'
 import config from 'utils/config'
-import { users as initialStateUsers } from 'reducers/initialState'
+import { user as initialStateUsers } from 'reducers/initialState'
 
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
@@ -18,7 +17,7 @@ export class CoreLayout extends React.Component {
   constructor () {
     super()
     this.state = {
-      users: initialStateUsers
+      userFirebase: initialStateUsers
     }
   }
 
@@ -33,12 +32,12 @@ export class CoreLayout extends React.Component {
   }
 
   render () {
-    console.log('this.state')
-    console.log(this.state)
-    const children = React.cloneElement(this.props.children, {users: this.state.users})
+    // console.log('this.state')
+    // console.log(this.state)
+    const children = React.cloneElement(this.props.children, {userFirebase: this.state.userFirebase})
     return (
       <div className='page-container'>
-        <Header users={this.state.users} />
+        <Header userFirebase={this.state.userFirebase} />
         <div className={styles['CoreLayout__viewContainer']}>
           {children}
         </div>

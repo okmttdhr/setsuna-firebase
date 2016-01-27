@@ -3,34 +3,32 @@ import styles from './index.scss'
 export default class HeaderAccount extends React.Component {
   static propTypes = {
     user: React.PropTypes.object.isRequired,
-    initAuth: React.PropTypes.func.isRequired,
+    userFirebase: React.PropTypes.object.isRequired,
     createAuth: React.PropTypes.func.isRequired,
     deleteAuth: React.PropTypes.func.isRequired
   }
 
-  componentDidMount () {
-    this.props.initAuth()
-  }
-
   render () {
-    const {user} = this.props
+    const {user, userFirebase} = this.props
+    console.log('userFirebase-----------------------------')
+    console.log(userFirebase)
     return (
       <div className={styles['HeaderAccount']}>
-        {user.token
+        {userFirebase.token
           ? <div>
-            <p>{user.google.displayName}</p>
-            <p>{user.google.email}</p>
+            <p>{userFirebase.google.displayName}</p>
+            <p>{userFirebase.google.email}</p>
           </div> : null}
         <div>
           {user.isFetching
             ? <p>ログインしています</p> : null}
-          {!user.token
+          {!userFirebase.token
             ? <button
               className='btn btn-default'
               onClick={::this.props.createAuth}>
               Login
             </button> : null}
-          {user.token
+          {userFirebase.token
             ? <button
               className='btn btn-default'
               onClick={::this.props.deleteAuth}>

@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions'
-import { users as initialState } from 'reducers/initialState'
+import { user as initialState } from 'reducers/initialState'
 import * as constants from 'constants'
 
 export default handleActions({

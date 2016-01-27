@@ -2,7 +2,6 @@ import PanelFuture from 'components/Board/PanelFuture/index'
 import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
-import utils from 'utils/index'
 import config from 'utils/config'
 import styles from './index.scss'
 

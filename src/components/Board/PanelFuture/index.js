@@ -38,7 +38,7 @@ export default class PanelFuture extends React.Component {
       started_at: now,
       expired_at: null,
       created_at: now,
-      updated_at: now,
+      updated_at: now
     }, (err) => {
       if (err) alert('保存できませんでした。時間を経ってから再度お試しください。')
       this.setState({taskName: utils.changedValue(this.state.taskName, null)})

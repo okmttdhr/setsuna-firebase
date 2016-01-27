@@ -1,10 +1,5 @@
-export const users = {
-  auth: {},
-  expires: null,
-  google: {},
-  provider: null,
+export const user = {
   token: null,
-  uid: null,
   isFetching: false,
   errorMessage: ''
 }

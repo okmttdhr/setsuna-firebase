@@ -11,14 +11,6 @@ const requestCreateAuthSuccess = createAction(constants.REQUEST_CREATE_AUTH_SUCC
 const requestCreateAuthFailure = createAction(constants.REQUEST_CREATE_AUTH_FAILURE, 'エラーメッセージ')
 const requestDeleteAuthSuccess = createAction(constants.REQUEST_DELETE_AUTH_SUCCESS, (authData = {}) => authData)
 
-function initAuth () {
-  return (dispatch) => {
-    const authData = utils.getAuth()
-    if (!authData) return
-    dispatch(requestCreateAuthSuccess(authData))
-  }
-}
-
 function createUser (authData) {
   firebaseRef.child('users').child(authData.uid).set({
     ...authData
@@ -50,7 +42,6 @@ function deleteAuth () {
 }
 
 export default {
-  initAuth,
   createAuth,
   deleteAuth
 }
