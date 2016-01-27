@@ -21,6 +21,10 @@ export class CoreLayout extends React.Component {
   }
 
   componentDidMount () {
+    this._onAuth()
+  }
+
+  _onAuth () {
     firebaseRef.onAuth((authData) => {
       const hasUserFirebaseState = this.state.userFirebase
       if (!authData) {

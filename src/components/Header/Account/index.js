@@ -10,8 +10,6 @@ export default class HeaderAccount extends React.Component {
 
   render () {
     const {user, userFirebase} = this.props
-    console.log('userFirebase-----------------------------')
-    console.log(userFirebase)
     return (
       <div className={styles['HeaderAccount']}>
         {userFirebase
