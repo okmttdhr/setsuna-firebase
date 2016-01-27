@@ -9,14 +9,11 @@ export default handleActions({
     errorMessage: ''
   }),
 
-  [constants.REQUEST_CREATE_AUTH_SUCCESS]: (state, action) => {
-    const nextState = {
-      ...state,
-      isFetching: false,
-      errorMessage: ''
-    }
-    return nextState
-  },
+  [constants.REQUEST_CREATE_AUTH_SUCCESS]: (state) => ({
+    ...state,
+    isFetching: false,
+    errorMessage: ''
+  }),
 
   [constants.REQUEST_CREATE_AUTH_FAILURE]: (state, action) => ({
     ...state,
@@ -24,5 +21,5 @@ export default handleActions({
     errorMessage: action.payload
   }),
 
-  [constants.REQUEST_DELETE_AUTH_SUCCESS]: (state, action) => initialState
+  [constants.REQUEST_DELETE_AUTH_SUCCESS]: (state) => initialState
 }, initialState)

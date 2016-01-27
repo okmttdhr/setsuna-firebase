@@ -7,9 +7,9 @@ import Firebase from 'firebase'
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
 const requestCreateAuth = createAction(constants.REQUEST_CREATE_AUTH)
-const requestCreateAuthSuccess = createAction(constants.REQUEST_CREATE_AUTH_SUCCESS, (authData = {}) => authData)
+const requestCreateAuthSuccess = createAction(constants.REQUEST_CREATE_AUTH_SUCCESS)
 const requestCreateAuthFailure = createAction(constants.REQUEST_CREATE_AUTH_FAILURE, 'エラーメッセージ')
-const requestDeleteAuthSuccess = createAction(constants.REQUEST_DELETE_AUTH_SUCCESS, (authData = {}) => authData)
+const requestDeleteAuthSuccess = createAction(constants.REQUEST_DELETE_AUTH_SUCCESS)
 
 function createUser (authData) {
   firebaseRef.child('users').child(authData.uid).set({
@@ -27,9 +27,9 @@ function createAuth () {
         dispatch(requestCreateAuthFailure())
         return
       }
-      console.log('Authenticated successfully with payload:', authData)
+      console.log('Login Success!', authData)
       createUser(authData)
-      dispatch(requestCreateAuthSuccess(authData))
+      dispatch(requestCreateAuthSuccess())
     }, {scope: 'email'})
   }
 }
