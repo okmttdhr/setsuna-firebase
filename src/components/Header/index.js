@@ -4,11 +4,11 @@ import HeaderAccount from 'components/Header/Account/index'
 import styles from './index.scss'
 
 const mapStateToProps = (state) => ({
-  account: state.account
-})
+  account: state.account})
 
 export class Header extends React.Component {
   static propTypes = {
+    users: React.PropTypes.object.isRequired,
     account: React.PropTypes.object.isRequired,
     initAuth: React.PropTypes.func.isRequired,
     createAuth: React.PropTypes.func.isRequired,
@@ -16,6 +16,7 @@ export class Header extends React.Component {
   }
 
   render () {
+    console.log(this.props.users);
     return (
       <div className={styles['Header']}>
         <HeaderAccount {...this.props} />

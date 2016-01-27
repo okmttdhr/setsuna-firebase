@@ -6,6 +6,7 @@ import utils from 'utils/index'
 import styles from './index.scss'
 import Header from 'components/Header/index'
 import config from 'utils/config'
+import { users as initialStateUsers } from 'reducers/initialState'
 
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
@@ -17,7 +18,7 @@ export class CoreLayout extends React.Component {
   constructor () {
     super()
     this.state = {
-      users: null
+      users: initialStateUsers
     }
   }
 
@@ -37,7 +38,7 @@ export class CoreLayout extends React.Component {
     const children = React.cloneElement(this.props.children, {users: this.state.users})
     return (
       <div className='page-container'>
-        <Header/>
+        <Header users={this.state.users} />
         <div className={styles['CoreLayout__viewContainer']}>
           {children}
         </div>
