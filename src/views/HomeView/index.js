@@ -1,6 +1,9 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import Firebase from 'firebase'
+import ReactFireMixin from 'reactfire'
+import reactMixin from 'react-mixin'
+
 import config from 'utils/config'
 import counterActions from 'actions/counter'
 import taskMastersActions from 'actions/taskMasters'
@@ -16,25 +19,23 @@ export class HomeView extends React.Component {
   static propTypes = {
     counter: React.PropTypes.number.isRequired,
     doubleAsync: React.PropTypes.func.isRequired,
-    increment: React.PropTypes.func.isRequired,
-    taskMasters: React.PropTypes.object.isRequired,
-    setQuery: React.PropTypes.func.isRequired,
-
-    userFirebase: React.PropTypes.object
+    increment: React.PropTypes.func.isRequired
   }
 
   constructor () {
     super()
+    this.state = {
+      taskMastersFirebase: null
+    }
   }
 
   componentDidMount () {
     const refTaskMasters = new Firebase(config.firebase.demoRef + 'taskMasters')
-    this.bindAsArray(refTaskMasters, 'taskMastersFirebase')
+    this.bindAsArray(refTaskMasters.limitToLast(2), 'taskMastersFirebase')
   }
 
   render () {
-    console.log('これで開発進められる')
-    console.log(this.props.userFirebase)
+    console.log(this.state);
     return (
       <div className='container text-center'>
         <hr />
@@ -63,7 +64,8 @@ export class HomeView extends React.Component {
   }
 }
 
+const HomeViewWithMixin = reactMixin.decorate(ReactFireMixin)(HomeView)
 export default connect(mapStateToProps, {
   ...counterActions,
   ...taskMastersActions
-})(HomeView)
+})(HomeViewWithMixin)
