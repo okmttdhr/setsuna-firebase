@@ -25,13 +25,20 @@ export class HomeView extends React.Component {
   constructor () {
     super()
     this.state = {
-      taskMastersFirebase: null
+      taskMastersFirebase: []
     }
   }
 
   componentDidMount () {
     const refTaskMasters = new Firebase(config.firebase.demoRef + 'taskMasters')
-    this.bindAsArray(refTaskMasters.limitToLast(2), 'taskMastersFirebase')
+    this.bindAsArray(refTaskMasters
+      .orderByChild('started_at')
+      .startAt('2016-01-25')
+      .endAt('2016-01-27')
+      .orderByChild('sort_id')
+      // .startAt(10)
+      // .limitToLast(2)
+      , 'taskMastersFirebase')
   }
 
   render () {

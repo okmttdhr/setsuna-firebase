@@ -38,7 +38,7 @@ export default class PanelFuture extends React.Component {
       name: this.state.taskName.value,
       completed: false,
       started_at: now,
-      expired_at: null,
+      expired_at: '',
       created_at: now,
       updated_at: now
     }, (err) => {
