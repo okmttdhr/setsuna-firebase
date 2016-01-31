@@ -19,24 +19,28 @@ export class HomeView extends React.Component {
   static propTypes = {
     counter: React.PropTypes.number.isRequired,
     doubleAsync: React.PropTypes.func.isRequired,
-    increment: React.PropTypes.func.isRequired
+    increment: React.PropTypes.func.isRequired,
+
+    userFirebase: React.PropTypes.object
   }
 
   constructor () {
     super()
     this.state = {
-      taskMastersFirebase: []
+      postsFirebase: []
     }
   }
 
   componentDidMount () {
-    const refTaskMasters = new Firebase(config.firebase.demoRef + 'taskMasters')
-    this.bindAsArray(refTaskMasters
-      .orderByChild('started_at')
-      .startAt('2016-01-25')
-      .endAt('2016-01-27')
-      // .limitToLast(2)
-      , 'taskMastersFirebase')
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (!nextProps.userFirebase) return
+    const refPosts = new Firebase(config.firebase.demoRef + 'posts')
+    this.bindAsArray(refPosts
+      .orderByChild('created_at')
+      .limitToLast(10)
+      , 'postsFirebase')
   }
 
   render () {
