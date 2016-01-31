@@ -7,7 +7,7 @@ import reactMixin from 'react-mixin'
 import config from 'utils/config'
 import counterActions from 'actions/counter'
 import taskMastersActions from 'actions/taskMasters'
-import Board from 'components/Board/index'
+import Posts from 'components/Posts/index'
 import styles from './index.scss'
 
 const mapStateToProps = (state) => ({
@@ -35,14 +35,12 @@ export class HomeView extends React.Component {
       .orderByChild('started_at')
       .startAt('2016-01-25')
       .endAt('2016-01-27')
-      .orderByChild('sort_id')
-      // .startAt(10)
       // .limitToLast(2)
       , 'taskMastersFirebase')
   }
 
   render () {
-    console.log(this.state);
+    console.log(this.state)
     return (
       <div className='container text-center'>
         <hr />
@@ -63,7 +61,7 @@ export class HomeView extends React.Component {
           </button>
         </div>
         <hr />
-        <Board {...this.props} {...this.state} />
+        <Posts {...this.props} {...this.state} />
         <hr />
         <Link to='/about'>Go To About View</Link>
       </div>
