@@ -19,9 +19,7 @@ export class HomeView extends React.Component {
   static propTypes = {
     counter: React.PropTypes.number.isRequired,
     doubleAsync: React.PropTypes.func.isRequired,
-    increment: React.PropTypes.func.isRequired,
-
-    userFirebase: React.PropTypes.object
+    increment: React.PropTypes.func.isRequired
   }
 
   constructor () {
@@ -32,15 +30,15 @@ export class HomeView extends React.Component {
   }
 
   componentDidMount () {
+    this._getPosts()
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (!nextProps.userFirebase) return
+  _getPosts () {
     const refPosts = new Firebase(config.firebase.demoRef + 'posts')
-    this.bindAsArray(refPosts
-      .orderByChild('created_at')
-      .limitToLast(10)
-      , 'postsFirebase')
+    this.bindAsArray(
+      refPosts.orderByChild('created_at').limitToLast(10),
+      'postsFirebase'
+    )
   }
 
   render () {

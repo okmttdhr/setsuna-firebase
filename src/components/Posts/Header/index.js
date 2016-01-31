@@ -5,19 +5,16 @@ import styles from './index.scss'
 
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
-export default class Post extends React.Component {
+export default class PostsHeader extends React.Component {
   static propTypes = {
-    taskMasters: React.PropTypes.object.isRequired,
     postsFirebase: React.PropTypes.array,
-    setQuery: React.PropTypes.func.isRequired,
-
     userFirebase: React.PropTypes.object
   }
 
   constructor () {
     super()
     this.state = {
-      taskName: {
+      postContent: {
         value: null,
         valid: true
       }
@@ -29,33 +26,32 @@ export default class Post extends React.Component {
     if (!this._isInputValid()) return
     firebaseRef.child('posts').push({
       user_id: this.props.userFirebase.auth.uid,
-      content: this.state.taskName.value,
+      content: this.state.postContent.value,
       created_at: Firebase.ServerValue.TIMESTAMP
     }, (err) => {
       if (err) alert('保存できませんでした。時間を経ってから再度お試しください。')
-      this.setState({taskName: utils.changedValue(this.state.taskName, null)})
+      this.setState({postContent: utils.changedValue(this.state.postContent, null)})
     })
   }
 
-  _changeTaskName (e) {
+  _changepostContent (e) {
     this.setState({
-      taskName: utils.changedValue(this.state.taskName, e.target.value)
+      postContent: utils.changedValue(this.state.postContent, e.target.value)
     })
   }
 
   _isInputValid () {
-    const {taskName} = this.state
-    const items = [taskName]
+    const {postContent} = this.state
+    const items = [postContent]
     return utils.isVaild(items)
   }
 
   render () {
     return (
-      <div className={styles['Post']}>
-        Post
+      <div className={styles['PostsHeader']}>
         <div>
           <form onSubmit={::this._createTaskMaster}>
-            <input type='text' value={this.state.taskName.value} onChange={::this._changeTaskName} />
+            <input type='text' value={this.state.postContent.value} onChange={::this._changepostContent} />
           </form>
         </div>
       </div>
