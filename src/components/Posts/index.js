@@ -1,4 +1,4 @@
-import PanelFuture from 'components/Posts/PanelFuture/index'
+import Post from 'components/Posts/Post/index'
 import styles from './index.scss'
 
 export default class Posts extends React.Component {
@@ -10,7 +10,7 @@ export default class Posts extends React.Component {
     return (
       <div className={styles['Posts']}>
         {/* mapする */}
-        <PanelFuture {...this.props} />
+        <Post {...this.props} />
       </div>
     )
   }

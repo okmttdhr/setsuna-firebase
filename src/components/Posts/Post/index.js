@@ -7,7 +7,7 @@ import moment from 'moment'
 
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
-export default class PanelFuture extends React.Component {
+export default class Post extends React.Component {
   static propTypes = {
     taskMasters: React.PropTypes.object.isRequired,
     taskMastersFirebase: React.PropTypes.array,
@@ -61,8 +61,8 @@ export default class PanelFuture extends React.Component {
 
   render () {
     return (
-      <div className={styles['PanelFuture']}>
-        PanelFuture
+      <div className={styles['Post']}>
+        Post
         <div>
           <form onSubmit={::this._createTaskMaster}>
             <input type='text' value={this.state.taskName.value} onChange={::this._changeTaskName} />
