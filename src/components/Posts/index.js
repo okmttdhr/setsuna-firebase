@@ -1,4 +1,4 @@
-import Post from 'components/Posts/Post/index'
+import Header from 'components/Posts/Header/index'
 import styles from './index.scss'
 
 export default class Posts extends React.Component {
@@ -9,8 +9,8 @@ export default class Posts extends React.Component {
   render () {
     return (
       <div className={styles['Posts']}>
-        {/* mapする */}
-        <Post {...this.props} />
+        <Header {...this.props} />
+        {/* postsをmapする */}
       </div>
     )
   }
