@@ -1,4 +1,4 @@
-# hoppee-firebase[WIP]
+# setsuna-firebase[WIP]
 
 * Firebase
 * React
