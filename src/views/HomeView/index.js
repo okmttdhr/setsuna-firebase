@@ -1,3 +1,4 @@
+import styles from './index.scss'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import Firebase from 'firebase'
@@ -8,7 +9,6 @@ import config from 'utils/config'
 import counterActions from 'actions/counter'
 import taskMastersActions from 'actions/taskMasters'
 import Posts from 'components/Posts/index'
-import styles from './index.scss'
 
 const mapStateToProps = (state) => ({
   counter: state.counter,
