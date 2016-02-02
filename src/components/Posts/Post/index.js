@@ -1,21 +1,26 @@
 import styles from './index.scss'
-import { Link } from 'react-router'
+import Star from 'components/Star/index'
 
 export default class Post extends React.Component {
   static propTypes = {
-    item: React.PropTypes.object
+    item: React.PropTypes.object,
+    history: React.PropTypes.object.isRequired
+  }
+
+  handleClick () {
+    this.props.history.pushState(null, '/post/' + this.props.item['.key'])
   }
 
   render () {
     const {item} = this.props
     return (
-      <Link to={'/post/' + item['.key']} className={styles['Post']}>
-        <div className={styles['Post']}>
-          <div>{item.user_id}</div>
-          <div>{item.content}</div>
-          <div>{item.created_at}</div>
-        </div>
-      </Link>
+      <div className={styles['Post']} onClick={::this.handleClick}>
+        <div>{item.content}</div>
+        <Star/>
+      </div>
     )
   }
 }
+
+// <div className={styles['Post__footer']}>
+// </div>

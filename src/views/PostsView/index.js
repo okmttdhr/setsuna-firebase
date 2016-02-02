@@ -1,6 +1,5 @@
 import styles from './index.scss'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
 import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
@@ -64,8 +63,6 @@ export class PostsView extends React.Component {
         </div>
         <hr />
         <Posts {...this.props} {...this.state} />
-        <hr />
-        <Link to='/about'>Go To About View</Link>
       </div>
     )
   }

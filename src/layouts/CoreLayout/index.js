@@ -10,7 +10,8 @@ const firebaseRef = new Firebase(config.firebase.demoRef)
 
 export class CoreLayout extends React.Component {
   static propTypes = {
-    children: React.PropTypes.element
+    children: React.PropTypes.element.isRequired,
+    history: React.PropTypes.object.isRequired
   }
 
   constructor () {
@@ -31,13 +32,13 @@ export class CoreLayout extends React.Component {
         // 初回など、bindAsObjectがそもそもされていないときは、unbindを実行しない。
         if (!hasUserFirebaseState) return
         this.unbind('userFirebase')
-        this.props.history.pushState(null, '/');
+        this.props.history.pushState(null, '/')
         return
       }
       const uid = authData.auth.uid
       const firebaseRefUsers = new Firebase(config.firebase.demoRef + 'users/' + uid)
       this.bindAsObject(firebaseRefUsers, 'userFirebase')
-      this.props.history.pushState(null, '/timeline');
+      this.props.history.pushState(null, '/timeline')
     })
   }
 
