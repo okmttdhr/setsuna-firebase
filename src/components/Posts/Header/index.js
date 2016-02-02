@@ -1,7 +1,7 @@
+import styles from './index.scss'
 import utils from 'utils/index'
 import config from 'utils/config'
 import Firebase from 'firebase'
-import styles from './index.scss'
 
 const firebaseRef = new Firebase(config.firebase.demoRef)
 

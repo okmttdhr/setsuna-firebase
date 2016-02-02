@@ -16,11 +16,8 @@ export default class Post extends React.Component {
     return (
       <div className={styles['Post']} onClick={::this.handleClick}>
         <div>{item.content}</div>
-        <Star/>
+        <Star {...this.props} />
       </div>
     )
   }
 }
-
-// <div className={styles['Post__footer']}>
-// </div>
