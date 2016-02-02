@@ -9,7 +9,7 @@ export default class Post extends React.Component {
   render () {
     const {item} = this.props
     return (
-      <Link to={'/posts/' + item['.key']} className={styles['Posts']}>
+      <Link to={'/post/' + item['.key']} className={styles['Post']}>
         <div className={styles['Post']}>
           <div>{item.user_id}</div>
           <div>{item.content}</div>

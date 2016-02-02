@@ -1,6 +1,6 @@
 import TestUtils from 'react-addons-test-utils'
 import { bindActionCreators } from 'redux'
-import { HomeView } from 'views/HomeView/index'
+import { PostsView } from 'views/PostsView/index'
 
 function shallowRender (component) {
   const renderer = TestUtils.createRenderer()
@@ -10,11 +10,11 @@ function shallowRender (component) {
 }
 
 function renderWithProps (props = {}) {
-  return TestUtils.renderIntoDocument(<HomeView {...props} />)
+  return TestUtils.renderIntoDocument(<PostsView {...props} />)
 }
 
 function shallowRenderWithProps (props = {}) {
-  return shallowRender(<HomeView {...props} />)
+  return shallowRender(<PostsView {...props} />)
 }
 
 describe('(View) Home', function () {
