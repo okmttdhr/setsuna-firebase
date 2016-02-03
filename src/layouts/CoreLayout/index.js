@@ -11,7 +11,8 @@ const firebaseRef = new Firebase(config.firebase.demoRef)
 export class CoreLayout extends React.Component {
   static propTypes = {
     children: React.PropTypes.element.isRequired,
-    history: React.PropTypes.object.isRequired
+    history: React.PropTypes.object.isRequired,
+    location: React.PropTypes.object.isRequired
   }
 
   constructor () {

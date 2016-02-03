@@ -7,14 +7,14 @@ export default class Post extends React.Component {
     history: React.PropTypes.object.isRequired
   }
 
-  handleClick () {
+  _linkToPost () {
     this.props.history.pushState(null, '/post/' + this.props.item['.key'])
   }
 
   render () {
     const {item} = this.props
     return (
-      <div className={styles['Post']} onClick={::this.handleClick}>
+      <div className={styles['Post']} onClick={::this._linkToPost}>
         <div>{item.content}</div>
         <Star {...this.props} />
       </div>

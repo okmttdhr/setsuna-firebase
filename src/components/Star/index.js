@@ -13,12 +13,16 @@ export default class Star extends React.Component {
 
   _addStar (e, isStarred, key) {
     e.stopPropagation()
+    const {userFirebase} = this.props
+    if (!userFirebase) {
+      return alert('ログインしてください')
+    }
     if (isStarred) {
-      firebaseRef.child('stars').child(this.props.userFirebase.auth.uid).child(key).remove((err) => {
+      firebaseRef.child('stars').child(userFirebase.auth.uid).child(key).remove((err) => {
         if (err) alert('starが削除できませんでした。時間を経ってから再度お試しください。')
       })
     } else {
-      firebaseRef.child('stars').child(this.props.userFirebase.auth.uid).push({
+      firebaseRef.child('stars').child(userFirebase.auth.uid).push({
         post_id: this.props.item['.key'],
         user_id: this.props.item.user_id,
         content: this.props.item.content,

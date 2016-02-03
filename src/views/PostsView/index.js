@@ -32,6 +32,7 @@ export class PostsView extends React.Component {
 
   componentDidMount () {
     this._getPosts()
+    this._getStars(this.props.userFirebase)
   }
 
   componentWillReceiveProps (nextProps) {
