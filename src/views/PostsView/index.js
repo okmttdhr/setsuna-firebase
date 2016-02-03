@@ -18,18 +18,30 @@ export class PostsView extends React.Component {
   static propTypes = {
     counter: React.PropTypes.number.isRequired,
     doubleAsync: React.PropTypes.func.isRequired,
-    increment: React.PropTypes.func.isRequired
+    increment: React.PropTypes.func.isRequired,
+    userFirebase: React.PropTypes.object
   }
 
   constructor () {
     super()
     this.state = {
-      postsFirebase: []
+      postsFirebase: [],
+      starsFirebase: []
     }
   }
 
   componentDidMount () {
     this._getPosts()
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.userFirebase && nextProps.userFirebase !== this.props.userFirebase) {
+      this._getStars(nextProps.userFirebase)
+    }
+  }
+
+  _isBinded (bindVar) {
+    return typeof this.firebaseRefs[bindVar] !== 'undefined'
   }
 
   _getPosts () {
@@ -40,8 +52,16 @@ export class PostsView extends React.Component {
     )
   }
 
+  _getStars (userFirebase) {
+    if (!userFirebase || this._isBinded('starsFirebase')) return
+    const refStars = new Firebase(config.firebase.demoRef + 'stars/' + userFirebase.auth.uid)
+    this.bindAsArray(
+      refStars.orderByChild('created_at').limitToLast(10),
+      'starsFirebase'
+    )
+  }
+
   render () {
-    console.log(this.state)
     return (
       <div className='container text-center'>
         <hr />
