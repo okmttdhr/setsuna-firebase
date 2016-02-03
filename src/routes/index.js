@@ -4,6 +4,7 @@ import CoreLayout from 'layouts/CoreLayout/index'
 import HomeView from 'views/HomeView/index'
 import PostsView from 'views/PostsView/index'
 import PostView from 'views/PostView/index'
+import StarsView from 'views/StarsView/index'
 
 function requireAuth (nextState, replaceState) {
   if (!utils.getAuth()) replaceState({ nextPathname: nextState.location.pathname }, '/')
@@ -12,7 +13,8 @@ function requireAuth (nextState, replaceState) {
 export default (
   <Route path='/' component={CoreLayout}>
     <IndexRoute component={HomeView} />
-    <Route path='/timeline' component={PostsView} onEnter={requireAuth} />
-    <Route path='/post/:id' component={PostView} onEnter={requireAuth} />
+    <Route path='/timeline' component={PostsView} />
+    <Route path='/post/:id' component={PostView} />
+    <Route path='/stars' component={StarsView} onEnter={requireAuth} />
   </Route>
 )

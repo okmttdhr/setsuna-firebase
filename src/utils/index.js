@@ -5,7 +5,7 @@ const firebaseRef = new Firebase(config.firebase.demoRef)
 function getAuth () {
   const authData = firebaseRef.getAuth() || null
   if (authData) {
-    console.log('User ' + authData.uid + ' is logged in with ' + authData.provider)
+    console.log('User is logged in: ' + authData.uid)
   } else {
     console.log('User is logged out')
   }

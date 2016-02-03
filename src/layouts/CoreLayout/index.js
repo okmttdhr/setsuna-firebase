@@ -25,20 +25,25 @@ export class CoreLayout extends React.Component {
     this._onAuth()
   }
 
+  _isBinded (bindVar) {
+    return typeof this.firebaseRefs[bindVar] !== 'undefined'
+  }
+
   _onAuth () {
     firebaseRef.onAuth((authData) => {
-      const hasUserFirebaseState = this.state.userFirebase
       if (!authData) {
-        // 初回など、bindAsObjectがそもそもされていないときは、unbindを実行しない。
-        if (!hasUserFirebaseState) return
-        this.unbind('userFirebase')
+        if (this._isBinded('userFirebase')) {
+          this.unbind('userFirebase')
+        }
         this.props.history.pushState(null, '/')
         return
       }
       const uid = authData.auth.uid
       const firebaseRefUsers = new Firebase(config.firebase.demoRef + 'users/' + uid)
       this.bindAsObject(firebaseRefUsers, 'userFirebase')
-      this.props.history.pushState(null, '/timeline')
+      if (this.props.location.pathname === '/') {
+        this.props.history.pushState(null, '/timeline')
+      }
     })
   }
 
