@@ -2,6 +2,7 @@
 import webpack from 'webpack'
 import config from '../../config'
 import _debug from 'debug'
+import WebpackNotifierPlugin from 'webpack-notifier';
 
 const debug = _debug('app:webpack:development')
 
@@ -10,6 +11,7 @@ export default (webpackConfig) => {
 
   debug('Enable devtool: "source-maps".')
   webpackConfig.devtool = 'source-map'
+  webpackConfig.plugins.push(new WebpackNotifierPlugin({title: 'Setsuna: ' + process.env.NODE_ENV}))
 
   // ------------------------------------
   // Enable HMR if Configured
