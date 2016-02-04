@@ -2,11 +2,11 @@ import { combineReducers } from 'redux'
 import { routeReducer as router } from 'redux-simple-router'
 import user from 'reducers/user'
 import counter from 'reducers/counter'
-import taskMasters from 'reducers/taskMasters'
+import posts from 'reducers/posts'
 
 export default combineReducers({
   user,
   counter,
   router,
-  taskMasters
+  posts
 })

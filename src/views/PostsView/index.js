@@ -6,12 +6,12 @@ import reactMixin from 'react-mixin'
 
 import config from 'utils/config'
 import counterActions from 'actions/counter'
-import taskMastersActions from 'actions/taskMasters'
+import postsActions from 'actions/posts'
 import Posts from 'components/Posts/index'
 
 const mapStateToProps = (state) => ({
   counter: state.counter,
-  taskMasters: state.taskMasters
+  posts: state.posts
 })
 
 export class PostsView extends React.Component {
@@ -83,7 +83,8 @@ export class PostsView extends React.Component {
           </button>
         </div>
         <hr />
-        <Posts {...this.props} {...this.state} />
+        {this.state.postsFirebase.length > 0
+          ? <Posts {...this.props} {...this.state} /> : 'loading'}
       </div>
     )
   }
@@ -92,5 +93,5 @@ export class PostsView extends React.Component {
 const PostsViewWithMixin = reactMixin.decorate(ReactFireMixin)(PostsView)
 export default connect(mapStateToProps, {
   ...counterActions,
-  ...taskMastersActions
+  ...postsActions
 })(PostsViewWithMixin)

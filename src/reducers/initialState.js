@@ -4,10 +4,6 @@ export const user = {
   errorMessage: ''
 }
 
-export const taskMasters = {
-  query: {
-    taskName: null
-  },
-  isFetching: false,
+export const posts = {
   errorMessage: ''
 }
