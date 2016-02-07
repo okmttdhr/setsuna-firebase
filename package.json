@@ -23,6 +23,7 @@
   "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.2.1",
     "debug": "^2.2.0",
     "dotenv": "^1.2.0",
     "firebase": "^2.3.2",

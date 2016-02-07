@@ -1,8 +1,8 @@
-import config from 'utils/config'
 import Firebase from 'firebase'
+import config from 'utils/config'
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
-function getAuth () {
+export function getAuth () {
   const authData = firebaseRef.getAuth() || null
   if (authData) {
     console.log('User is logged in: ' + authData.uid)
@@ -32,7 +32,7 @@ export function isVaild (items) {
  * @param {String} value
  * @return {Object}
  */
-function changedValue (state, value) {
+export function changedValue (state, value) {
   let valid
   if (value) {
     valid = true
