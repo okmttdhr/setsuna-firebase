@@ -1,9 +1,5 @@
 import styles from './index.scss'
-import config from 'utils/config'
-import Firebase from 'firebase'
 import firebaseUtils from 'utils/firebase/index'
-
-const firebaseRef = new Firebase(config.firebase.demoRef)
 
 export default class Star extends React.Component {
   static propTypes = {
@@ -19,9 +15,11 @@ export default class Star extends React.Component {
       return alert('ログインしてください')
     }
     if (isStarred) {
-      firebaseRef.child('stars').child(userFirebase.auth.uid).child(key).remove((err) => {
-        if (err) alert('starが削除できませんでした。時間を経ってから再度お試しください。')
-      })
+      firebaseUtils.stars.destroy(userFirebase.auth.uid, key)
+        .then(() => {})
+        .catch(() => {
+          alert('starが削除できませんでした。時間を経ってから再度お試しください。')
+        })
     } else {
       firebaseUtils.stars.create(userFirebase.auth.uid, item)
         .then(() => {})

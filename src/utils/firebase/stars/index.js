@@ -19,6 +19,18 @@ export function create (uId, item) {
   })
 }
 
+export function destroy (uId, key) {
+  return new Promise((resolve, reject) => {
+    firebaseRef.child('stars').child(uId).child(key).remove((err) => {
+      if (err) {
+        return reject()
+      }
+      return resolve()
+    })
+  })
+}
+
 export default {
-  create
+  create,
+  destroy
 }
