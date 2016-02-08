@@ -8,7 +8,7 @@ export default class Star extends React.Component {
     starsFirebase: React.PropTypes.array
   }
 
-  _addStar (e, isStarred, key) {
+  _toggleStar (e, isStarred, key) {
     e.stopPropagation()
     const {userFirebase, item} = this.props
     if (!userFirebase) {
@@ -40,7 +40,7 @@ export default class Star extends React.Component {
       return false
     })
     return (
-      <div className={styles['Star']} onClick={(e) => this._addStar(e, isStarred, key)}>
+      <div className={styles['Star']} onClick={(e) => this._toggleStar(e, isStarred, key)}>
         <i className='material-icons'>
           {isStarred
             ? 'star' : 'star_border'}

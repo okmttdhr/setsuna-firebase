@@ -28,6 +28,8 @@
     "dotenv": "^1.2.0",
     "firebase": "^2.3.2",
     "history": "^1.17.0",
+    "i18next": "^2.1.0",
+    "i18next-browser-languagedetector": "0.0.14",
     "moment": "^2.11.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",

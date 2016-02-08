@@ -50,7 +50,11 @@ const webpackConfig = {
   ],
   resolve: {
     root: paths.base(config.dir_client),
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      'i18next': 'i18next/lib/index.js',
+      'i18next-browser-languagedetector': 'i18next-browser-languagedetector/lib/index.js'
+    }
   },
   module: {
     preLoaders: [
