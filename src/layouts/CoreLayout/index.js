@@ -29,16 +29,11 @@ export class CoreLayout extends React.Component {
     this._onAuth()
     const options = {
       init: {
-        // lng: localStorage.getItem('lang'),
         fallbackLng: 'en',
         resources: {
           en: require('utils/i18n/resources/en'),
           ja: require('utils/i18n/resources/ja')
-        },
-        // detection: {
-        //   // order and from where user language should be detected
-        //   order: ['querystring', 'cookie', 'localStorage', 'navigator']
-        // }
+        }
       }
     }
 
