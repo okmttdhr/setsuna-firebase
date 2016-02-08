@@ -10,9 +10,7 @@ const mapStateToProps = (state) => ({
 export class Header extends React.Component {
   static propTypes = {
     user: React.PropTypes.object.isRequired,
-    userFirebase: React.PropTypes.object,
-    createAuth: React.PropTypes.func.isRequired,
-    deleteAuth: React.PropTypes.func.isRequired
+    userFirebase: React.PropTypes.object
   }
 
   render () {

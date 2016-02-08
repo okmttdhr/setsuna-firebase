@@ -26,7 +26,7 @@ export default class PostsHeader extends React.Component {
         this.setState({postContent: utils.changedValue(this.state.postContent, null)})
       })
       .catch(() => {
-        alert('保存できませんでした。時間を経ってから再度お試しください。')
+        alert('保存できませんでした。時間が経ってから再度お試しください。')
       })
   }
 

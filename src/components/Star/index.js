@@ -18,13 +18,13 @@ export default class Star extends React.Component {
       firebaseUtils.stars.destroy(userFirebase.auth.uid, key)
         .then(() => {})
         .catch(() => {
-          alert('starが削除できませんでした。時間を経ってから再度お試しください。')
+          alert('starが削除できませんでした。時間が経ってから再度お試しください。')
         })
     } else {
       firebaseUtils.stars.create(userFirebase.auth.uid, item)
         .then(() => {})
         .catch(() => {
-          alert('starが保存できませんでした。時間を経ってから再度お試しください。')
+          alert('starが保存できませんでした。時間が経ってから再度お試しください。')
         })
     }
   }

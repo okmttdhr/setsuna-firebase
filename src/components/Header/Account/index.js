@@ -1,15 +1,27 @@
 import styles from './index.scss'
+import firebaseUtils from 'utils/firebase/index'
 
 export default class HeaderAccount extends React.Component {
   static propTypes = {
-    user: React.PropTypes.object.isRequired,
-    userFirebase: React.PropTypes.object,
-    createAuth: React.PropTypes.func.isRequired,
-    deleteAuth: React.PropTypes.func.isRequired
+    userFirebase: React.PropTypes.object
+  }
+
+  loginWithOAuthPopup () {
+    firebaseUtils.users.loginWithOAuthPopup('google')
+      .then((authData) => {
+        return firebaseUtils.users.create(authData)
+      })
+      .catch(() => {
+        alert('ログインできませんでした。時間が経ってから再度お試しください。')
+      })
+  }
+
+  logout () {
+    firebaseUtils.users.logout()
   }
 
   render () {
-    const {user, userFirebase} = this.props
+    const {userFirebase} = this.props
     return (
       <div className={styles['HeaderAccount']}>
         {userFirebase
@@ -18,20 +30,17 @@ export default class HeaderAccount extends React.Component {
             <p>{userFirebase.google.email}</p>
           </div> : null}
         <div>
-          {user.isFetching
-            ? <p>ログインしています</p> : null}
-          {!userFirebase
-            ? <button
-              className='btn btn-default'
-              onClick={::this.props.createAuth}>
-              Login
-            </button> : null}
           {userFirebase
             ? <button
               className='btn btn-default'
-              onClick={::this.props.deleteAuth}>
+              onClick={::this.logout}>
               Logout
-            </button> : null}
+            </button>
+            : <button
+              className='btn btn-default'
+              onClick={::this.loginWithOAuthPopup}>
+              Login
+            </button>}
         </div>
       </div>
     )
