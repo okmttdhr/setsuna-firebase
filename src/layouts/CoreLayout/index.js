@@ -4,6 +4,7 @@ import reactMixin from 'react-mixin'
 import Firebase from 'firebase'
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
+
 import styles from './index.scss'
 import Header from 'components/Header/index'
 import config from 'utils/config'
@@ -28,32 +29,22 @@ export class CoreLayout extends React.Component {
     this._onAuth()
     const options = {
       init: {
-        lng: 'en',
+        // lng: localStorage.getItem('lang'),
         fallbackLng: 'en',
         resources: {
-          en: {
-            translation: {
-              'key': 'hello world'
-            }
-          },
-          ja: {
-            translation: {
-              'key': 'こんにちは'
-            }
-          }
-        }
+          en: require('utils/i18n/resources/en'),
+          ja: require('utils/i18n/resources/ja')
+        },
+        // detection: {
+        //   // order and from where user language should be detected
+        //   order: ['querystring', 'cookie', 'localStorage', 'navigator']
+        // }
       }
     }
 
     i18next
       .use(LanguageDetector)
-      .init(options.init, (err, t) => {
-        if (err) {
-          return false
-        }
-        const hw = i18next.t('key')
-        console.log(hw)
-      })
+      .init(options.init)
   }
 
   _isBinded (bindVar) {
