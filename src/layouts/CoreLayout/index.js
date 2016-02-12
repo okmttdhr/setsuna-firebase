@@ -51,8 +51,8 @@ export class CoreLayout extends React.Component {
       if (!authData) {
         if (this._isBinded('userFirebase')) {
           this.unbind('userFirebase')
+          this.props.history.pushState(null, '/')
         }
-        this.props.history.pushState(null, '/')
         return
       }
       const uid = authData.auth.uid
