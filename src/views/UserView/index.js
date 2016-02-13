@@ -1,11 +1,9 @@
 import styles from './index.scss'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
-import Posts from 'components/Posts/index'
-
 import Firebase from 'firebase'
 import config from 'utils/config'
-import firebaseUtils, {mixintest} from 'utils/firebase/index'
+import Posts from 'components/Posts/index'
 
 export class UserView extends React.Component {
   static propTypes = {
@@ -31,6 +29,10 @@ export class UserView extends React.Component {
     }
   }
 
+  _isBinded (bindVar) {
+    return typeof this.firebaseRefs[bindVar] !== 'undefined'
+  }
+
   _getUserPosts (userFirebase) {
     if (!userFirebase || this._isBinded('starsFirebase')) return
     const refPosts = new Firebase(config.firebase.demoRef + 'posts')
@@ -50,6 +52,7 @@ export class UserView extends React.Component {
   }
 
   render () {
+    console.log(this.state)
     return (
       <div className={styles['UserView']}>
         {this.state.postsFirebase.length > 0
@@ -59,8 +62,4 @@ export class UserView extends React.Component {
   }
 }
 
-export default reactMixin.decorate({
-  // ...ReactFireMixin,
-  // ...firebaseUtils.mixins.base
-  ...mixintest.base
-})(UserView)
+export default reactMixin.decorate(ReactFireMixin)(UserView)
