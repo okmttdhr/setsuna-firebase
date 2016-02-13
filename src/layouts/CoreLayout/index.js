@@ -1,7 +1,4 @@
 import 'styles/core.scss'
-// import 'material-design-lite/src/material-design-lite.scss'
-// import 'material-design-lite/dist/material.css'
-// import 'material-design-lite/dist/material.js'
 import styles from './index.scss'
 
 import ReactFireMixin from 'reactfire'
@@ -71,7 +68,7 @@ export class CoreLayout extends React.Component {
   render () {
     const children = React.cloneElement(this.props.children, {userFirebase: this.state.userFirebase})
     return (
-      <div className='page-container'>
+      <div className='testClass'>
         <Header userFirebase={this.state.userFirebase} />
         <div className={styles['CoreLayout__viewContainer']}>
           {children}
