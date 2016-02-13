@@ -1,7 +1,7 @@
 import styles from './index.scss'
 import firebaseUtils from 'utils/firebase/index'
 
-export default class HeaderAccount extends React.Component {
+export default class HeaderUser extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object
   }
@@ -23,7 +23,7 @@ export default class HeaderAccount extends React.Component {
   render () {
     const {userFirebase} = this.props
     return (
-      <div className={styles['HeaderAccount']}>
+      <div className={styles['HeaderUser']}>
         {userFirebase
           ? <div>
             <p>{userFirebase.google.displayName}</p>

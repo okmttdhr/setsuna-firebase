@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import userActions from 'actions/user'
-import HeaderAccount from 'components/Header/Account/index'
+import HeaderUser from 'components/Header/User/index'
 import styles from './index.scss'
 
 const mapStateToProps = (state) => ({
@@ -16,7 +16,7 @@ export class Header extends React.Component {
   render () {
     return (
       <div className={styles['Header']}>
-        <HeaderAccount {...this.props} />
+        <HeaderUser {...this.props} />
       </div>
     )
   }
