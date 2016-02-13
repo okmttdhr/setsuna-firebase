@@ -16,6 +16,20 @@ export function create (authData) {
   })
 }
 
+export function update (authData, newAuthData) {
+  return new Promise((resolve, reject) => {
+    firebaseRef.child('users').child(authData.uid).set({
+      ...authData,
+      ...newAuthData
+    }, (err) => {
+      if (err) {
+        return reject()
+      }
+      return resolve()
+    })
+  })
+}
+
 /**
  * 指定されたプロバイダーでポップアップログイン
  *

@@ -63,30 +63,11 @@ export class PostsView extends React.Component {
     )
   }
 
-  _changeLang () {
-    if (i18next.language === 'en') {
-      i18next.changeLanguage('ja', (err, t) => {
-        if (err) {
-          alert('言語の切り替えができませんでした。時間が経ってから再度お試しください。')
-        }
-        location.reload()
-      })
-    } else {
-      i18next.changeLanguage('en', (err, t) => {
-        if (err) {
-          alert('言語の切り替えができませんでした。時間が経ってから再度お試しください。')
-        }
-        location.reload()
-      })
-    }
-  }
-
   render () {
     return (
       <div className='container text-center'>
         <hr />
         {i18next.t('key')}
-        <p onClick={::this._changeLang}>click</p>
         <div>
           <p>
             Counter:&nbsp;

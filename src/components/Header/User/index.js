@@ -22,13 +22,12 @@ export default class HeaderUser extends React.Component {
 
   render () {
     const {userFirebase} = this.props
-    const provider = userFirebase.auth.provider
     return (
       <div className={styles['HeaderUser']}>
         {userFirebase
           ? <div>
-            <p>{userFirebase[provider].displayName}</p>
-            <p>{userFirebase[provider].email}</p>
+            <p>{userFirebase[userFirebase.auth.provider].displayName}</p>
+            <p>{userFirebase[userFirebase.auth.provider].email}</p>
           </div> : null}
         <div>
           {userFirebase
