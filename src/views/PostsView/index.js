@@ -71,6 +71,4 @@ export class PostsView extends React.Component {
 }
 
 const PostsViewWithMixin = reactMixin.decorate(ReactFireMixin)(PostsView)
-export default connect(mapStateToProps, {
-  ...postsActions
-})(PostsViewWithMixin)
+export default connect(mapStateToProps, {...postsActions})(PostsViewWithMixin)
