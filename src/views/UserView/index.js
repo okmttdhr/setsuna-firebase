@@ -4,6 +4,7 @@ import reactMixin from 'react-mixin'
 import Firebase from 'firebase'
 import config from 'utils/config'
 import Posts from 'components/Posts/index'
+import UserSettings from 'components/User/Settings/index'
 
 export class UserView extends React.Component {
   static propTypes = {
@@ -52,9 +53,9 @@ export class UserView extends React.Component {
   }
 
   render () {
-    console.log(this.state)
     return (
       <div className={styles['UserView']}>
+        <UserSettings {...this.props} />
         {this.state.postsFirebase.length > 0
           ? <Posts {...this.props} {...this.state} /> : 'loading'}
       </div>
