@@ -1,6 +1,5 @@
 import styles from './index.scss'
 import i18next from 'i18next'
-// import firebaseUtils from 'utils/firebase/index'
 
 export default class UserSettings extends React.Component {
   static propTypes = {
@@ -24,29 +23,40 @@ export default class UserSettings extends React.Component {
     })
   }
 
-  render () {
+  /**
+   * ユーザーの名前、メールアドレス、言語情報を表示
+   */
+  renderInfo () {
     const {userFirebase} = this.props
+    if (!userFirebase) {
+      return null
+    }
+    return (
+      <div>
+        <div>
+          <p>{userFirebase[userFirebase.auth.provider].displayName}</p>
+          <p>{userFirebase[userFirebase.auth.provider].email}</p>
+        </div>
+        <select onChange={::this.changeLang}>
+          {this.langOptions.map((option, index) => {
+            return (
+              <option
+                key={index}
+                value={option.value}
+                selected={i18next.language === option.value}>
+                  {option.name}
+              </option>
+            )
+          })}
+        </select>
+      </div>
+    )
+  }
+
+  render () {
     return (
       <div className={styles['UserSettings']}>
-        {userFirebase
-          ? <div>
-            <div>
-              <p>{userFirebase[userFirebase.auth.provider].displayName}</p>
-              <p>{userFirebase[userFirebase.auth.provider].email}</p>
-            </div>
-            <select onChange={::this.changeLang}>
-              {this.langOptions.map((option, index) => {
-                return (
-                  <option
-                    key={index}
-                    value={option.value}
-                    selected={i18next.language === option.value}>
-                      {option.name}
-                  </option>
-                )
-              })}
-            </select>
-          </div> : null}
+        {this.renderInfo()}
       </div>
     )
   }
