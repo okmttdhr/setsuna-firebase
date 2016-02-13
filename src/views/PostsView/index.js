@@ -6,20 +6,15 @@ import reactMixin from 'react-mixin'
 import i18next from 'i18next'
 
 import config from 'utils/config'
-import counterActions from 'actions/counter'
 import postsActions from 'actions/posts'
 import Posts from 'components/Posts/index'
 
 const mapStateToProps = (state) => ({
-  counter: state.counter,
   posts: state.posts
 })
 
 export class PostsView extends React.Component {
   static propTypes = {
-    counter: React.PropTypes.number.isRequired,
-    doubleAsync: React.PropTypes.func.isRequired,
-    increment: React.PropTypes.func.isRequired,
     userFirebase: React.PropTypes.object
   }
 
@@ -65,25 +60,8 @@ export class PostsView extends React.Component {
 
   render () {
     return (
-      <div className='container text-center'>
-        <hr />
+      <div className={styles['PostsView']}>
         {i18next.t('key')}
-        <div>
-          <p>
-            Counter:&nbsp;
-            <span className={styles['counter--green']}>{this.props.counter}</span>
-          </p>
-          <button
-            className='btn btn-default'
-            onClick={() => this.props.increment(1)}>
-            Increment
-          </button>
-          <button
-            className='btn btn-default'
-            onClick={this.props.doubleAsync}>
-            Double (Async)
-          </button>
-        </div>
         <hr />
         {this.state.postsFirebase.length > 0
           ? <Posts {...this.props} {...this.state} /> : 'loading'}
@@ -94,6 +72,5 @@ export class PostsView extends React.Component {
 
 const PostsViewWithMixin = reactMixin.decorate(ReactFireMixin)(PostsView)
 export default connect(mapStateToProps, {
-  ...counterActions,
   ...postsActions
 })(PostsViewWithMixin)
