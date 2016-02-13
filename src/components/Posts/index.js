@@ -4,20 +4,20 @@ import Post from 'components/Posts/Post/index'
 
 export default class Posts extends React.Component {
   static propTypes = {
-    postsFirebase: React.PropTypes.array
+    postsFirebase: React.PropTypes.array,
   }
 
-  _renderPost () {
+  _renderPost() {
     const postsFirebase = []
-    this.props.postsFirebase.map((item, index) => {
-      return postsFirebase.unshift(<Post key={index} item={item} {...this.props} />)
-    })
+    this.props.postsFirebase.map((item, index) => (
+      postsFirebase.unshift(<Post key={index} item={item} {...this.props} />)
+    ))
     return postsFirebase
   }
 
-  render () {
+  render() {
     return (
-      <div className={styles['Posts']}>
+      <div className={styles.Posts}>
         <Header {...this.props} />
         {this._renderPost()}
       </div>

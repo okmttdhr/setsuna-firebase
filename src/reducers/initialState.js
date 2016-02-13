@@ -1,7 +1,7 @@
 export const user = {
-  errorMessage: ''
+  errorMessage: '',
 }
 
 export const posts = {
-  errorMessage: ''
+  errorMessage: '',
 }

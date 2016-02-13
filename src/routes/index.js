@@ -7,7 +7,7 @@ import PostView from 'views/PostView/index'
 import StarsView from 'views/StarsView/index'
 import UserView from 'views/UserView/index'
 
-function requireAuth (nextState, replaceState) {
+function requireAuth(nextState, replaceState) {
   if (!utils.getAuth()) replaceState({ nextPathname: nextState.location.pathname }, '/')
 }
 

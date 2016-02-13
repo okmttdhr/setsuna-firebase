@@ -8,5 +8,5 @@ export default combineReducers({
   user,
   counter,
   router,
-  posts
+  posts,
 })

@@ -10,5 +10,5 @@ export default {
   requestCreateAuth,
   requestCreateAuthSuccess,
   requestCreateAuthFailure,
-  requestDeleteAuthSuccess
+  requestDeleteAuthSuccess,
 }

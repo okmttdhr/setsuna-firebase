@@ -3,19 +3,19 @@ import i18next from 'i18next'
 
 export default class UserSettings extends React.Component {
   static propTypes = {
-    userFirebase: React.PropTypes.object
+    userFirebase: React.PropTypes.object,
   }
 
-  constructor () {
+  constructor() {
     super()
     this.langOptions = [
-      {name: 'English', value: 'en'},
-      {name: '日本語', value: 'ja'}
+      { name: 'English', value: 'en' },
+      { name: '日本語', value: 'ja' },
     ]
   }
 
-  changeLang (e) {
-    i18next.changeLanguage(e.target.value, (err, t) => {
+  changeLang(e) {
+    i18next.changeLanguage(e.target.value, (err) => {
       if (err) {
         alert('言語の切り替えができませんでした。時間が経ってから再度お試しください。')
       }
@@ -26,8 +26,8 @@ export default class UserSettings extends React.Component {
   /**
    * ユーザーの名前、メールアドレス、言語情報を表示
    */
-  renderInfo () {
-    const {userFirebase} = this.props
+  renderInfo() {
+    const { userFirebase } = this.props
     if (!userFirebase) {
       return null
     }
@@ -38,24 +38,22 @@ export default class UserSettings extends React.Component {
           <p>{userFirebase[userFirebase.auth.provider].email}</p>
         </div>
         <select onChange={::this.changeLang}>
-          {this.langOptions.map((option, index) => {
-            return (
+          {this.langOptions.map((option, index) => (
               <option
                 key={index}
                 value={option.value}
                 selected={i18next.language === option.value}>
                   {option.name}
               </option>
-            )
-          })}
+            ))}
         </select>
       </div>
     )
   }
 
-  render () {
+  render() {
     return (
-      <div className={styles['UserSettings']}>
+      <div className={styles.UserSettings}>
         {this.renderInfo()}
       </div>
     )

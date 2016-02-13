@@ -4,28 +4,26 @@ import firebaseUtils from 'utils/firebase/index'
 
 export default class HeaderUser extends React.Component {
   static propTypes = {
-    userFirebase: React.PropTypes.object
+    userFirebase: React.PropTypes.object,
   }
 
-  loginWithOAuthPopup () {
+  loginWithOAuthPopup() {
     firebaseUtils.users.loginWithOAuthPopup('google')
-      .then((authData) => {
-        return firebaseUtils.users.create(authData)
-      })
+      .then((authData) => firebaseUtils.users.create(authData))
       .catch(() => {
         alert('ログインできませんでした。時間が経ってから再度お試しください。')
       })
   }
 
-  logout () {
+  logout() {
     firebaseUtils.users.logout()
   }
 
-  render () {
-    const {userFirebase} = this.props
+  render() {
+    const { userFirebase } = this.props
     return (
       <div className={classNames({
-        [styles['HeaderUser']]: true
+        [styles.HeaderUser]: true,
       })}>
         {userFirebase
           ? <div>
@@ -41,7 +39,7 @@ export default class HeaderUser extends React.Component {
             </button>
             : <button
               className={classNames({
-                test: true
+                test: true,
               })}
               onClick={::this.loginWithOAuthPopup}>
               Login

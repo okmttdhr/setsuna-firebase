@@ -1,5 +1,5 @@
 module.exports = {
   translation: {
-    'key': 'hello world'
-  }
+    key: 'hello world',
+  },
 }

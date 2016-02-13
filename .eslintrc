@@ -1,24 +1,26 @@
 {
-  "parser"  : "babel-eslint",
-  "extends" : [
-    "standard",
-    "standard-react"
-  ],
-  "env"     : {
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
     "browser" : true
   },
   "globals" : {
-    "__DEV__"      : false,
-    "__PROD__"     : false,
-    "__DEBUG__"    : false,
-    "__DEBUG_NEW_WINDOW__" : false,
-    "__BASENAME__" : false,
+    "__DEV__": false,
+    "__PROD__": false,
+    "__DEBUG__": false,
+    "__DEBUG_NEW_WINDOW__": false,
+    "__BASENAME__": false,
     "React": true,
     "ReactDOM": true
   },
   "rules": {
-    "semi" : [2, "never"],
+    "semi": [2, "never"],
     "react-in-jsx-scope": 0,
-    "comma-dangle": [2, "always-multiline"]
+    "comma-dangle": [2, "always-multiline"],
+    "no-alert": 0,
+    "no-console": 0,
+    "jsx-quotes": [2, "prefer-single"],
+    "react/jsx-no-bind": [2, {"allowArrowFunctions": true}],
+    "react/jsx-closing-bracket-location": 0
   }
 }

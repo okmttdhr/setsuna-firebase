@@ -2,10 +2,10 @@ import Firebase from 'firebase'
 import config from 'utils/config'
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
-export function getAuth () {
+export function getAuth() {
   const authData = firebaseRef.getAuth() || null
   if (authData) {
-    console.log('User is logged in: ' + authData.uid)
+    console.log(`User is logged in: ${authData.uid}`)
   } else {
     console.log('User is logged out')
   }
@@ -19,10 +19,8 @@ export function getAuth () {
  * @param {Array} items - valid をプロパティに持つ Object の配列
  * @return {Boolean}
  */
-export function isVaild (items) {
-  return items.every((item) => {
-    return item.valid
-  })
+export function isVaild(items) {
+  return items.every((item) => item.valid)
 }
 
 /**
@@ -32,18 +30,18 @@ export function isVaild (items) {
  * @param {String} value
  * @return {Object}
  */
-export function changedValue (state, value) {
+export function changedValue(state, value) {
   let valid
   if (value) {
     valid = true
   } else {
     valid = false
   }
-  return {...state, value, valid}
+  return { ...state, value, valid }
 }
 
 export default {
   isVaild,
   getAuth,
-  changedValue
+  changedValue,
 }

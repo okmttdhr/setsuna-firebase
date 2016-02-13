@@ -6,28 +6,27 @@ import config from 'utils/config'
 
 export class PostView extends React.Component {
   static propTypes = {
-    params: React.PropTypes.object.isRequired
+    params: React.PropTypes.object.isRequired,
   }
 
-  constructor () {
+  constructor() {
     super()
     this.state = {
-      postFirebase: null
+      postFirebase: null,
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this._getPost()
   }
 
-  _getPost () {
-    const postPath = config.firebase.demoRef + 'posts/' + this.props.params.id
-    const refPost = new Firebase(postPath)
+  _getPost() {
+    const refPost = new Firebase(`${config.firebase.demoRef}posts/${this.props.params.id}`)
     this.bindAsObject(refPost, 'postFirebase')
   }
 
-  _renderPost () {
-    const {postFirebase} = this.state
+  _renderPost() {
+    const { postFirebase } = this.state
     if (!postFirebase) return null
     return (<div>
       <div>{postFirebase.user_id}</div>
@@ -36,9 +35,9 @@ export class PostView extends React.Component {
     </div>)
   }
 
-  render () {
+  render() {
     return (
-      <div className={styles['PostView']}>
+      <div className={styles.PostView}>
         {this._renderPost()}
       </div>
     )

@@ -5,5 +5,5 @@ import users from './users/index'
 export default {
   posts,
   stars,
-  users
+  users,
 }

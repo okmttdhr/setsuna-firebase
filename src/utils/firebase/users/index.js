@@ -3,7 +3,7 @@ import config from 'utils/config'
 import Firebase from 'firebase'
 const firebaseRef = new Firebase(config.firebase.demoRef)
 
-export function create (authData) {
+export function create(authData) {
   return new Promise((resolve, reject) => {
     firebaseRef.child('users').child(authData.uid).set({
       ...authData,
@@ -22,21 +22,21 @@ export function create (authData) {
  * @param {String} provider - ex. google, facebookなど
  * @return {Object}
  */
-export function loginWithOAuthPopup (provider) {
+export function loginWithOAuthPopup(provider) {
   return new Promise((resolve, reject) => {
     firebaseRef.authWithOAuthPopup(provider, (err, authData) => {
       if (err || !authData) {
         return reject()
       }
       return resolve(authData)
-    }, {scope: 'email'})
+    }, { scope: 'email' })
   })
 }
 
 /**
  * ログアウトを実行する。
  */
-export function logout () {
+export function logout() {
   firebaseRef.unauth()
 }
 

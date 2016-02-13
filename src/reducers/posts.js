@@ -5,6 +5,6 @@ import * as constants from 'constants'
 export default handleActions({
   [constants.REQUEST_POSTS]: (state) => ({
     ...state,
-    errorMessage: ''
-  })
+    errorMessage: '',
+  }),
 }, initialState)

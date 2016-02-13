@@ -1,16 +1,16 @@
 import styles from './index.scss'
 
 export class HomeView extends React.Component {
-  constructor () {
+  constructor() {
     super()
   }
 
-  componentDidMount () {
+  componentDidMount() {
   }
 
-  render () {
+  render() {
     return (
-      <div className={styles['HomeView']}>
+      <div className={styles.HomeView}>
         Home!
       </div>
     )

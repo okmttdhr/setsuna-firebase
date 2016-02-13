@@ -5,7 +5,7 @@ import Root from 'containers/Root'
 import configureStore from 'utils/configureStore'
 
 const store = configureStore({})
-const history = createHashHistory({queryKey: false})
+const history = createHashHistory({ queryKey: false })
 
 syncReduxAndRouter(history, store, (state) => state.router)
 

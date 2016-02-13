@@ -5,33 +5,33 @@ export default class Star extends React.Component {
   static propTypes = {
     item: React.PropTypes.object,
     userFirebase: React.PropTypes.object,
-    starsFirebase: React.PropTypes.array
+    starsFirebase: React.PropTypes.array,
   }
 
-  _toggleStar (e, isStarred, key) {
+  _toggleStar(e, isStarred, key) {
     e.stopPropagation()
-    const {userFirebase, item} = this.props
+    const { userFirebase, item } = this.props
     if (!userFirebase) {
       return alert('ログインしてください')
     }
     if (isStarred) {
       firebaseUtils.stars.destroy(userFirebase.auth.uid, key)
-        .then(() => {})
+        .then()
         .catch(() => {
           alert('starが削除できませんでした。時間が経ってから再度お試しください。')
         })
     } else {
       firebaseUtils.stars.create(userFirebase.auth.uid, item)
-        .then(() => {})
+        .then()
         .catch(() => {
           alert('starが保存できませんでした。時間が経ってから再度お試しください。')
         })
     }
   }
 
-  render () {
+  render() {
     let key = null
-    const {item, starsFirebase} = this.props
+    const { item, starsFirebase } = this.props
     const isStarred = starsFirebase.some((star) => {
       if (star.post_id === item['.key']) {
         key = star['.key']
@@ -40,7 +40,7 @@ export default class Star extends React.Component {
       return false
     })
     return (
-      <div className={styles['Star']} onClick={(e) => this._toggleStar(e, isStarred, key)}>
+      <div className={styles.Star} onClick={(e) => this._toggleStar(e, isStarred, key)}>
         <i className='material-icons'>
           {isStarred
             ? 'star' : 'star_border'}

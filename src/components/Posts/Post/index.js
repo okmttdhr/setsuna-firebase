@@ -4,17 +4,17 @@ import Star from 'components/Star/index'
 export default class Post extends React.Component {
   static propTypes = {
     item: React.PropTypes.object,
-    history: React.PropTypes.object.isRequired
+    history: React.PropTypes.object.isRequired,
   }
 
-  _linkToPost () {
-    this.props.history.pushState(null, '/post/' + this.props.item['.key'])
+  _linkToPost() {
+    this.props.history.pushState(null, `/post/${this.props.item['.key']}`)
   }
 
-  render () {
-    const {item} = this.props
+  render() {
+    const { item } = this.props
     return (
-      <div className={styles['Post']} onClick={::this._linkToPost}>
+      <div className={styles.Post} onClick={::this._linkToPost}>
         <div>{item.content}</div>
         <Star {...this.props} />
       </div>

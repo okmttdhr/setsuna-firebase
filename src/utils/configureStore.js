@@ -3,10 +3,10 @@ import rootReducer from 'reducers/rootReducer'
 import {
   applyMiddleware,
   compose,
-  createStore
+  createStore,
 } from 'redux'
 
-export default function configureStore (initialState) {
+export default function configureStore(initialState) {
   let createStoreWithMiddleware
   const middleware = applyMiddleware(thunk)
 

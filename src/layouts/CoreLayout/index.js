@@ -19,14 +19,14 @@ export class CoreLayout extends React.Component {
     location: React.PropTypes.object.isRequired,
   }
 
-  constructor () {
+  constructor() {
     super()
     this.state = {
       userFirebase: undefined,
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this._onAuth()
     const options = {
       init: {
@@ -43,11 +43,11 @@ export class CoreLayout extends React.Component {
       .init(options.init)
   }
 
-  _isBinded (bindVar) {
+  _isBinded(bindVar) {
     return typeof this.firebaseRefs[bindVar] !== 'undefined'
   }
 
-  _onAuth () {
+  _onAuth() {
     firebaseRef.onAuth((authData) => {
       if (!authData) {
         if (this._isBinded('userFirebase')) {
@@ -57,7 +57,7 @@ export class CoreLayout extends React.Component {
         return
       }
       const uid = authData.auth.uid
-      const firebaseRefUsers = new Firebase(config.firebase.demoRef + 'users/' + uid)
+      const firebaseRefUsers = new Firebase(`${config.firebase.demoRef}users/${uid}`)
       this.bindAsObject(firebaseRefUsers, 'userFirebase')
       if (this.props.location.pathname === '/') {
         this.props.history.pushState(null, '/timeline')
@@ -65,12 +65,15 @@ export class CoreLayout extends React.Component {
     })
   }
 
-  render () {
-    const children = React.cloneElement(this.props.children, {userFirebase: this.state.userFirebase})
+  render() {
+    const children = React.cloneElement(
+      this.props.children,
+      { userFirebase: this.state.userFirebase }
+    )
     return (
-      <div className={styles['CoreLayout']}>
+      <div className={styles.CoreLayout}>
         <Header userFirebase={this.state.userFirebase} />
-        <div className={styles['CoreLayout__viewContainer']}>
+        <div className={styles.CoreLayout__viewContainer}>
           {children}
         </div>
       </div>
