@@ -1,11 +1,15 @@
 import 'styles/core.scss'
+// import 'material-design-lite/src/material-design-lite.scss'
+// import 'material-design-lite/dist/material.css'
+// import 'material-design-lite/dist/material.js'
+import styles from './index.scss'
+
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
 import Firebase from 'firebase'
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
-import styles from './index.scss'
 import Header from 'components/Header/index'
 import config from 'utils/config'
 

@@ -1,4 +1,8 @@
+import stylesTest from 'material-design-lite/dist/material.css'
 import styles from './index.scss'
+
+import classNames from 'classnames'
+
 import firebaseUtils from 'utils/firebase/index'
 
 export default class HeaderUser extends React.Component {
@@ -22,8 +26,11 @@ export default class HeaderUser extends React.Component {
 
   render () {
     const {userFirebase} = this.props
+    console.log(styles['HeaderUser'])
     return (
-      <div className={styles['HeaderUser']}>
+      <div className={classNames({
+        [styles['HeaderUser']]: true
+      })}>
         {userFirebase
           ? <div>
             <p>{userFirebase[userFirebase.auth.provider].displayName}</p>
@@ -37,10 +44,22 @@ export default class HeaderUser extends React.Component {
               Logout
             </button>
             : <button
-              className='btn btn-default'
+              className={classNames({
+                [stylesTest['mdl-button']]: true,
+                [stylesTest['mdl-button--raised']]: true,
+                [stylesTest['mdl-button--colored']]: true
+              })}
               onClick={::this.loginWithOAuthPopup}>
               Login
             </button>}
+            <button
+              className={classNames({
+                [stylesTest['mdl-button']]: true,
+                [stylesTest['mdl-button--raised']]: true,
+                [stylesTest['mdl-button--colored']]: true
+              })}>
+              Test!
+            </button>
         </div>
       </div>
     )
