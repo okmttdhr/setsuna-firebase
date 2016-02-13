@@ -16,13 +16,13 @@ export class CoreLayout extends React.Component {
   static propTypes = {
     children: React.PropTypes.element.isRequired,
     history: React.PropTypes.object.isRequired,
-    location: React.PropTypes.object.isRequired
+    location: React.PropTypes.object.isRequired,
   }
 
   constructor () {
     super()
     this.state = {
-      userFirebase: undefined
+      userFirebase: undefined,
     }
   }
 
@@ -33,9 +33,9 @@ export class CoreLayout extends React.Component {
         fallbackLng: 'en',
         resources: {
           en: require('utils/i18n/resources/en'),
-          ja: require('utils/i18n/resources/ja')
-        }
-      }
+          ja: require('utils/i18n/resources/ja'),
+        },
+      },
     }
 
     i18next
@@ -68,7 +68,7 @@ export class CoreLayout extends React.Component {
   render () {
     const children = React.cloneElement(this.props.children, {userFirebase: this.state.userFirebase})
     return (
-      <div className='testClass'>
+      <div className={styles['CoreLayout']}>
         <Header userFirebase={this.state.userFirebase} />
         <div className={styles['CoreLayout__viewContainer']}>
           {children}

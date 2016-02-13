@@ -6,7 +6,7 @@ const firebaseRef = new Firebase(config.firebase.demoRef)
 export function create (authData) {
   return new Promise((resolve, reject) => {
     firebaseRef.child('users').child(authData.uid).set({
-      ...authData
+      ...authData,
     }, (err) => {
       if (err) {
         return reject()
@@ -43,5 +43,5 @@ export function logout () {
 export default {
   create,
   loginWithOAuthPopup,
-  logout
+  logout,
 }

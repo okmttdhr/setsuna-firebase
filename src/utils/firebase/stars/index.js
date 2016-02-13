@@ -9,7 +9,7 @@ export function create (uId, item) {
       post_id: item['.key'],
       user_id: item.user_id,
       content: item.content,
-      created_at: Firebase.ServerValue.TIMESTAMP
+      created_at: Firebase.ServerValue.TIMESTAMP,
     }, (err) => {
       if (err) {
         return reject()
@@ -32,5 +32,5 @@ export function destroy (uId, key) {
 
 export default {
   create,
-  destroy
+  destroy,
 }
