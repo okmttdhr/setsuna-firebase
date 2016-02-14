@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
 import userActions from 'actions/user'
-import HeaderUser from 'components/Header/User/index'
+import NavigationUser from 'components/Navigation/User/index'
 import styles from './index.scss'
 
 const mapStateToProps = (state) => ({
   user: state.user,
 })
 
-export class Header extends React.Component {
+export class Navigation extends React.Component {
   static propTypes = {
     user: React.PropTypes.object.isRequired,
     userFirebase: React.PropTypes.object,
@@ -15,8 +15,8 @@ export class Header extends React.Component {
 
   render() {
     return (
-      <div className={styles.Header}>
-        <HeaderUser {...this.props} />
+      <div className={styles.Navigation}>
+        <NavigationUser {...this.props} />
       </div>
     )
   }
@@ -24,4 +24,4 @@ export class Header extends React.Component {
 
 export default connect(mapStateToProps, {
   ...userActions,
-})(Header)
+})(Navigation)

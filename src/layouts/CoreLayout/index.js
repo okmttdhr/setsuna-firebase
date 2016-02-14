@@ -7,7 +7,7 @@ import Firebase from 'firebase'
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
-import Header from 'components/Header/index'
+import Navigation from 'components/Navigation/index'
 import config from 'utils/config'
 
 const firebaseRef = new Firebase(config.firebase.demoRef)
@@ -72,7 +72,7 @@ export class CoreLayout extends React.Component {
     )
     return (
       <div className={styles.CoreLayout}>
-        <Header userFirebase={this.state.userFirebase} />
+        <Navigation userFirebase={this.state.userFirebase} />
         <div className={styles.CoreLayout__viewContainer}>
           {children}
         </div>

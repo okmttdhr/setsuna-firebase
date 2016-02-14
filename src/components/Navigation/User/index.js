@@ -2,7 +2,7 @@ import styles from './index.scss'
 import classNames from 'classnames'
 import firebaseUtils from 'utils/firebase/index'
 
-export default class HeaderUser extends React.Component {
+export default class NavigationUser extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object,
   }
@@ -23,7 +23,7 @@ export default class HeaderUser extends React.Component {
     const { userFirebase } = this.props
     return (
       <div className={classNames({
-        [styles.HeaderUser]: true,
+        [styles.NavigationUser]: true,
       })}>
         {userFirebase
           ? <div>
