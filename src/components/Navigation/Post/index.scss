@@ -1,0 +1,9 @@
+@import 'mixins';
+
+.NavigationPost {
+
+}
+
+.NavigationPost__icon {
+  @include NavigationChildIcon;
+}
