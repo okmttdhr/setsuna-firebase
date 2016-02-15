@@ -28,6 +28,11 @@ body {
   box-sizing: inherit;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 // for testing
 p {
   @include pannelHeadline;
