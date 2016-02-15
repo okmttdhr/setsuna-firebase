@@ -3,8 +3,8 @@ import styles from './index.scss'
 import { connect } from 'react-redux'
 
 import userActions from 'actions/user'
-import NavigationPost from 'components/Navigation/Posts/index'
-import NavigationPosts from 'components/Navigation/Post/index'
+import NavigationPost from 'components/Navigation/Post/index'
+import NavigationPosts from 'components/Navigation/Posts/index'
 import NavigationStars from 'components/Navigation/Stars/index'
 import NavigationUser from 'components/Navigation/User/index'
 

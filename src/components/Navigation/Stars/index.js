@@ -7,7 +7,7 @@ export default class NavigationStars extends React.Component {
   render() {
     return (
       <div className={styles.NavigationStars}>
-        Stars
+        <i className='material-icons'>star</i>
       </div>
     )
   }

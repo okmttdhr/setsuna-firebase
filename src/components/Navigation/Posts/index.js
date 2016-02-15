@@ -7,7 +7,7 @@ export default class NavigationPosts extends React.Component {
   render() {
     return (
       <div className={styles.NavigationPosts}>
-        Posts
+        <i className='material-icons'>home</i>
       </div>
     )
   }
