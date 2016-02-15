@@ -6,6 +6,7 @@ import userActions from 'actions/user'
 import NavigationPost from 'components/Navigation/Post/index'
 import NavigationPosts from 'components/Navigation/Posts/index'
 import NavigationStars from 'components/Navigation/Stars/index'
+import NavigationUser from 'components/Navigation/User/index'
 import NavigationAccount from 'components/Navigation/Account/index'
 
 const mapStateToProps = (state) => ({
@@ -34,6 +35,9 @@ export class Navigation extends React.Component {
         </li>
         <li>
           <NavigationStars />
+        </li>
+        <li>
+          <NavigationUser />
         </li>
       </ul>
     )
