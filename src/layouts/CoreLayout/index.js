@@ -72,7 +72,7 @@ export class CoreLayout extends React.Component {
     )
     return (
       <div className={styles.CoreLayout}>
-        <Navigation userFirebase={this.state.userFirebase} />
+        <Navigation {...this.state} {...this.props} />
         <div className={styles.CoreLayout__viewContainer}>
           {children}
         </div>

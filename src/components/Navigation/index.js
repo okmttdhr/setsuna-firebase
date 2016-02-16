@@ -30,15 +30,9 @@ export class Navigation extends React.Component {
         <li>
           <NavigationPost />
         </li>
-        <li>
-          <NavigationPosts />
-        </li>
-        <li>
-          <NavigationStars />
-        </li>
-        <li>
-          <NavigationUser />
-        </li>
+        <NavigationPosts {...this.props} />
+        <NavigationStars {...this.props} />
+        <NavigationUser {...this.props} />
       </ul>
     )
   }
