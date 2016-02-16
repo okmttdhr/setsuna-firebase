@@ -37,12 +37,11 @@ export default class UserSettings extends React.Component {
           <p>{userFirebase[userFirebase.auth.provider].displayName}</p>
           <p>{userFirebase[userFirebase.auth.provider].email}</p>
         </div>
-        <select onChange={::this.changeLang}>
+        <select onChange={::this.changeLang} defaultValue={i18next.language}>
           {this.langOptions.map((option, index) => (
               <option
                 key={index}
-                value={option.value}
-                selected={i18next.language === option.value}>
+                value={option.value}>
                   {option.name}
               </option>
             ))}

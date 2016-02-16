@@ -1,0 +1,13 @@
+@import 'mixins';
+
+.NavigationUser {
+
+}
+
+.NavigationUser__icon {
+  @include NavigationChildIcon;
+}
+
+.NavigationUser.isActive {
+  @include NavigationChildIsActive;
+}

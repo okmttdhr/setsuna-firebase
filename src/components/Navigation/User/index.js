@@ -1,8 +1,10 @@
 import styles from './index.scss'
+import classNames from 'classnames'
 
 export default class NavigationUser extends React.Component {
   static propTypes = {
     history: React.PropTypes.object.isRequired,
+    location: React.PropTypes.object.isRequired,
   }
 
   _linkTo() {
@@ -10,9 +12,16 @@ export default class NavigationUser extends React.Component {
   }
 
   render() {
+    const { location } = this.props
     return (
-      <li className={styles.NavigationUser} onClick={::this._linkTo}>
-        <i className='material-icons'>person</i>
+      <li className={classNames({
+        [styles.NavigationUser]: true,
+        [styles.isActive]: location.pathname === '/user',
+      })} onClick={::this._linkTo}>
+        <i className={classNames({
+          [styles.NavigationUser__icon]: true,
+          'material-icons': true,
+        })}>person</i>
       </li>
     )
   }

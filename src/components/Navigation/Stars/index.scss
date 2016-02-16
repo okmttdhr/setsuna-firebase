@@ -1,0 +1,13 @@
+@import 'mixins';
+
+.NavigationStars {
+
+}
+
+.NavigationStars__icon {
+  @include NavigationChildIcon;
+}
+
+.NavigationStars.isActive {
+  @include NavigationChildIsActive;
+}

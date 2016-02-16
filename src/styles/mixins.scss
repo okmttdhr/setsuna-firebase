@@ -5,3 +5,7 @@
 @mixin NavigationChildIcon {
   font-size: 35px;
 }
+
+@mixin NavigationChildIsActive {
+  background: #ddd;
+}

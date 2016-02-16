@@ -1,0 +1,13 @@
+@import 'mixins';
+
+.NavigationPosts {
+
+}
+
+.NavigationPosts__icon {
+  @include NavigationChildIcon;
+}
+
+.NavigationPosts.isActive {
+  @include NavigationChildIsActive;
+}
