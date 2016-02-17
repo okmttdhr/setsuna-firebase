@@ -27,9 +27,7 @@ export class Navigation extends React.Component {
     }
     return (
       <ul className={styles.Navigation__list}>
-        <li>
-          <NavigationPost />
-        </li>
+        <NavigationPost />
         <NavigationPosts {...this.props} />
         <NavigationStars {...this.props} />
         <NavigationUser {...this.props} />

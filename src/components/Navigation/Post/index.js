@@ -1,18 +1,35 @@
 import styles from './index.scss'
 import classNames from 'classnames'
+import Modal from 'components/Modal/index'
 
 export default class NavigationPost extends React.Component {
   static propTypes = {
   }
 
+  constructor() {
+    super()
+    this.state = {
+      isModalShow: false,
+    }
+  }
+
+  toggleModalShow() {
+    this.setState({ isModalShow: !this.state.isModalShow })
+  }
+
   render() {
     return (
-      <div className={styles.NavigationPost}>
+      <li className={styles.NavigationPost} onClick={::this.toggleModalShow}>
         <i className={classNames({
           [styles.NavigationPost__icon]: true,
           'material-icons': true,
         })}>edit</i>
-      </div>
+        <Modal isShow={this.state.isModalShow} toggleShow={this.toggleModalShow}>
+          <div>
+            content
+          </div>
+        </Modal>
+      </li>
     )
   }
 }

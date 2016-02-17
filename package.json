@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
   },
-  "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
+  "author": "okp (http://okmttdhr.github.io)",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.2.1",

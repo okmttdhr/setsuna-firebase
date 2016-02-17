@@ -9,3 +9,7 @@
 @mixin NavigationChildIsActive {
   background: #ddd;
 }
+
+@mixin NavigationChildIsNotActive {
+  background: #fff;
+}

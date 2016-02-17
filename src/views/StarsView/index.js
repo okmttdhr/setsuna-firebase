@@ -40,6 +40,9 @@ export class StarsView extends React.Component {
   }
 
   _renderStar() {
+    if (this.state.starsFirebase.length === 0) {
+      return 'loading'
+    }
     return this.state.starsFirebase.map((item, index) => (<div key={index}>{item.content}</div>))
   }
 

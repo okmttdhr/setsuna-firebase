@@ -1,0 +1,33 @@
+.Modal {
+  display: none;
+}
+
+.Modal.isShow {
+  display: block;
+}
+
+.Modal__overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.Modal__content {
+  padding: 0 25px;
+  width: 500px;
+  height: 300px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 3px;
+}
