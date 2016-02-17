@@ -1,5 +1,6 @@
 import styles from './index.scss'
 import classNames from 'classnames'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 export class Modal extends React.Component {
   static propTypes = {
@@ -15,10 +16,16 @@ export class Modal extends React.Component {
         [styles.isShow]: this.props.isShow,
       })}>
         <div className={styles.Modal__overlay} onClick={::this.props.toggleShow}></div>
-        <div className={styles.Modal__content}>{this.props.children}</div>
+        <div className={classNames({
+          [styles.Modal__content]: true,
+          [styles['Modal__content--isShow']]: this.props.isShow,
+        })}>{this.props.children}</div>
       </div>
     )
   }
 }
 
 export default Modal
+
+// })} onClick={(e) => e.stopPropagation()}>
+// <ReactCSSTransitionGroup transitionName='example' transitionAppear={this.props.isShow}>
