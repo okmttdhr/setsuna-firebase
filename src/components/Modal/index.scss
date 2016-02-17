@@ -1,14 +1,17 @@
 @import 'variables';
 
 .Modal {
-  display: none;
+
 }
 
 .Modal.isShow {
-  display: block;
+  .Modal__overlay, .Modal__content {
+    visibility: visible;
+  }
 }
 
 .Modal__overlay {
+  visibility: hidden;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
@@ -20,7 +23,8 @@
 }
 
 .Modal__content {
-  padding: 0 25px;
+  visibility: hidden;
+  padding: 25px;
   width: 500px;
   height: 300px;
   box-sizing: border-box;
@@ -35,51 +39,20 @@
 }
 
 @media (max-width: $screenSm) {
-  .Modal {
-    display: block;
-    // visibility: visible;
-    // visibility: hidden;
-  }
-
   .Modal.isShow {
     .Modal__content {
-      // visibility: visible;
-      // top: 0;
+      top: 0;
+    }
+    .Modal__overlay {
+      visibility: hidden;
     }
   }
 
   .Modal__content {
-    visibility: hidden;
     width: 100%;
     height: 100%;
     top: 100vh;
     bottom: auto;
     transition: top .3s ease, visibility 1s ease;
-    &.Modal__content--isShow {
-      visibility: visible;
-      top: 0;
-    }
   }
-
-  .Modal__overlay {
-    display: none;
-  }
-
-  // .example-apper {
-  //   top: 0;
-  // }
-  //
-  // .example-apper.example-apper-active {
-  //   top: 100vh;
-  //   transition: top .3s ease;
-  // }
-  //
-  // .example-apper {
-  //   top: 100vh;
-  // }
-  //
-  // .example-apper.example-apper-active {
-  //   top: 0;
-  //   transition: top .3s ease;
-  // }
 }
