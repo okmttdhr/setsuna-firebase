@@ -26,7 +26,7 @@ export default class NavigationPost extends React.Component {
         })}>edit</i>
         <Modal isShow={this.state.isModalShow} toggleShow={this.toggleModalShow}>
           <div>
-            content
+            <input type='text'/>
           </div>
         </Modal>
       </li>

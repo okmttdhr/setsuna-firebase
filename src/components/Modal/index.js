@@ -10,12 +10,23 @@ export class Modal extends React.Component {
 
   render() {
     return (
-      <div className={classNames({
-        [styles.Modal]: true,
-        [styles.isShow]: this.props.isShow,
-      })}>
+      <div
+        className={classNames({
+          [styles.Modal]: true,
+          [styles.isShow]: this.props.isShow,
+        })}>
         <div className={styles.Modal__overlay} onClick={::this.props.toggleShow}></div>
-        <div className={styles.Modal__content}>{this.props.children}</div>
+        <div className={styles.Modal__content} onClick={(e) => e.stopPropagation()}>
+          {this.props.children}
+        </div>
+        <i
+          className={classNames({
+            [styles.Modal__close]: true,
+            'material-icons': true,
+          })}
+          onClick={::this.props.toggleShow}>
+          clear
+        </i>
       </div>
     )
   }
