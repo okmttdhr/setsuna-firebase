@@ -1,6 +1,6 @@
 module.exports = {
   translation: {
     key: 'hello world',
-    PostsHeader__placeholder: 'Type Something you wanna flush',
+    PostsHeader__placeholder: 'Enter to Flush!',
   },
 }

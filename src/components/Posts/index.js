@@ -10,7 +10,7 @@ export default class Posts extends React.Component {
   _renderPost() {
     const postsFirebase = []
     this.props.postsFirebase.map((item, index) => (
-      postsFirebase.unshift(<Post key={index} item={item} {...this.props} />)
+      postsFirebase.unshift(<Post key={index} index={index} item={item} {...this.props} />)
     ))
     return postsFirebase
   }
