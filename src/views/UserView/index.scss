@@ -1,0 +1,5 @@
+@import "mixins";
+
+.UserView__container {
+  @include baseContainer;
+}

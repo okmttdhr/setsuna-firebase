@@ -1,7 +1,13 @@
+@import 'variables';
+
 .CoreLayout {
 
 }
 
 .CoreLayout__viewContainer {
   margin-top: 72px;
+}
+
+@media (max-width: $screenSm) {
+  margin-top: 0px;
 }

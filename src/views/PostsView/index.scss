@@ -1,3 +1,9 @@
-.PostsView {
+@import "mixins";
+@import "variables";
 
+.PostsView {
+}
+
+.PostsView__container {
+  @include baseContainer;
 }

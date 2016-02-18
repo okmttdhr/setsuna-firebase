@@ -15,8 +15,10 @@ export default class Post extends React.Component {
     const { item } = this.props
     return (
       <div className={styles.Post} onClick={::this._linkToPost}>
-        <div>{item.content}</div>
-        <Star {...this.props} />
+        <div className={styles.Post__container}>
+          <div>{item.content}</div>
+          <Star {...this.props} />
+        </div>
       </div>
     )
   }

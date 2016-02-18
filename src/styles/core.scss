@@ -1,7 +1,5 @@
 @import 'base';
 @import 'vendor/normalize';
-@import 'mixins';
-@import 'variables';
 
 // Some best-practice CSS that's useful for most apps
 // Just remove them if they're not what you want
@@ -31,10 +29,4 @@ body {
 ul {
   margin: 0;
   padding: 0;
-}
-
-// for testing
-p {
-  @include pannelHeadline;
-  color: $baseColor;
 }

@@ -55,9 +55,11 @@ export class UserView extends React.Component {
   render() {
     return (
       <div className={styles.UserView}>
-        <UserSettings {...this.props} />
-        {this.state.postsFirebase.length > 0
-          ? <Posts {...this.props} {...this.state} /> : 'loading'}
+        <div className={styles.UserView__container}>
+          <UserSettings {...this.props} />
+          {this.state.postsFirebase.length > 0
+            ? <Posts {...this.props} {...this.state} /> : 'loading'}
+        </div>
       </div>
     )
   }

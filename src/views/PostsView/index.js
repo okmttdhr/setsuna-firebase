@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
-import i18next from 'i18next'
 
 import config from 'utils/config'
 import postsActions from 'actions/posts'
@@ -61,10 +60,10 @@ export class PostsView extends React.Component {
   render() {
     return (
       <div className={styles.PostsView}>
-        {i18next.t('key')}
-        <hr />
-        {this.state.postsFirebase.length > 0
-          ? <Posts {...this.props} {...this.state} /> : 'loading'}
+        <div className={styles.PostsView__container}>
+          {this.state.postsFirebase.length > 0
+            ? <Posts {...this.props} {...this.state} /> : 'loading'}
+        </div>
       </div>
     )
   }

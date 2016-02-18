@@ -1,4 +1,5 @@
 import styles from './index.scss'
+import i18next from 'i18next'
 import utils from 'utils/index'
 import firebaseUtils from 'utils/firebase/index'
 
@@ -45,10 +46,12 @@ export default class PostsHeader extends React.Component {
   render() {
     return (
       <div className={styles.PostsHeader}>
-        <div>
+        <div className={styles.PostsHeader__container}>
           <form onSubmit={::this._createPost}>
             <input
+              className={styles.PostsHeader__input}
               type='text'
+              placeholder={i18next.t('PostsHeader__placeholder')}
               value={this.state.postContent.value}
               onChange={::this._changepostContent}/>
           </form>

@@ -1,3 +1,13 @@
+@import 'mixins';
+
 .Post {
-  padding: 20px 20px 40px;
+  @include mdCardShadow;
+  margin-bottom: 20px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+}
+
+.Post__container {
+  padding: 20px;
 }
