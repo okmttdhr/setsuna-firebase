@@ -6,7 +6,8 @@ import reactMixin from 'react-mixin'
 
 import config from 'utils/config'
 import postsActions from 'actions/posts'
-import Posts from 'components/Posts/index'
+import Header from 'components/Posts/Header/index'
+import Timeline from 'components/Timeline/index'
 
 const mapStateToProps = (state) => ({
   posts: state.posts,
@@ -61,8 +62,10 @@ export class PostsView extends React.Component {
     return (
       <div className={styles.PostsView}>
         <div className={styles.PostsView__container}>
+          <Header {...this.props} />
           {this.state.postsFirebase.length === 0
-            ? 'loading' : <Posts {...this.props} {...this.state} />}
+            ? 'loading'
+            : <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />}
         </div>
       </div>
     )

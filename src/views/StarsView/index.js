@@ -52,7 +52,7 @@ export class StarsView extends React.Component {
       <div className={styles.StarsView}>
         {this.state.starsFirebase.length === 0
           ? 'loading'
-          : <Timeline items={this.state.starsFirebase} {...this.props} {...this.state} />}
+          : <Timeline items={this.state.starsFirebase} {...this.state} {...this.props} />}
       </div>
     )
   }

@@ -3,8 +3,10 @@ import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
 import Firebase from 'firebase'
 import config from 'utils/config'
-import Posts from 'components/Posts/index'
+
 import UserSettings from 'components/User/Settings/index'
+import Header from 'components/Timeline/Header/index'
+import Timeline from 'components/Timeline/index'
 
 export class UserView extends React.Component {
   static propTypes = {
@@ -57,8 +59,10 @@ export class UserView extends React.Component {
       <div className={styles.UserView}>
         <div className={styles.UserView__container}>
           <UserSettings {...this.props} />
-          {this.state.postsFirebase.length > 0
-            ? <Posts {...this.props} {...this.state} /> : 'loading'}
+          <Header {...this.props} />
+          {this.state.postsFirebase.length === 0
+            ? 'loading'
+            : <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />}
         </div>
       </div>
     )
