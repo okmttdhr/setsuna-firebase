@@ -15,7 +15,7 @@ export class Modal extends React.Component {
           [styles.Modal]: true,
           [styles.isShow]: this.props.isShow,
         })}>
-        <div className={styles.Modal__overlay} onClick={::this.props.toggleShow}></div>
+        <div className={styles.Modal__overlay} onClick={this.props.toggleShow}></div>
         <div className={styles.Modal__content} onClick={(e) => e.stopPropagation()}>
           {this.props.children}
         </div>
@@ -24,7 +24,7 @@ export class Modal extends React.Component {
             [styles.Modal__close]: true,
             'material-icons': true,
           })}
-          onClick={::this.props.toggleShow}>
+          onClick={this.props.toggleShow}>
           clear
         </i>
       </div>

@@ -24,7 +24,7 @@ export default class NavigationPost extends React.Component {
           [styles.NavigationPost__icon]: true,
           'material-icons': true,
         })}>edit</i>
-        <Modal isShow={this.state.isModalShow} toggleShow={this.toggleModalShow}>
+        <Modal isShow={this.state.isModalShow} toggleShow={::this.toggleModalShow}>
           <div>
             <input type='text'/>
           </div>
