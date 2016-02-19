@@ -5,9 +5,12 @@
 }
 
 .CoreLayout__viewContainer {
-  margin-top: 72px;
+  margin-top: 75px;
 }
 
 @media (max-width: $screenSm) {
-  margin-top: 0px;
+  .CoreLayout__viewContainer {
+    margin-top: 20px;
+    margin-bottom: 75px;
+  }
 }

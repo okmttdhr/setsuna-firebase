@@ -61,8 +61,8 @@ export class PostsView extends React.Component {
     return (
       <div className={styles.PostsView}>
         <div className={styles.PostsView__container}>
-          {this.state.postsFirebase.length > 0
-            ? <Posts {...this.props} {...this.state} /> : 'loading'}
+          {this.state.postsFirebase.length === 0
+            ? 'loading' : <Posts {...this.props} {...this.state} />}
         </div>
       </div>
     )

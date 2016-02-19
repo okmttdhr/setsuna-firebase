@@ -1,25 +1,17 @@
 import styles from './index.scss'
 import Header from 'components/Posts/Header/index'
-import Post from 'components/Posts/Post/index'
+import Timeline from 'components/Timeline/index'
 
 export default class Posts extends React.Component {
   static propTypes = {
-    postsFirebase: React.PropTypes.array,
-  }
-
-  _renderPost() {
-    const postsFirebase = []
-    this.props.postsFirebase.map((item, index) => (
-      postsFirebase.unshift(<Post key={index} index={index} item={item} {...this.props} />)
-    ))
-    return postsFirebase
+    postsFirebase: React.PropTypes.array.isRequired,
   }
 
   render() {
     return (
       <div className={styles.Posts}>
         <Header {...this.props} />
-        {this._renderPost()}
+        <Timeline items={this.props.postsFirebase} {...this.props} {...this.state} />
       </div>
     )
   }
