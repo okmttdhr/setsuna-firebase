@@ -6,7 +6,7 @@ import reactMixin from 'react-mixin'
 
 import config from 'utils/config'
 import postsActions from 'actions/posts'
-import Header from 'components/Posts/Header/index'
+import Header from 'components/Timeline/Header/index'
 import Timeline from 'components/Timeline/index'
 
 const mapStateToProps = (state) => ({

@@ -1,4 +1,5 @@
 import styles from './index.scss'
+import classNames from 'classnames'
 import firebaseUtils from 'utils/firebase/index'
 import i18next from 'i18next'
 
@@ -67,7 +68,10 @@ export default class Star extends React.Component {
     const { isStarred, starKey } = this._isStarred()
     return (
       <div className={styles.Star} onClick={(e) => this._toggleStar(e, isStarred, starKey)}>
-        <i className='material-icons'>
+        <i className={classNames({
+          [styles.Star__icon]: true,
+          'material-icons': true,
+        })}>
           {isStarred
             ? 'star' : 'star_border'}
         </i>
