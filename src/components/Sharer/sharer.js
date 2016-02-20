@@ -13,7 +13,7 @@
  * @constructor
  */
 var Sharer = function(elem) {
-  this.elem = elem;
+    this.elem = elem;
 };
 
 Sharer.prototype = {
@@ -277,10 +277,6 @@ Sharer.prototype = {
                 left = window.innerWidth / 2 - width / 2 + window.screenX,
                 top = window.innerHeight / 2 - height / 2 + window.screenY,
                 popParams = 'scrollbars=no, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left,
-                // popParams = 'width=' + width + ', height=' + height + ', top=' + top + ', left=' + left + ', scrollbars=no',
-                // popParams = 'scrollbars=no, width=' + width + ', height=' + height,
-                // popParams = 'scrollbars=no',
-                // newWindow = window.open(shareUrl, '');
                 newWindow = window.open(shareUrl, '', popParams);
 
             // Puts focus on the newWindow
