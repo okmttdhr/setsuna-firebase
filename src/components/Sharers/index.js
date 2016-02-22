@@ -1,6 +1,6 @@
 import styles from './index.scss'
 
-export default class Sharer extends React.Component {
+export default class Sharers extends React.Component {
   static propTypes = {
   }
 
@@ -11,7 +11,7 @@ export default class Sharer extends React.Component {
 
   render() {
     return (
-      <div className={styles.Sharer} onClick={::this.handleclick}>
+      <div className={styles.Sharers} onClick={::this.handleclick}>
       </div>
     )
   }
