@@ -2,6 +2,7 @@ import styles from './index.scss'
 import SharerTwitter from 'components/Sharers/Twitter/index'
 import SharerFacebook from 'components/Sharers/Facebook/index'
 import SharerLine from 'components/Sharers/Line/index'
+import SharerHatebu from 'components/Sharers/Hatebu/index'
 
 export default class Sharers extends React.Component {
   static propTypes = {
@@ -15,8 +16,9 @@ export default class Sharers extends React.Component {
   render() {
     return (
       <div className={styles.Sharers} onClick={::this.handleclick}>
-        <SharerTwitter />
         <SharerFacebook />
+        <SharerTwitter />
+        <SharerHatebu />
         <SharerLine />
       </div>
     )
