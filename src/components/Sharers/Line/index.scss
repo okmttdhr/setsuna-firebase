@@ -1,0 +1,11 @@
+@import 'variables';
+
+.SharerLine {
+  display: none;
+}
+
+@media (max-width: $screenSm) {
+  .SharerLine {
+    display: inline-block;
+  }
+}

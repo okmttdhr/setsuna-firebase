@@ -1,6 +1,6 @@
 import styles from './index.scss'
 import Star from 'components/Star/index'
-import Sharer from 'components/Sharer/index'
+import Sharers from 'components/Sharers/index'
 
 export default class Post extends React.Component {
   static propTypes = {
@@ -25,7 +25,7 @@ export default class Post extends React.Component {
         <div className={styles.Post__container}>
           <div>{item.content}</div>
           <Star {...this.props} />
-          <Sharer />
+          <Sharers />
         </div>
       </div>
     )
