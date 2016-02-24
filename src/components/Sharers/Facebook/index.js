@@ -14,7 +14,6 @@ export default class SharerFacebook extends React.Component {
       <div
         className={classNames({
           [styles.SharerFacebook]: true,
-          'mr-20': true,
         })}
         onClick={::this._share}
         data-sharer='facebook'

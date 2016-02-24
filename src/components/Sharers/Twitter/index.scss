@@ -1,7 +1,9 @@
 @import "variables";
 @import "mixins/index";
+@import "mixins/util";
 
 .SharerTwitter {
   background-color: $twitterColor;
   @include socialBtn;
+  @include mr-10;
 }

@@ -1,8 +1,10 @@
 @import "variables";
 @import "mixins/index";
+@import "mixins/util";
 
 .SharerFacebook {
   background-color: $facebookColor;
   @include socialBtn;
+  @include mr-10;
   line-height: 22px
 }

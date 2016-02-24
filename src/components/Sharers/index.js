@@ -35,14 +35,13 @@ export default class Sharers extends React.Component {
           [styles.Sharers__icon]: true,
         })}>share</i>
         <div className={styles.Sharers__overlay} onClick={::this.toggleShow}></div>
-        <div
-          className={classNames({
-            [styles.Sharers__content]: true,
-          })}>
-          <SharerFacebook />
-          <SharerTwitter />
-          <SharerHatebu />
-          <SharerLine />
+        <div className={styles.Sharers__contentWp} onClick={(e) => { e.stopPropagation() }}>
+          <div className={styles.Sharers__content}>
+            <SharerFacebook />
+            <SharerTwitter />
+            <SharerHatebu />
+            <SharerLine />
+          </div>
         </div>
       </div>
     )

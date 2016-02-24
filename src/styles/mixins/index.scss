@@ -24,7 +24,7 @@
   }
 }
 
-// visibilityは各コンポーネントで操作する
+// visibilityやopacityのtransitionなどは各コンポーネントで操作する
 @mixin overlay {
   width: 100vw;
   height: 100vh;
@@ -37,119 +37,11 @@
 }
 
 @mixin socialBtn {
-  display: inline-block;
   width: 20px;
   height: 20px;
   transition: transform .2s,-webkit-transform .2s;
   text-align: center;
   line-height: 20px;
   color: #fff;
-}
-
-.m-10 {
-  margin: 10px;
-}
-
-.mtb-10 {
-  margin-top: 10px;
-}
-
-.mt-10 {
-  margin-top: 10px;
-}
-
-.mrl-10 {
-  margin-right: 10px;
-}
-
-.mr-10 {
-  margin-right: 10px;
-}
-
-.mtb-10 {
-  margin-bottom: 10px;
-}
-
-.mb-10 {
-  margin-bottom: 10px;
-}
-
-.mrl-10 {
-  margin-left: 10px;
-}
-
-.ml-10 {
-  margin-left: 10px;
-}
-
-.m-20 {
-  margin: 20px;
-}
-
-.mtb-20 {
-  margin-top: 20px;
-}
-
-.mt-20 {
-  margin-top: 20px;
-}
-
-.mrl-20 {
-  margin-right: 20px;
-}
-
-.mr-20 {
-  margin-right: 20px;
-}
-
-.mtb-20 {
-  margin-bottom: 20px;
-}
-
-.mb-20 {
-  margin-bottom: 20px;
-}
-
-.mrl-20 {
-  margin-left: 20px;
-}
-
-.ml-20 {
-  margin-left: 20px;
-}
-
-.m-30 {
-  margin: 30px;
-}
-
-.mtb-30 {
-  margin-top: 30px;
-}
-
-.mt-30 {
-  margin-top: 30px;
-}
-
-.mrl-30 {
-  margin-right: 30px;
-}
-
-.mr-30 {
-  margin-right: 30px;
-}
-
-.mtb-30 {
-  margin-bottom: 30px;
-}
-
-.mb-30 {
-  margin-bottom: 30px;
-}
-
-.mrl-30 {
-  margin-left: 30px;
-}
-
-.ml-30 {
-  margin-left: 30px;
+  cursor: pointer;
 }

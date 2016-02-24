@@ -1,8 +1,15 @@
 @import "variables";
 @import "mixins/index";
+@import "mixins/util";
 
 .SharerHatebu {
   background-color: $hatebuColor;
   @include socialBtn;
   font-size: 12px;
+}
+
+@media (max-width: $screenSm) {
+  .SharerHatebu {
+    @include mr-10;    
+  }
 }

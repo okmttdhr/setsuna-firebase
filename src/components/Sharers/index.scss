@@ -1,9 +1,10 @@
 @import 'mixins/index';
 
 .Sharers {
+  height: 20px;
   position: relative;
   display: inline-block;
-  height: 20px;
+  cursor: pointer;
 }
 
 .Sharers__icon {
@@ -11,27 +12,57 @@
 }
 
 .Sharers.isShow {
-  .Sharers__content, .Sharers__overlay {
+  .Sharers__contentWp,
+  .Sharers__content,
+  .Sharers__overlay {
     visibility: visible;
   }
   .Sharers__content {
-    height: 50px;
-    width: 100px;
+    height: 20px;
+    width: 90px;
+  }
+  .Sharers__overlay {
+    opacity: 1
+  }
+}
+
+.Sharers__contentWp {
+  visibility: hidden;
+  position: absolute;
+  top: 25px;
+  left: -6px;
+  z-index: 1;
+  padding: 10px;
+  background: #fff;
+  border-radius: 2px;
+  transition: visibility .1s ease;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 6px 6px;
+    border-color: transparent transparent #fff;
   }
 }
 
 .Sharers__content {
   visibility: hidden;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
   width: 0;
   height: 0;
-  position: absolute;
-  top: 0px;
-  z-index: 1;
-  padding: 10px;
-  background: #fff;
+  transition: height .2s ease, width .2s ease, visibility .1s ease;
 }
 
 .Sharers__overlay {
   visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s ease, visibility .2s ease;
   @include overlay;
 }
