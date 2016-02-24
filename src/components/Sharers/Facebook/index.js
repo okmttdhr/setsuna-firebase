@@ -1,4 +1,5 @@
 import styles from './index.scss'
+import classNames from 'classnames'
 import Sharer from 'sharer.npm.js'
 
 export default class SharerFacebook extends React.Component {
@@ -10,11 +11,15 @@ export default class SharerFacebook extends React.Component {
 
   render() {
     return (
-      <div className={styles.SharerFacebook} onClick={::this._share}>
-        <button
-          className='sharer button'
-          data-sharer='facebook'
-          data-url='https://ellisonleao.github.io/sharer.js/'>Share on Facebook</button>
+      <div
+        className={classNames({
+          [styles.SharerFacebook]: true,
+          'mr-20': true,
+        })}
+        onClick={::this._share}
+        data-sharer='facebook'
+        data-url='https://ellisonleao.github.io/sharer.js/'>
+        f
       </div>
     )
   }

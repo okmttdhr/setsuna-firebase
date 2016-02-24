@@ -1,0 +1,155 @@
+@import "variables";
+
+@mixin NavigationChildIcon {
+  font-size: 35px;
+}
+
+@mixin NavigationChildIsActive {
+  background: #ddd;
+}
+
+@mixin NavigationChildIsNotActive {
+  background: #fff;
+}
+
+@mixin mdCardShadow {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+@mixin baseContainer {
+  width: 590px;
+  margin: 0 auto;
+  @media (max-width: $screenSm) {
+    width: 100%;
+  }
+}
+
+// visibilityは各コンポーネントで操作する
+@mixin overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@mixin socialBtn {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  transition: transform .2s,-webkit-transform .2s;
+  text-align: center;
+  line-height: 20px;
+  color: #fff;
+}
+
+.m-10 {
+  margin: 10px;
+}
+
+.mtb-10 {
+  margin-top: 10px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mrl-10 {
+  margin-right: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mtb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mrl-10 {
+  margin-left: 10px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.mtb-20 {
+  margin-top: 20px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mrl-20 {
+  margin-right: 20px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mtb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mrl-20 {
+  margin-left: 20px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.m-30 {
+  margin: 30px;
+}
+
+.mtb-30 {
+  margin-top: 30px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mrl-30 {
+  margin-right: 30px;
+}
+
+.mr-30 {
+  margin-right: 30px;
+}
+
+.mtb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mrl-30 {
+  margin-left: 30px;
+}
+
+.ml-30 {
+  margin-left: 30px;
+}

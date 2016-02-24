@@ -1,11 +1,8 @@
-@import 'variables';
+@import "variables";
+@import "mixins/index";
 
-.SharerLine {
-  display: none;
-}
-
-@media (max-width: $screenSm) {
-  .SharerLine {
-    display: inline-block;
-  }
+.SharerHatebu {
+  background-color: $hatebuColor;
+  @include socialBtn;
+  font-size: 12px;
 }

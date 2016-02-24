@@ -1,0 +1,7 @@
+@import "variables";
+@import "mixins/index";
+
+.SharerTwitter {
+  background-color: $twitterColor;
+  @include socialBtn;
+}

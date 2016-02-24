@@ -10,10 +10,12 @@ export default class SharerHatebu extends React.Component {
 
   render() {
     return (
-      <div className={styles.SharerHatebu} onClick={::this._share}>
-        <button
-          data-sharer='hatenabookmark'
-          data-url='ellisonleao.github.io/sharer.js/'>Share on Hatebu</button>
+      <div
+        className={styles.SharerHatebu}
+        onClick={::this._share}
+        data-sharer='hatenabookmark'
+        data-url='ellisonleao.github.io/sharer.js/'>
+        B!
       </div>
     )
   }

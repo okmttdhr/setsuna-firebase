@@ -33,7 +33,7 @@ export default class Sharers extends React.Component {
         <i className={classNames({
           'material-icons': true,
           [styles.Sharers__icon]: true,
-        })}>reply</i>
+        })}>share</i>
         <div className={styles.Sharers__overlay} onClick={::this.toggleShow}></div>
         <div
           className={classNames({

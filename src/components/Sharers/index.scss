@@ -1,4 +1,4 @@
-@import 'mixins';
+@import 'mixins/index';
 
 .Sharers {
   position: relative;
@@ -15,16 +15,20 @@
     visibility: visible;
   }
   .Sharers__content {
-    height: auto;
+    height: 50px;
+    width: 100px;
   }
 }
 
 .Sharers__content {
   visibility: hidden;
   width: 0;
+  height: 0;
   position: absolute;
   top: 0px;
   z-index: 1;
+  padding: 10px;
+  background: #fff;
 }
 
 .Sharers__overlay {
