@@ -1,0 +1,33 @@
+@import 'mixins';
+
+.Sharers {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+}
+
+.Sharers__icon {
+  font-size: 20px;
+}
+
+.Sharers.isShow {
+  .Sharers__content, .Sharers__overlay {
+    visibility: visible;
+  }
+  .Sharers__content {
+    height: auto;
+  }
+}
+
+.Sharers__content {
+  visibility: hidden;
+  width: 0;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+}
+
+.Sharers__overlay {
+  visibility: hidden;
+  @include overlay;
+}
