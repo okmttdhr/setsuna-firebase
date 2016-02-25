@@ -1,6 +1,9 @@
 @import 'variables';
+@import 'mixins/index';
 
 .SharerLine {
+  background-color: $lineColor;
+  @include socialBtn;
   display: none;
 }
 

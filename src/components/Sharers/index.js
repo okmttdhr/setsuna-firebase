@@ -18,6 +18,7 @@ export default class Sharers extends React.Component {
   }
 
   toggleShow(e) {
+    e.preventDefault()
     e.stopPropagation()
     this.setState({ ...this.state, isShow: !this.state.isShow })
   }

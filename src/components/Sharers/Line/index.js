@@ -10,12 +10,13 @@ export default class SharerLine extends React.Component {
 
   render() {
     return (
-      <div className={styles.SharerLine} onClick={::this._share}>
-        <button
-          className='sharer button'
-          data-sharer='line'
-          data-title='Sharer.js is the ultimate sharer js lib'
-          data-url='https://ellisonleao.github.io/sharer.js/'>Share on Line</button>
+      <div
+        className={styles.SharerLine}
+        onClick={::this._share}
+        data-sharer='line'
+        data-title='Sharer.js is the ultimate sharer js lib'
+        data-url='https://ellisonleao.github.io/sharer.js/'>
+        L
       </div>
     )
   }
