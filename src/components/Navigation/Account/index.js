@@ -7,7 +7,7 @@ export default class NavigationAccount extends React.Component {
     userFirebase: React.PropTypes.object,
   }
 
-  loginWithOAuthPopup() {
+  _loginWithOAuthPopup() {
     firebaseUtils.users.loginWithOAuthPopup('google')
       .then((authData) => firebaseUtils.users.create(authData))
       .catch(() => {
@@ -15,7 +15,7 @@ export default class NavigationAccount extends React.Component {
       })
   }
 
-  logout() {
+  _logout() {
     firebaseUtils.users.logout()
   }
 
@@ -34,14 +34,14 @@ export default class NavigationAccount extends React.Component {
           {userFirebase
             ? <button
               className='btn btn-default'
-              onClick={::this.logout}>
+              onClick={::this._logout}>
               Logout
             </button>
             : <button
               className={classNames({
                 test: true,
               })}
-              onClick={::this.loginWithOAuthPopup}>
+              onClick={::this._loginWithOAuthPopup}>
               Login
             </button>}
         </div>

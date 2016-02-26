@@ -27,7 +27,7 @@ export class PostView extends React.Component {
 
   _renderPost() {
     const { postFirebase } = this.state
-    if (!postFirebase) return null
+    if (!postFirebase) return 'loading'
     return (<div>
       <div>{postFirebase.user_id}</div>
       <div>{postFirebase.content}</div>

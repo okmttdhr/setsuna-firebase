@@ -1,11 +1,12 @@
 import { createHashHistory } from 'history'
 import { syncReduxAndRouter } from 'redux-simple-router'
+import { useSimpleScroll } from 'scroll-behavior'
 import routes from 'routes'
 import Root from 'containers/Root'
 import configureStore from 'utils/configureStore'
 
 const store = configureStore({})
-const history = createHashHistory({ queryKey: false })
+const history = useSimpleScroll(createHashHistory)({ queryKey: false })
 
 syncReduxAndRouter(history, store, (state) => state.router)
 
