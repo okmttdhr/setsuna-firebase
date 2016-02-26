@@ -7,7 +7,7 @@ import SharerHatebu from 'components/Sharers/Hatebu/index'
 
 export default class Sharers extends React.Component {
   static propTypes = {
-    isShow: React.PropTypes.bool.isRequired,
+    toggleOverlay: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -21,6 +21,7 @@ export default class Sharers extends React.Component {
     e.preventDefault()
     e.stopPropagation()
     this.setState({ ...this.state, isShow: !this.state.isShow })
+    this.props.toggleOverlay()
   }
 
   render() {

@@ -6,10 +6,12 @@ import reactMixin from 'react-mixin'
 
 import config from 'utils/config'
 import postsActions from 'actions/posts'
+import applicationActions from 'actions/application'
 import Header from 'components/Timeline/Header/index'
 import Timeline from 'components/Timeline/index'
 
 const mapStateToProps = (state) => ({
+  application: state.application,
   posts: state.posts,
 })
 
@@ -73,4 +75,7 @@ export class PostsView extends React.Component {
 }
 
 const PostsViewWithMixin = reactMixin.decorate(ReactFireMixin)(PostsView)
-export default connect(mapStateToProps, { ...postsActions })(PostsViewWithMixin)
+export default connect(mapStateToProps, {
+  ...postsActions,
+  ...applicationActions,
+})(PostsViewWithMixin)

@@ -2,8 +2,9 @@
 @import 'mixins/index';
 
 .SharerLine {
-  background-color: $lineColor;
   @include socialBtn;
+  background-color: $lineColor;
+  font-size: 12px;
   display: none;
 }
 

@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
-import { user as initialState } from 'reducers/initialState'
 import * as constants from 'constants'
+import { user as initialState } from 'reducers/initialState'
 
 export default handleActions({
   [constants.REQUEST_CREATE_AUTH]: (state) => ({

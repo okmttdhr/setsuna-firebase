@@ -1,3 +1,7 @@
+export const application = {
+  isOverlay: false,
+}
+
 export const user = {
   errorMessage: '',
 }

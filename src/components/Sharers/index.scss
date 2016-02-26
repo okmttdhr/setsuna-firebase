@@ -66,3 +66,19 @@
   transition: opacity .2s ease, visibility .2s ease;
   @include overlay;
 }
+
+@media (max-width: $screenSm) {
+  .Sharers__contentWp {
+  }
+  .Sharers.isShow {
+    .Sharers__contentWp,
+    .Sharers__content,
+    .Sharers__overlay {
+    }
+    .Sharers__content {
+      width: 140px;
+    }
+    .Sharers__overlay {
+    }
+  }
+}

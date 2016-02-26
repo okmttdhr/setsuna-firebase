@@ -30,10 +30,12 @@
   margin: auto;
   background-color: #fff;
   border-radius: 3px;
+  z-index: 910;
 }
 
 .Modal__close {
   visibility: hidden;
+  z-index: 920;
 }
 
 @media (max-width: $screenSm) {

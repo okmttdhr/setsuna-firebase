@@ -3,8 +3,8 @@
 @import "mixins/util";
 
 .SharerHatebu {
-  background-color: $hatebuColor;
   @include socialBtn;
+  background-color: $hatebuColor;
   font-size: 12px;
 }
 
