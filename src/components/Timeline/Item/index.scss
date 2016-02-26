@@ -4,6 +4,7 @@
   @include mdCardShadow;
   margin-bottom: 20px;
   cursor: pointer;
+  position: relative;
   &:hover {
     background-color: rgba(0, 0, 0, 0.03);
   }
