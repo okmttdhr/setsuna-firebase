@@ -8,11 +8,14 @@
 .Modal.isShow {
   .Modal__overlay, .Modal__content {
     visibility: visible;
+    opacity: 1;
   }
 }
 
 .Modal__overlay {
   visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s ease, visibility .2s ease;
   @include overlay;
 }
 
@@ -31,6 +34,8 @@
   background-color: #fff;
   border-radius: 3px;
   z-index: 910;
+  opacity: 0;
+  transition: opacity .2s ease, visibility .2s ease;
 }
 
 .Modal__close {
