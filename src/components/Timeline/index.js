@@ -1,5 +1,5 @@
 import styles from './index.scss'
-import Post from 'components/Timeline/Item/index'
+import Post from 'components/Timeline/Post/index'
 
 export default class Timeline extends React.Component {
   static propTypes = {
