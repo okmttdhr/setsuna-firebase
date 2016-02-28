@@ -1,0 +1,9 @@
+@import "mixins/index";
+@import "variables";
+
+.StarsView {
+}
+
+.StarsView__container {
+  @include baseContainer;
+}

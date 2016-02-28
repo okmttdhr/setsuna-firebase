@@ -50,9 +50,11 @@ export class StarsView extends React.Component {
   render() {
     return (
       <div className={styles.StarsView}>
-        {this.state.starsFirebase.length === 0
-          ? 'loading'
-          : <Timeline items={this.state.starsFirebase} {...this.state} {...this.props} />}
+        <div className={styles.StarsView__container}>
+          {this.state.starsFirebase.length === 0
+            ? 'loading'
+            : <Timeline items={this.state.starsFirebase} {...this.state} {...this.props} />}
+        </div>
       </div>
     )
   }
