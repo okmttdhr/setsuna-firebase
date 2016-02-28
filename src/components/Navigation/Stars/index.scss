@@ -11,3 +11,7 @@
 .NavigationStars.isActive {
   @include NavigationChildIsActive;
 }
+
+.NavigationStars__text {
+  @include NavigationChildText;
+}

@@ -7,3 +7,7 @@
 .NavigationPost__icon {
   @include NavigationChildIcon;
 }
+
+.NavigationPost__text {
+  @include NavigationChildText;
+}

@@ -22,6 +22,7 @@ export default class NavigationUser extends React.Component {
           [styles.NavigationUser__icon]: true,
           'material-icons': true,
         })}>person</i>
+        <div className={styles.NavigationUser__text}>You</div>
       </li>
     )
   }

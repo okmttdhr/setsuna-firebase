@@ -11,3 +11,7 @@
 .NavigationPosts.isActive {
   @include NavigationChildIsActive;
 }
+
+.NavigationPosts__text {
+  @include NavigationChildText;
+}

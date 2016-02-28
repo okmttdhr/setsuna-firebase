@@ -11,3 +11,7 @@
 .NavigationUser.isActive {
   @include NavigationChildIsActive;
 }
+
+.NavigationUser__text {
+  @include NavigationChildText;
+}

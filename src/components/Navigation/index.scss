@@ -24,9 +24,10 @@
   // PCのみ
   display: block;
   float: left;
-  width: 100px;
+  width: auto;
   height: 55px;
   text-align: center;
+  padding: 0 20px 0 15px;
 
   cursor: pointer;
   &:hover {
@@ -34,14 +35,14 @@
   }
   &:first-child {
     float: right;
-    &:after {
-      // content: 'Post';
-      // font-size: 12px;
-    }
   }
 }
 
 .Navigation__list li > i {
+  // PCのみ
+  padding-right: 3px;
+  float: left;
+
   padding-top: 9px;
 }
 
@@ -65,5 +66,11 @@
 
     display: flex;
     justify-content: center;
+  }
+
+  .Navigation__list li > i {
+    // PCの打ち消し
+    padding-right: 0;
+    float: none;
   }
 }

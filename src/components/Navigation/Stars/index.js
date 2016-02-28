@@ -22,6 +22,7 @@ export default class NavigationStars extends React.Component {
           [styles.NavigationStars__icon]: true,
           'material-icons': true,
         })}>star</i>
+        <div className={styles.NavigationStars__text}>Star</div>
       </li>
     )
   }

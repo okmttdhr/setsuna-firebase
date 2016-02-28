@@ -22,6 +22,7 @@ export default class NavigationPosts extends React.Component {
           [styles.NavigationPosts__icon]: true,
           'material-icons': true,
         })}>home</i>
+        <div className={styles.NavigationPosts__text}>Home</div>
       </li>
     )
   }
