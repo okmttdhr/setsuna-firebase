@@ -4,6 +4,8 @@ import Modal from 'components/Modal/index'
 
 export default class NavigationPost extends React.Component {
   static propTypes = {
+    userFirebase: React.PropTypes.object,
+    toggleModalLogin: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -14,6 +16,9 @@ export default class NavigationPost extends React.Component {
   }
 
   toggleModalShow() {
+    if (!this.props.userFirebase) {
+      return this.props.toggleModalLogin()
+    }
     this.setState({ isModalShow: !this.state.isModalShow })
   }
 
