@@ -5,9 +5,14 @@ export default class NavigationStars extends React.Component {
   static propTypes = {
     history: React.PropTypes.object.isRequired,
     location: React.PropTypes.object.isRequired,
+    userFirebase: React.PropTypes.object,
   }
 
   _linkTo() {
+    if (!this.props.userFirebase) {
+      console.log('you are not logged in')
+      return
+    }
     this.props.history.pushState(null, '/stars')
   }
 

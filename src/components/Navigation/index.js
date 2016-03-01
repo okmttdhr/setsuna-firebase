@@ -7,7 +7,6 @@ import NavigationPost from 'components/Navigation/Post/index'
 import NavigationPosts from 'components/Navigation/Posts/index'
 import NavigationStars from 'components/Navigation/Stars/index'
 import NavigationUser from 'components/Navigation/User/index'
-import NavigationAccount from 'components/Navigation/Account/index'
 
 const mapStateToProps = (state) => ({
   user: state.user,
@@ -15,16 +14,9 @@ const mapStateToProps = (state) => ({
 
 export class Navigation extends React.Component {
   static propTypes = {
-    user: React.PropTypes.object.isRequired,
-    userFirebase: React.PropTypes.object,
   }
 
   _renderNavigation() {
-    if (!this.props.userFirebase) {
-      return (
-        <NavigationAccount {...this.props} />
-      )
-    }
     return (
       <ul className={styles.Navigation__list}>
         <NavigationPost />

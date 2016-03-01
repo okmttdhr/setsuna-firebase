@@ -1,5 +1,6 @@
 export const application = {
   isOverlay: false,
+  isModalLoginShow: false,
 }
 
 export const user = {

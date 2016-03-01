@@ -1,5 +1,7 @@
 import styles from './index.scss'
 import classNames from 'classnames'
+import Modal from 'components/Modal/index'
+import ModalLogin from 'components/Modal/Login/index'
 
 export default class NavigationUser extends React.Component {
   static propTypes = {
@@ -23,6 +25,9 @@ export default class NavigationUser extends React.Component {
           'material-icons': true,
         })}>person</i>
         <div className={styles.NavigationUser__text}>You</div>
+        <Modal isShow={false} toggleShow={::this._linkTo}>
+          <ModalLogin />
+        </Modal>
       </li>
     )
   }

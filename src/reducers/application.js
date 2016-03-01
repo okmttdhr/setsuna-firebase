@@ -7,4 +7,8 @@ export default handleActions({
     ...state,
     isOverlay: !state.isOverlay,
   }),
+  [constants.TOGGLE_MODAL_LOGIN]: (state) => ({
+    ...state,
+    isModalLoginShow: !state.isModalLoginShow,
+  }),
 }, initialState)
