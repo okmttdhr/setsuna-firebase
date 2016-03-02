@@ -39,7 +39,7 @@ export default class NavigationUser extends React.Component {
         })}>person</i>
         <div className={styles.NavigationUser__text}>You</div>
         <Modal isShow={application.isModalLoginShow} toggleShow={::this._toggleModalLogin}>
-          <ModalLogin />
+          <ModalLogin {...this.props} />
         </Modal>
       </li>
     )
