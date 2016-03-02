@@ -32,7 +32,6 @@ export default class NavigationUser extends React.Component {
       <li className={classNames({
         [styles.NavigationUser]: true,
         [styles.isActive]: location.pathname === '/user',
-        [styles.isNotActive]: application.isModalLoginShow,
       })} onClick={::this._linkTo}>
         <i className={classNames({
           [styles.NavigationUser__icon]: true,

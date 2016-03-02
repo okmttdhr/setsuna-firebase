@@ -1,8 +1,7 @@
 @import 'mixins/index';
 
 .NavigationUser {
-  &:hover {
-  }
+
 }
 
 .NavigationUser__icon {
@@ -11,14 +10,6 @@
 
 .NavigationUser.isActive {
   @include NavigationChildIsActive;
-}
-
-/**
- * 強制的に`isNotActive`にしたいときに使う
- * 基本的には`isActive`を使用する
- */
-li.NavigationUser:hover.isNotActive {
-  @include NavigationChildIsNotActive;
 }
 
 .NavigationUser__text {
