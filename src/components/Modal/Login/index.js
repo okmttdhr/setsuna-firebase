@@ -29,6 +29,11 @@ export class ModalLogin extends React.Component {
         </div>
         <div
           className={classNames({})}
+          onClick={() => this._loginWithOAuthPopup('twitter')}>
+          Login with Twitter
+        </div>
+        <div
+          className={classNames({})}
           onClick={() => this._loginWithOAuthPopup('google')}>
           Login with Google
         </div>
