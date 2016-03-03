@@ -23,17 +23,26 @@ export class ModalLogin extends React.Component {
           [styles.ModalLogin]: true,
         })}>
         <div
-          className={classNames({})}
+          className={classNames({
+            [styles.ModalLogin__SocialBtn]: true,
+            [styles['ModalLogin__SocialBtn--Facebook']]: true,
+          })}
           onClick={() => this._loginWithOAuthPopup('facebook')}>
           Login with Facebook
         </div>
         <div
-          className={classNames({})}
+          className={classNames({
+            [styles.ModalLogin__SocialBtn]: true,
+            [styles['ModalLogin__SocialBtn--Twitter']]: true,
+          })}
           onClick={() => this._loginWithOAuthPopup('twitter')}>
           Login with Twitter
         </div>
         <div
-          className={classNames({})}
+          className={classNames({
+            [styles.ModalLogin__SocialBtn]: true,
+            [styles['ModalLogin__SocialBtn--Google']]: true,
+          })}
           onClick={() => this._loginWithOAuthPopup('google')}>
           Login with Google
         </div>

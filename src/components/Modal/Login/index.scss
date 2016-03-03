@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixins/index";
+
+.ModalLogin {
+  margin-top: 45px;
+}
+
+.ModalLogin__SocialBtn {
+  box-sizing: border-box;
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+
+  margin: auto auto 20px;
+}
+
+.ModalLogin__SocialBtn--Facebook {
+  background: $facebookColor;
+}
+
+.ModalLogin__SocialBtn--Twitter {
+  background: $twitterColor;
+}
+
+.ModalLogin__SocialBtn--Google {
+  background: $googleColor;
+}
