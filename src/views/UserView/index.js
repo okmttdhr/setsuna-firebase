@@ -7,6 +7,7 @@ import config from 'utils/config'
 import UserSettings from 'components/User/Settings/index'
 import Header from 'components/Timeline/Header/index'
 import Timeline from 'components/Timeline/index'
+import Loading from 'components/Loading/index'
 
 export class UserView extends React.Component {
   static propTypes = {
@@ -61,7 +62,7 @@ export class UserView extends React.Component {
           <UserSettings {...this.props} />
           <Header {...this.props} />
           {this.state.postsFirebase.length === 0
-            ? 'loading'
+            ? <Loading />
             : <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />}
         </div>
       </div>

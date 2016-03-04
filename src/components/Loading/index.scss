@@ -1,0 +1,9 @@
+@import "keyframes/index";
+
+.Loading {
+
+}
+
+.Loading__icon {
+  animation: spin 1.5s linear infinite;
+}

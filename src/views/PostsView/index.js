@@ -8,6 +8,7 @@ import config from 'utils/config'
 import postsActions from 'actions/posts'
 import Header from 'components/Timeline/Header/index'
 import Timeline from 'components/Timeline/index'
+import Loading from 'components/Loading/index'
 
 const mapStateToProps = (state) => ({
   posts: state.posts,
@@ -64,7 +65,7 @@ export class PostsView extends React.Component {
         <div className={styles.PostsView__container}>
           <Header {...this.props} />
           {this.state.postsFirebase.length === 0
-            ? 'loading'
+            ? <Loading />
             : <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />}
         </div>
       </div>
