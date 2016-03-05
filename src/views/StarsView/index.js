@@ -3,7 +3,9 @@ import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
 import config from 'utils/config'
+
 import Timeline from 'components/Timeline/index'
+import Loading from 'components/Loading/index'
 
 export class StarsView extends React.Component {
   static propTypes = {
@@ -52,7 +54,7 @@ export class StarsView extends React.Component {
       <div className={styles.StarsView}>
         <div className={styles.StarsView__container}>
           {this.state.starsFirebase.length === 0
-            ? 'loading'
+            ? <Loading />
             : <Timeline items={this.state.starsFirebase} {...this.state} {...this.props} />}
         </div>
       </div>
