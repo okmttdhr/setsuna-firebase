@@ -6,9 +6,13 @@ export class Modal extends React.Component {
     isShow: React.PropTypes.bool.isRequired,
     toggleShow: React.PropTypes.func.isRequired,
     children: React.PropTypes.element.isRequired,
+    contentHeight: React.PropTypes.string,
   }
 
   render() {
+    const contentStyle = {
+      height: this.props.contentHeight,
+    }
     return (
       <div
         className={classNames({
@@ -16,7 +20,10 @@ export class Modal extends React.Component {
           [styles.isShow]: this.props.isShow,
         })}>
         <div className={styles.Modal__overlay} onClick={this.props.toggleShow}></div>
-        <div className={styles.Modal__content} onClick={(e) => e.stopPropagation()}>
+        <div
+          className={styles.Modal__content}
+          style={contentStyle}
+          onClick={(e) => e.stopPropagation()}>
           {this.props.children}
         </div>
         <i

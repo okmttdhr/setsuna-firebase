@@ -32,7 +32,10 @@ export default class NavigationPost extends React.Component {
           'material-icons': true,
         })}>edit</i>
         <div className={styles.NavigationPost__text}>Post</div>
-        <Modal isShow={this.state.isModalShow} toggleShow={::this.toggleModalShow}>
+        <Modal
+          isShow={this.state.isModalShow}
+          toggleShow={::this.toggleModalShow}
+          contentHeight='200px'>
           <ModalPost />
         </Modal>
       </li>
