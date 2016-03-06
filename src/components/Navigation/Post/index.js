@@ -1,6 +1,8 @@
 import styles from './index.scss'
 import classNames from 'classnames'
+
 import Modal from 'components/Modal/index'
+import ModalPost from 'components/Modal/Post/index'
 
 export default class NavigationPost extends React.Component {
   static propTypes = {
@@ -31,9 +33,7 @@ export default class NavigationPost extends React.Component {
         })}>edit</i>
         <div className={styles.NavigationPost__text}>Post</div>
         <Modal isShow={this.state.isModalShow} toggleShow={::this.toggleModalShow}>
-          <div>
-            <input type='text'/>
-          </div>
+          <ModalPost />
         </Modal>
       </li>
     )
