@@ -16,8 +16,16 @@ export default class Post extends React.Component {
     }
   }
 
+  _isItemTypeStar() {
+    return this.props.item.hasOwnProperty('post_id')
+  }
+
   _linkToPost() {
-    this.props.history.pushState(null, `/post/${this.props.item['.key']}`)
+    if (this._isItemTypeStar()) {
+      this.props.history.pushState(null, `/post/${this.props.item.post_id}`)
+    } else {
+      this.props.history.pushState(null, `/post/${this.props.item['.key']}`)
+    }
   }
 
   toggleSharerShow() {
