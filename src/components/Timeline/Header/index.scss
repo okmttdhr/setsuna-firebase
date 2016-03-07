@@ -2,8 +2,7 @@
 @import 'variables';
 
 .PostsHeader {
-  @include mdCardShadow;
-  margin-bottom: 20px;
+  border: #ddd solid 1px;
 }
 
 .PostsHeader__container {
