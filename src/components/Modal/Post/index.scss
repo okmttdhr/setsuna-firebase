@@ -1,5 +1,11 @@
+@import "mixins/util";
+
 .ModalPost {
 
+}
+
+.ModalPost__form {
+  @include clearfix;
 }
 
 .ModalPost__textarea {
@@ -12,4 +18,20 @@
   &:focus {
     outline: none;
   }
+}
+
+.ModalPost__submit {
+  box-sizing: border-box;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+
+  // 仮
+  background: #000;
+  float: right;
+  margin-top: 9px;
 }

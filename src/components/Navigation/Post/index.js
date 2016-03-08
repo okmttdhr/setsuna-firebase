@@ -35,7 +35,7 @@ export default class NavigationPost extends React.Component {
         <Modal
           isShow={this.state.isModalShow}
           toggleShow={::this.toggleModalShow}
-          contentHeight='200px'>
+          contentHeight='185px'>
           <ModalPost />
         </Modal>
       </li>
