@@ -1,5 +1,6 @@
 import styles from './index.scss'
 import Post from 'components/Timeline/Post/index'
+import Header from 'components/Timeline/Header/index'
 
 export default class Timeline extends React.Component {
   static propTypes = {
@@ -17,6 +18,7 @@ export default class Timeline extends React.Component {
   render() {
     return (
       <div className={styles.Timeline}>
+        <Header {...this.props} />
         {this._renderItems()}
       </div>
     )

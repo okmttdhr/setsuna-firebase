@@ -6,7 +6,6 @@ import reactMixin from 'react-mixin'
 
 import config from 'utils/config'
 import postsActions from 'actions/posts'
-import Header from 'components/Timeline/Header/index'
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
 
@@ -63,7 +62,6 @@ export class PostsView extends React.Component {
     return (
       <div className={styles.PostsView}>
         <div className={styles.PostsView__container}>
-          <Header {...this.props} />
           {this.state.postsFirebase.length === 0
             ? <Loading />
             : <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />}
