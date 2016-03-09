@@ -1,8 +1,13 @@
 import styles from './index.scss'
 import classNames from 'classnames'
+import utils from 'utils/index'
+import firebaseUtils from 'utils/firebase/index'
 
 export class ModalPost extends React.Component {
   static propTypes = {
+  }
+
+  handleClick() {    
   }
 
   render() {
@@ -17,7 +22,7 @@ export class ModalPost extends React.Component {
           })}/>
           <div className={classNames({
             [styles.ModalPost__submit]: true,
-          })}>投稿する</div>
+          })} onClick={::this.handleClick}>投稿する</div>
         </form>
       </div>
     )
