@@ -1,13 +1,11 @@
 import styles from './index.scss'
 import classNames from 'classnames'
-import utils from 'utils/index'
-import firebaseUtils from 'utils/firebase/index'
 
 export class ModalPost extends React.Component {
   static propTypes = {
   }
 
-  handleClick() {    
+  handleClick() {
   }
 
   render() {
