@@ -31,3 +31,9 @@
   float: right;
   margin-top: 9px;
 }
+
+@media (max-width: $screenSm) {
+  .ModalPost {
+    padding-top: 30px;
+  }
+}
