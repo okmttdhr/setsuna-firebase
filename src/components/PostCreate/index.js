@@ -1,4 +1,4 @@
-import styles from './index.scss'
+  import styles from './index.scss'
 import utils from 'utils/index'
 import firebaseUtils from 'utils/firebase/index'
 
@@ -46,7 +46,7 @@ export default class PostsCreate extends React.Component {
   render() {
     return (
       <div className={styles.PostsCreate}>
-        {children}
+        {this.props.children}
       </div>
     )
   }
