@@ -1,5 +1,6 @@
 import styles from './index.scss'
 import classNames from 'classnames'
+import config from 'utils/config'
 
 export class Modal extends React.Component {
   static propTypes = {
@@ -11,7 +12,7 @@ export class Modal extends React.Component {
   }
 
   render() {
-    const contentStyle = window.innerWidth <= 768
+    const contentStyle = window.innerWidth <= config.SCREEN_SM
       ? this.props.contentStyleSm : this.props.contentStyleMd
     return (
       <div
