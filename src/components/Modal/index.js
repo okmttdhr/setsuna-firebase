@@ -6,15 +6,13 @@ export class Modal extends React.Component {
     isShow: React.PropTypes.bool.isRequired,
     toggleShow: React.PropTypes.func.isRequired,
     children: React.PropTypes.element.isRequired,
-    contentBackgroundColor: React.PropTypes.string,
-    contentHeight: React.PropTypes.string,
+    contentStyleMd: React.PropTypes.object,
+    contentStyleSm: React.PropTypes.object,
   }
 
   render() {
-    const contentStyle = {
-      backgroundColor: this.props.contentBackgroundColor,
-      height: this.props.contentHeight,
-    }
+    const contentStyle = window.innerWidth <= 768
+      ? this.props.contentStyleSm : this.props.contentStyleMd
     return (
       <div
         className={classNames({

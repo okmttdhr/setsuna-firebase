@@ -25,6 +25,10 @@ export default class NavigationPost extends React.Component {
   }
 
   render() {
+    const contentStyleMd = {
+      backgroundColor: '#ECEDF8',
+      height: '185px',
+    }
     return (
       <li className={styles.NavigationPost} onClick={::this.toggleModalShow}>
         <i className={classNames({
@@ -35,8 +39,7 @@ export default class NavigationPost extends React.Component {
         <Modal
           isShow={this.state.isModalShow}
           toggleShow={::this.toggleModalShow}
-          contentBackgroundColor='#ECEDF8'
-          contentHeight='185px'>
+          contentStyleMd={contentStyleMd}>
           <ModalPost {...this.props} />
         </Modal>
       </li>
