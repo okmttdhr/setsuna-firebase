@@ -6,6 +6,7 @@ import PostsView from 'views/PostsView/index'
 import PostView from 'views/PostView/index'
 import StarsView from 'views/StarsView/index'
 import UserView from 'views/UserView/index'
+import NotFoundView from 'views/NotFoundView/index'
 
 function requireAuth(nextState, replaceState) {
   if (!utils.getAuth()) replaceState({ nextPathname: nextState.location.pathname }, '/')
@@ -18,5 +19,6 @@ export default (
     <Route path='/post/:id' component={PostView} />
     <Route path='/stars' component={StarsView} onEnter={requireAuth} />
     <Route path='/user' component={UserView} onEnter={requireAuth} />
+    <Route path='*' component={NotFoundView}/>
   </Route>
 )

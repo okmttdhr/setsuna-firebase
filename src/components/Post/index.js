@@ -5,7 +5,6 @@ import Sharers from 'components/Sharers/index'
 export default class Post extends React.Component {
   static propTypes = {
     item: React.PropTypes.object,
-    index: React.PropTypes.number.isRequired,
     history: React.PropTypes.object.isRequired,
   }
 
