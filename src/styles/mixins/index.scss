@@ -1,11 +1,12 @@
 @import "variables";
 
 @mixin NavigationChildIcon {
-  font-size: 35px;
+  font-size: 28px;
 }
 
 @mixin NavigationChildIsActive {
-  background: #ddd;
+  color: #2C4762;
+  border-bottom: 4px #2C4762 solid;
 }
 
 @mixin NavigationChildIsNotActive {
@@ -15,6 +16,7 @@
 @mixin NavigationChildText {
   line-height: 55px;
   float: left;
+  font-size: 14px;
   @media (max-width: $screenSm) {
     display: none;
   }

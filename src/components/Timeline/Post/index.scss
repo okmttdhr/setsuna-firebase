@@ -1,4 +1,5 @@
 @import 'mixins/index';
+@import "variables";
 
 .Post {
   position: relative;
@@ -6,7 +7,7 @@
   border-top: 0px;
   cursor: pointer;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: $mdBaseColorOpacity01;
   }
 }
 

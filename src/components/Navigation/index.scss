@@ -29,6 +29,7 @@
   padding: 0 20px 0 15px;
 
   cursor: pointer;
+  color: #66757f;
   &:hover {
     @include NavigationChildIsActive;
   }
@@ -42,7 +43,7 @@
   padding-right: 3px;
   float: left;
 
-  padding-top: 9px;
+  padding-top: 12px;
 }
 
 @media (max-width: $screenSm) {
