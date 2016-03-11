@@ -5,8 +5,8 @@
 }
 
 @mixin NavigationChildIsActive {
-  color: #2C4762;
-  border-bottom: 4px #2C4762 solid;
+  color: $twHeaderTextColorActive;
+  border-bottom: 4px $twHeaderTextColorActive solid;
 }
 
 @mixin NavigationChildIsNotActive {
