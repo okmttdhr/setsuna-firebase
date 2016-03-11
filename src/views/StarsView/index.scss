@@ -7,3 +7,8 @@
 .StarsView__container {
   @include baseContainer;
 }
+
+@media (max-width: $screenSm) {
+  .StarsView__container {
+  }
+}
