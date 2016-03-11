@@ -8,20 +8,20 @@ export default class NavigationPost extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object,
     toggleModalLogin: React.PropTypes.func.isRequired,
+    application: React.PropTypes.object.isRequired,
+    toggleModalPost: React.PropTypes.func.isRequired,
   }
 
   constructor() {
     super()
-    this.state = {
-      isModalShow: false,
-    }
   }
 
-  toggleModalShow() {
+  toggleModalShow(e) {
+    e.stopPropagation()
     if (!this.props.userFirebase) {
       return this.props.toggleModalLogin()
     }
-    this.setState({ isModalShow: !this.state.isModalShow })
+    this.props.toggleModalPost()
   }
 
   render() {
@@ -37,7 +37,7 @@ export default class NavigationPost extends React.Component {
         })}>edit</i>
         <div className={styles.NavigationPost__text}>Post</div>
         <Modal
-          isShow={this.state.isModalShow}
+          isShow={this.props.application.isModalPostShow}
           toggleShow={::this.toggleModalShow}
           contentStyleMd={contentStyleMd}>
           <ModalPost {...this.props} />

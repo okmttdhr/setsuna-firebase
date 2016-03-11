@@ -8,6 +8,7 @@ export class ModalPost extends React.Component {
   static propTypes = {
     postsFirebase: React.PropTypes.array,
     userFirebase: React.PropTypes.object,
+    toggleModalPost: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -26,6 +27,7 @@ export class ModalPost extends React.Component {
     firebaseUtils.posts.create(this.props.userFirebase.auth.uid, this.state.postContent.value)
       .then(() => {
         this.setState({ postContent: utils.changedValue(this.state.postContent, '') })
+        this.props.toggleModalPost()
       })
       .catch(() => {
         alert('保存できませんでした。時間が経ってから再度お試しください。')

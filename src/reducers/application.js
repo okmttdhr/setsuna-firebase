@@ -11,4 +11,8 @@ export default handleActions({
     ...state,
     isModalLoginShow: !state.isModalLoginShow,
   }),
+  [constants.TOGGLE_MODAL_POST]: (state) => ({
+    ...state,
+    isModalPostShow: !state.isModalPostShow,
+  }),
 }, initialState)
