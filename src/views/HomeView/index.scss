@@ -1,0 +1,30 @@
+@import "variables";
+@import "mixins/btn";
+
+.HomeView {
+
+}
+
+.HomeView__firstView {
+  width: 100%;
+  height: calc(100vh - 55px);
+  margin-top: 55px;
+  position: absolute;
+  top: 0px;
+  background-image: url('../../images/12145202_892485744174682_1581726300_n.jpg');
+  // background-image: linear-gradient(to bottom, #507EE3, #89BDFF);
+  background-image: linear-gradient(to bottom, #fff, #5E92F2);
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.HomeView__startBtn {
+  @include baseBtnLargeLayout;
+  margin: 0 auto;
+  color: #fff;
+  background-color: $mdBaseColor;
+  &:hover {
+    opacity: 0.8;
+  }
+}

@@ -1,9 +1,20 @@
 // よくあるボタン
 @mixin baseBtnLayout {
+  box-sizing: border-box;
   width: 100px;
   height: 40px;
   line-height: 40px;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+// ソーシャルログインボタンなどのラージボタン
+@mixin baseBtnLargeLayout {
   box-sizing: border-box;
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
   border-radius: 3px;
   cursor: pointer;

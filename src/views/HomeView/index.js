@@ -11,7 +11,10 @@ export class HomeView extends React.Component {
   render() {
     return (
       <div className={styles.HomeView}>
-        Home!
+        <div className={styles.HomeView__firstView}>
+          Let bygones be bygones
+          <div className={styles.HomeView__startBtn}>Get Started</div>
+        </div>
       </div>
     )
   }
