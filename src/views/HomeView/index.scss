@@ -13,10 +13,17 @@
   top: 0px;
   background-image: url('../../images/12145202_892485744174682_1581726300_n.jpg');
   // background-image: linear-gradient(to bottom, #507EE3, #89BDFF);
-  background-image: linear-gradient(to bottom, #fff, #5E92F2);
+  // background-image: linear-gradient(to bottom, #fff, #5E92F2);
+  // background-image: linear-gradient(to bottom, #fff, $mdBaseColor);
   background-position: center;
   background-size: 100% auto;
   background-repeat: no-repeat;
+}
+
+.HomeView__firstView__text {
+  height: calc(100vh - 55px - 150px);
+  padding-top: calc(100vh - 55px - 50vh - 50px);
+  text-align: center;
 }
 
 .HomeView__startBtn {

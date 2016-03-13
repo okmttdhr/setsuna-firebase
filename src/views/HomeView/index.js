@@ -12,7 +12,9 @@ export class HomeView extends React.Component {
     return (
       <div className={styles.HomeView}>
         <div className={styles.HomeView__firstView}>
-          Let bygones be bygones
+          <div className={styles.HomeView__firstView__text}>
+            Let bygones be bygones
+          </div>
           <div className={styles.HomeView__startBtn}>Get Started</div>
         </div>
       </div>
