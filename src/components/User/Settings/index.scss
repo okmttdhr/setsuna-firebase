@@ -1,3 +1,5 @@
+@import "variables";
+
 .UserSettings {
   margin-bottom: 20px;
 }
@@ -31,4 +33,10 @@
 .UserSettings__list__logout {
   display: inline-block;
   cursor: pointer;
+}
+
+@media (max-width: $screenSm) {
+  .UserSettings {
+    margin: 20px;
+  }
 }

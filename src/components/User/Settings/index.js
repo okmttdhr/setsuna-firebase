@@ -38,55 +38,53 @@ export default class UserSettings extends React.Component {
       return null
     }
     return (
-      <div className={styles.UserSettings}>
-        <ul className={styles.UserSettings__list}>
-          <li>
-            <i className={classNames({
-              [styles.UserSettings__list__icon]: true,
-              'material-icons': true,
-            })}>person</i>
-            <p className={styles.UserSettings__list__text}>
-              {userFirebase[userFirebase.auth.provider].displayName}
-            </p>
-          </li>
-          {userFirebase[userFirebase.auth.provider].email
-            ?
-              <li>
-                <i className={classNames({
-                  [styles.UserSettings__list__icon]: true,
-                  'material-icons': true,
-                })}>email</i>
-                <p className={styles.UserSettings__list__text}>
-                  {userFirebase[userFirebase.auth.provider].email}
-                </p>
-              </li> : null}
-          <li>
-            <i className={classNames({
-              [styles.UserSettings__list__icon]: true,
-              'material-icons': true,
-            })}>language</i>
-            <select
-              className={styles.UserSettings__list__select}
-              onChange={::this._changeLang}
-              defaultValue={i18next.language}>
-              {this.langOptions.map((option, index) => (
-                  <option
-                    key={index}
-                    value={option.value}>
-                      {option.name}
-                  </option>
-                ))}
-            </select>
-          </li>
-          <li className={styles.UserSettings__list__logout} onClick={::this._logout}>
-            <i className={classNames({
-              [styles.UserSettings__list__icon]: true,
-              'material-icons': true,
-            })}>skip_next</i>
-            <p className={styles.UserSettings__list__text}>{i18next.t('User__logout')}</p>
-          </li>
-        </ul>
-      </div>
+      <ul className={styles.UserSettings__list}>
+        <li>
+          <i className={classNames({
+            [styles.UserSettings__list__icon]: true,
+            'material-icons': true,
+          })}>person</i>
+          <p className={styles.UserSettings__list__text}>
+            {userFirebase[userFirebase.auth.provider].displayName}
+          </p>
+        </li>
+        {userFirebase[userFirebase.auth.provider].email
+          ?
+            <li>
+              <i className={classNames({
+                [styles.UserSettings__list__icon]: true,
+                'material-icons': true,
+              })}>email</i>
+              <p className={styles.UserSettings__list__text}>
+                {userFirebase[userFirebase.auth.provider].email}
+              </p>
+            </li> : null}
+        <li>
+          <i className={classNames({
+            [styles.UserSettings__list__icon]: true,
+            'material-icons': true,
+          })}>language</i>
+          <select
+            className={styles.UserSettings__list__select}
+            onChange={::this._changeLang}
+            defaultValue={i18next.language}>
+            {this.langOptions.map((option, index) => (
+                <option
+                  key={index}
+                  value={option.value}>
+                    {option.name}
+                </option>
+              ))}
+          </select>
+        </li>
+        <li className={styles.UserSettings__list__logout} onClick={::this._logout}>
+          <i className={classNames({
+            [styles.UserSettings__list__icon]: true,
+            'material-icons': true,
+          })}>skip_next</i>
+          <p className={styles.UserSettings__list__text}>{i18next.t('User__logout')}</p>
+        </li>
+      </ul>
     )
   }
 
