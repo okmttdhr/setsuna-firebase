@@ -31,6 +31,16 @@ export class HomeView extends React.Component {
           </div>
           <div className={styles.HomeView__startBtn} onClick={::this._getStarted}>Get Started</div>
         </div>
+        <div className={styles.HomeView__explain}>
+          <div className={styles.HomeView__explain__content}>
+            <div className={styles.HomeView__explain__picture}>
+              写真
+            </div>
+            <div className={styles.HomeView__explain__text}>
+              テキスト
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

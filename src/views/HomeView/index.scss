@@ -2,7 +2,7 @@
 @import "mixins/btn";
 
 .HomeView {
-
+  margin-top: calc(100vh);
 }
 
 .HomeView__firstView {
@@ -31,4 +31,20 @@
   &:hover {
     opacity: 0.8;
   }
+}
+
+.HomeView__explain {
+  padding: 100px 0;
+}
+
+.HomeView__explain__content {
+  display: flex;
+  justify-content: center;
+}
+
+.HomeView__explain__picture {
+  margin-right: 100px;
+}
+
+.HomeView__explain__text {
 }
