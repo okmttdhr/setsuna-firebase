@@ -33,6 +33,9 @@
 .UserSettings__list__logout {
   display: inline-block;
   cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 @media (max-width: $screenSm) {
