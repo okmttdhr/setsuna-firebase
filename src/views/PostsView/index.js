@@ -9,8 +9,7 @@ import postsActions from 'actions/posts'
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
 import Modal from 'components/Modal/index'
-import ModalLogin from 'components/Modal/Login/index'
-// import ModalTutorial from 'components/Modal/Tutorial/index'
+import ModalTutorial from 'components/Modal/Tutorial/index'
 
 const mapStateToProps = (state) => ({
   posts: state.posts,
@@ -65,7 +64,7 @@ export class PostsView extends React.Component {
     return (
       <div className={styles.PostsView}>
         <Modal isShow={false} toggleShow={::this._getStars}>
-          <ModalLogin {...this.props} />
+          <ModalTutorial {...this.props} />
         </Modal>
         <div className={styles.PostsView__container}>
           {this.state.postsFirebase.length === 0
