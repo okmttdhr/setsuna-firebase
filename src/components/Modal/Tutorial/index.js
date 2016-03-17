@@ -6,6 +6,7 @@ import classNames from 'classnames'
 
 export class ModalTutorial extends React.Component {
   static propTypes = {
+    children: React.PropTypes.element.isRequired,
   }
 
   constructor() {
@@ -18,7 +19,7 @@ export class ModalTutorial extends React.Component {
         className={classNames({
           [styles.ModalTutorial]: true,
         })}>
-        ModalTutorial here
+        {this.props.children}
       </div>
     )
   }

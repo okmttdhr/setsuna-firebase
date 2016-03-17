@@ -61,10 +61,20 @@ export class PostsView extends React.Component {
   }
 
   render() {
+    const contentStyleMd = {
+      height: '150px',
+    }
     return (
       <div className={styles.PostsView}>
-        <Modal isShow={false} toggleShow={::this._getStars}>
-          <ModalTutorial {...this.props} />
+        <Modal
+          isShow
+          toggleShow={::this._getStars}
+          contentStyleMd={contentStyleMd}>
+          <ModalTutorial {...this.props}>
+            <div>
+              "せつな"へようこそ。ここはメインページで、人々の刹那が流れています。誰が投稿したかは完全にわかりません。
+            </div>
+          </ModalTutorial>
         </Modal>
         <div className={styles.PostsView__container}>
           {this.state.postsFirebase.length === 0
