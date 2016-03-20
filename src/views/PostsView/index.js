@@ -6,6 +6,7 @@ import reactMixin from 'react-mixin'
 
 import config from 'utils/config'
 import postsActions from 'actions/posts'
+import tutorialActions from 'actions/tutorial'
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
 import Modal from 'components/Modal/index'
@@ -13,11 +14,14 @@ import ModalTutorial from 'components/Modal/Tutorial/index'
 
 const mapStateToProps = (state) => ({
   posts: state.posts,
+  tutorial: state.tutorial,
 })
 
 export class PostsView extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object,
+    tutorial: React.PropTypes.object.isRequired,
+    toggleTutorialHasDone: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -60,6 +64,13 @@ export class PostsView extends React.Component {
     )
   }
 
+  _toggleTutorialHasDone() {
+    this.props.toggleTutorialHasDone({
+      type: 'in',
+      name: 'PostsView',
+    })
+  }
+
   render() {
     const contentStyleMd = {
       height: '150px',
@@ -67,8 +78,8 @@ export class PostsView extends React.Component {
     return (
       <div className={styles.PostsView}>
         <Modal
-          isShow
-          toggleShow={::this._getStars}
+          isShow={!this.props.tutorial.hasDone.in.PostsView}
+          toggleShow={::this._toggleTutorialHasDone}
           contentStyleMd={contentStyleMd}>
           <ModalTutorial {...this.props}>
             <div>
@@ -89,4 +100,5 @@ export class PostsView extends React.Component {
 const PostsViewWithMixin = reactMixin.decorate(ReactFireMixin)(PostsView)
 export default connect(mapStateToProps, {
   ...postsActions,
+  ...tutorialActions,
 })(PostsViewWithMixin)

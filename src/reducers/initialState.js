@@ -11,3 +11,12 @@ export const user = {
 export const posts = {
   errorMessage: '',
 }
+
+export const tutorial = {
+  hasDone: {
+    in: {
+      PostsView: false,
+    },
+    action: {},
+  },
+}
