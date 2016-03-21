@@ -14,7 +14,7 @@
     "dev:no-debug": "npm run dev -- --no_debug",
     "test": "node -r dotenv/config ./node_modules/karma/bin/karma start bin/karma.js",
     "test:dev": "npm run test -- --watch",
-    "deploy": "npm run test && npm run clean && npm run compile"
+    "deploy": "npm run test && npm run clean && npm run compile -- --no_debug && $(npm bin)/firebase deploy"
   },
   "repository": {
     "type": "git",
@@ -73,6 +73,7 @@
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.9.0",
     "file-loader": "^0.8.4",
+    "firebase-tools": "^2.2.1",
     "fs-extra": "^0.26.3",
     "html-webpack-plugin": "^1.6.1",
     "isparta-loader": "^2.0.0",
