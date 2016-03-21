@@ -2,15 +2,26 @@ import styles from './index.scss'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
 import Firebase from 'firebase'
+import { connect } from 'react-redux'
+
 import config from 'utils/config'
+import tutorialActions from 'actions/tutorial'
 
 import UserSettings from 'components/User/Settings/index'
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
+import Modal from 'components/Modal/index'
+import ModalTutorial from 'components/Modal/Tutorial/index'
+
+const mapStateToProps = (state) => ({
+  tutorial: state.tutorial,
+})
 
 export class UserView extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object,
+    tutorial: React.PropTypes.object.isRequired,
+    toggleTutorialHasDone: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -54,9 +65,29 @@ export class UserView extends React.Component {
     )
   }
 
+  _toggleTutorialHasDone() {
+    this.props.toggleTutorialHasDone({
+      type: 'in',
+      name: 'UserView',
+    })
+  }
+
   render() {
+    const contentStyleMd = {
+      height: '150px',
+    }
     return (
       <div className={styles.UserView}>
+        <Modal
+          isShow={!this.props.tutorial.hasDone.in.UserView}
+          toggleShow={::this._toggleTutorialHasDone}
+          contentStyleMd={contentStyleMd}>
+          <ModalTutorial {...this.props}>
+            <div>
+              ここはあなたの情報が表示される非公開のページです。あなた以外の人はアクセスできませんのでご安心ください。
+            </div>
+          </ModalTutorial>
+        </Modal>
         <div className={styles.UserView__container}>
           <UserSettings {...this.props} />
           {this.state.postsFirebase.length === 0
@@ -68,4 +99,7 @@ export class UserView extends React.Component {
   }
 }
 
-export default reactMixin.decorate(ReactFireMixin)(UserView)
+const UserViewWithMixin = reactMixin.decorate(ReactFireMixin)(UserView)
+export default connect(mapStateToProps, {
+  ...tutorialActions,
+})(UserViewWithMixin)
