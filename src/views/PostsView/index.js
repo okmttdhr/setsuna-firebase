@@ -7,6 +7,7 @@ import reactMixin from 'react-mixin'
 import config from 'utils/config'
 import postsActions from 'actions/posts'
 import tutorialActions from 'actions/tutorial'
+
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
 import Modal from 'components/Modal/index'
