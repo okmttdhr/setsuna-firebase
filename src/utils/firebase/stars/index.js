@@ -1,7 +1,7 @@
 import Promise from 'bluebird'
 import config from 'utils/config'
 import Firebase from 'firebase'
-const firebaseRef = new Firebase(config.firebase.demoRef)
+const firebaseRef = new Firebase(config.firebaseRef())
 
 export function create(uId, item) {
   return new Promise((resolve, reject) => {

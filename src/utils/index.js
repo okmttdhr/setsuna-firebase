@@ -1,6 +1,6 @@
 import Firebase from 'firebase'
 import config from 'utils/config'
-const firebaseRef = new Firebase(config.firebase.demoRef)
+const firebaseRef = new Firebase(config.firebaseRef())
 
 export function getAuth() {
   const authData = firebaseRef.getAuth() || null

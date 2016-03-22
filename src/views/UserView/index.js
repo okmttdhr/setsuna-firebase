@@ -49,7 +49,7 @@ export class UserView extends React.Component {
 
   _getUserPosts(userFirebase) {
     if (!userFirebase || this._isBinded('starsFirebase')) return
-    const refPosts = new Firebase(`${config.firebase.demoRef}posts`)
+    const refPosts = new Firebase(`${config.firebaseRef()}posts`)
     this.bindAsArray(
       refPosts.orderByChild('user_id').equalTo(userFirebase.auth.uid).limitToLast(10),
       'postsFirebase'
@@ -58,7 +58,7 @@ export class UserView extends React.Component {
 
   _getStars(userFirebase) {
     if (!userFirebase || this._isBinded('starsFirebase')) return
-    const refStars = new Firebase(`${config.firebase.demoRef}stars/${userFirebase.auth.uid}`)
+    const refStars = new Firebase(`${config.firebaseRef()}stars/${userFirebase.auth.uid}`)
     this.bindAsArray(
       refStars.orderByChild('created_at').limitToLast(10),
       'starsFirebase'

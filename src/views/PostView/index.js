@@ -37,13 +37,13 @@ export class PostView extends React.Component {
   }
 
   _getPost() {
-    const refPost = new Firebase(`${config.firebase.demoRef}posts/${this.props.params.id}`)
+    const refPost = new Firebase(`${config.firebaseRef()}posts/${this.props.params.id}`)
     this.bindAsObject(refPost, 'postFirebase')
   }
 
   _getStars(userFirebase) {
     if (!userFirebase || this._isBinded('starsFirebase')) return
-    const refStars = new Firebase(`${config.firebase.demoRef}stars/${userFirebase.auth.uid}`)
+    const refStars = new Firebase(`${config.firebaseRef()}stars/${userFirebase.auth.uid}`)
     this.bindAsArray(
       refStars.orderByChild('created_at').limitToLast(10),
       'starsFirebase'

@@ -46,7 +46,7 @@ export class StarsView extends React.Component {
 
   _getStars(userFirebase) {
     if (!userFirebase || this._isBinded('starsFirebase')) return
-    const refStars = new Firebase(`${config.firebase.demoRef}stars/${userFirebase.auth.uid}`)
+    const refStars = new Firebase(`${config.firebaseRef()}stars/${userFirebase.auth.uid}`)
     this.bindAsArray(
       refStars.orderByChild('created_at').limitToLast(10),
       'starsFirebase'

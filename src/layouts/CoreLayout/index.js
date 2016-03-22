@@ -10,7 +10,7 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import Navigation from 'components/Navigation/index'
 import config from 'utils/config'
 
-const firebaseRef = new Firebase(config.firebase.demoRef)
+const firebaseRef = new Firebase(config.firebaseRef())
 
 export class CoreLayout extends React.Component {
   static propTypes = {
@@ -57,7 +57,7 @@ export class CoreLayout extends React.Component {
         return
       }
       const uid = authData.auth.uid
-      const firebaseRefUsers = new Firebase(`${config.firebase.demoRef}users/${uid}`)
+      const firebaseRefUsers = new Firebase(`${config.firebaseRef()}users/${uid}`)
       this.bindAsObject(firebaseRefUsers, 'userFirebase')
       if (this.props.location.pathname === '/') {
         this.props.history.pushState(null, '/timeline')
