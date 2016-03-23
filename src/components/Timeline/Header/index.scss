@@ -1,16 +1,16 @@
 @import 'mixins/index';
 @import 'variables';
 
-.PostsHeader {
+.TimelineHeader {
   border: #ddd solid 1px;
   border-radius: 3px 3px 0 0;
 }
 
-.PostsHeader__container {
+.TimelineHeader__container {
   padding: 20px;
 }
 
-.PostsHeader__input {
+.TimelineHeader__input {
   outline: transparent;
   width: 100%;
   height: 100%;

@@ -14,7 +14,8 @@
     "dev:no-debug": "npm run dev -- --no_debug",
     "test": "node -r dotenv/config ./node_modules/karma/bin/karma start bin/karma.js",
     "test:dev": "npm run test -- --watch",
-    "deploy": "npm run test && npm run clean && npm run compile -- --no_debug && $(npm bin)/firebase deploy"
+    "deploy:p": "NODE_ENV=production npm run test && npm run clean && npm run compile -- --no_debug && $(npm bin)/firebase deploy",
+    "deploy:s": "NODE_ENV=staging npm run test && npm run clean && npm run compile -- --no_debug && $(npm bin)/firebase deploy -f setsuna-staging"
   },
   "repository": {
     "type": "git",

@@ -55,7 +55,7 @@ export class ModalPost extends React.Component {
             className={classNames({
               [styles.ModalPost__textarea]: true,
             })}
-            placeholder={i18next.t('PostsHeader__placeholder')}
+            placeholder={i18next.t('TimelineHeader__placeholder')}
             value={this.state.postContent.value}
             onChange={::this._changepostContent}>
           </textarea>

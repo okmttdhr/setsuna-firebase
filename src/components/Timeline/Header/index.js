@@ -3,7 +3,7 @@ import i18next from 'i18next'
 import utils from 'utils/index'
 import firebaseUtils from 'utils/firebase/index'
 
-export default class PostsHeader extends React.Component {
+export default class TimelineHeader extends React.Component {
   static propTypes = {
     postsFirebase: React.PropTypes.array,
     userFirebase: React.PropTypes.object,
@@ -45,13 +45,13 @@ export default class PostsHeader extends React.Component {
 
   render() {
     return (
-      <div className={styles.PostsHeader}>
-        <div className={styles.PostsHeader__container}>
+      <div className={styles.TimelineHeader}>
+        <div className={styles.TimelineHeader__container}>
           <form onSubmit={::this._createPost}>
             <input
-              className={styles.PostsHeader__input}
+              className={styles.TimelineHeader__input}
               type='text'
-              placeholder={i18next.t('PostsHeader__placeholder')}
+              placeholder={i18next.t('TimelineHeader__placeholder')}
               value={this.state.postContent.value}
               onChange={::this._changepostContent}/>
           </form>
