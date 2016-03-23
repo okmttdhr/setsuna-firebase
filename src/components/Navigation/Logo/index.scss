@@ -1,0 +1,17 @@
+@import 'mixins/index';
+
+.NavigationLogo {
+
+}
+
+.NavigationLogo__icon {
+  @include NavigationChildIcon;
+}
+
+.NavigationLogo.isActive {
+  @include NavigationChildIsActive;
+}
+
+.NavigationLogo__text {
+  @include NavigationChildText;
+}

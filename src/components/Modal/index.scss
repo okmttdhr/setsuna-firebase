@@ -39,8 +39,7 @@
 }
 
 .Modal__close {
-  visibility: hidden;
-  z-index: 920;
+  display: none;
 }
 
 @media (max-width: $screenSm) {
@@ -70,5 +69,6 @@
     top: 100vh;
     right: 20px;
     transition: top .3s ease, visibility 1s ease;
+    z-index: 920;
   }
 }

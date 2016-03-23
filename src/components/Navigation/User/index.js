@@ -1,16 +1,11 @@
 import styles from './index.scss'
 import classNames from 'classnames'
-import Modal from 'components/Modal/index'
-import ModalLogin from 'components/Modal/Login/index'
 
 export default class NavigationUser extends React.Component {
   static propTypes = {
     history: React.PropTypes.object.isRequired,
     location: React.PropTypes.object.isRequired,
-
     userFirebase: React.PropTypes.object,
-
-    application: React.PropTypes.object.isRequired,
     toggleModalLogin: React.PropTypes.func.isRequired,
   }
 
@@ -21,13 +16,8 @@ export default class NavigationUser extends React.Component {
     this.props.history.pushState(null, '/user')
   }
 
-  _toggleModalLogin(e) {
-    e.stopPropagation()
-    this.props.toggleModalLogin()
-  }
-
   render() {
-    const { location, application } = this.props
+    const { location } = this.props
     return (
       <li className={classNames({
         [styles.NavigationUser]: true,
@@ -38,9 +28,6 @@ export default class NavigationUser extends React.Component {
           'material-icons': true,
         })}>person</i>
         <div className={styles.NavigationUser__text}>You</div>
-        <Modal isShow={application.isModalLoginShow} toggleShow={::this._toggleModalLogin}>
-          <ModalLogin {...this.props} />
-        </Modal>
       </li>
     )
   }
