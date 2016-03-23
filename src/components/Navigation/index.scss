@@ -33,9 +33,6 @@
   &:hover {
     @include NavigationChildIsActive;
   }
-  &:first-child {
-    float: right;
-  }
 }
 
 .Navigation__list li > i {

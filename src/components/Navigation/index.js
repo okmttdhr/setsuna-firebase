@@ -8,6 +8,7 @@ import NavigationPost from 'components/Navigation/Post/index'
 import NavigationPosts from 'components/Navigation/Posts/index'
 import NavigationStars from 'components/Navigation/Stars/index'
 import NavigationUser from 'components/Navigation/User/index'
+import NavigationHome from 'components/Navigation/Home/index'
 
 const mapStateToProps = (state) => ({
   user: state.user,
@@ -16,9 +17,18 @@ const mapStateToProps = (state) => ({
 
 export class Navigation extends React.Component {
   static propTypes = {
+    location: React.PropTypes.object.isRequired,
   }
 
   _renderNavigation() {
+    if (this.props.location.pathname === '/') {
+      return (
+        <ul className={styles.Navigation__list}>
+          <NavigationStars {...this.props} />
+          <NavigationUser {...this.props} />
+        </ul>
+      )
+    }
     return (
       <ul className={styles.Navigation__list}>
         <NavigationPost {...this.props} />
