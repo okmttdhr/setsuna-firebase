@@ -6,12 +6,18 @@ export default class NavigationLink extends React.Component {
     text: React.PropTypes.string.isRequired,
     textIcon: React.PropTypes.string.isRequired,
     pathname: React.PropTypes.string.isRequired,
-    requireAuth: React.PropTypes.bool.isRequired,
+    requireAuth: React.PropTypes.bool,
+    floatRight: React.PropTypes.bool,
 
     history: React.PropTypes.object.isRequired,
     location: React.PropTypes.object.isRequired,
     userFirebase: React.PropTypes.object,
     toggleModalLogin: React.PropTypes.func.isRequired,
+  }
+
+  static defaultProps = {
+    requireAuth: false,
+    floatRight: false,
   }
 
   _linkTo() {
@@ -23,11 +29,12 @@ export default class NavigationLink extends React.Component {
   }
 
   render() {
-    const { location, pathname, text, textIcon } = this.props
+    const { location, pathname, text, textIcon, floatRight } = this.props
     return (
       <li className={classNames({
         [styles.NavigationLink]: true,
         [styles.isActive]: location.pathname === pathname,
+        [styles.floatRight]: floatRight,
       })} onClick={::this._linkTo}>
         <i className={classNames({
           [styles.NavigationLink__icon]: true,

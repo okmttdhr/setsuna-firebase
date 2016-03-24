@@ -4,6 +4,10 @@
 
 }
 
+.NavigationLink.floatRight {
+  float: right;
+}
+
 .NavigationLink__icon {
   @include NavigationChildIcon;
 }

@@ -23,6 +23,20 @@ export class Navigation extends React.Component {
       return (
         <ul className={styles.Navigation__list}>
           <NavigationLogo {...this.props} />
+          <NavigationLink
+            {...this.props}
+            text='Log in'
+            textIcon='home'
+            pathname='/timeline'
+            requireAuth
+            floatRight />
+          <NavigationLink
+            {...this.props}
+            text='Sign in'
+            textIcon='home'
+            pathname='/timeline'
+            requireAuth
+            floatRight />
         </ul>
       )
     }
@@ -33,8 +47,7 @@ export class Navigation extends React.Component {
           {...this.props}
           text='Home'
           textIcon='home'
-          pathname='/timeline'
-          requireAuth={false} />
+          pathname='/timeline'/>
         <NavigationLink
           {...this.props}
           text='Star'
