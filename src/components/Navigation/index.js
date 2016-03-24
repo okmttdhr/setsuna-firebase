@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 
 import userActions from 'actions/user'
 import applicationActions from 'actions/application'
-import Modal from 'components/Modal/index'
-import ModalLogin from 'components/Modal/Login/index'
 import NavigationPost from 'components/Navigation/Post/index'
 import NavigationPosts from 'components/Navigation/Posts/index'
 import NavigationStars from 'components/Navigation/Stars/index'
@@ -20,13 +18,6 @@ const mapStateToProps = (state) => ({
 export class Navigation extends React.Component {
   static propTypes = {
     location: React.PropTypes.object.isRequired,
-    application: React.PropTypes.object.isRequired,
-    toggleModalLogin: React.PropTypes.func.isRequired,
-  }
-
-  _toggleModalLogin(e) {
-    e.stopPropagation()
-    this.props.toggleModalLogin()
   }
 
   _renderNavigation() {
@@ -48,12 +39,8 @@ export class Navigation extends React.Component {
   }
 
   render() {
-    const { application } = this.props
     return (
       <div className={styles.Navigation}>
-        <Modal isShow={application.isModalLoginShow} toggleShow={::this._toggleModalLogin}>
-          <ModalLogin {...this.props} />
-        </Modal>
         {this._renderNavigation()}
       </div>
     )

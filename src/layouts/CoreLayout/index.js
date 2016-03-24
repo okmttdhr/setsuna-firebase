@@ -7,8 +7,9 @@ import Firebase from 'firebase'
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
-import Navigation from 'components/Navigation/index'
 import config from 'utils/config'
+import Navigation from 'components/Navigation/index'
+import Modals from 'components/Modals/index'
 
 const firebaseRef = new Firebase(config.firebaseRef())
 
@@ -72,6 +73,7 @@ export class CoreLayout extends React.Component {
     )
     return (
       <div className={styles.CoreLayout}>
+        <Modals {...this.state} {...this.props} />
         <Navigation {...this.state} {...this.props} />
         <div className={styles.CoreLayout__viewContainer}>
           {children}
