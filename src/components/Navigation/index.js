@@ -5,10 +5,8 @@ import { connect } from 'react-redux'
 import userActions from 'actions/user'
 import applicationActions from 'actions/application'
 import NavigationPost from 'components/Navigation/Post/index'
-import NavigationPosts from 'components/Navigation/Posts/index'
-import NavigationStars from 'components/Navigation/Stars/index'
-import NavigationUser from 'components/Navigation/User/index'
 import NavigationLogo from 'components/Navigation/Logo/index'
+import NavigationLink from 'components/Navigation/Link/index'
 
 const mapStateToProps = (state) => ({
   user: state.user,
@@ -31,9 +29,24 @@ export class Navigation extends React.Component {
     return (
       <ul className={styles.Navigation__list}>
         <NavigationPost {...this.props} />
-        <NavigationPosts {...this.props} />
-        <NavigationStars {...this.props} />
-        <NavigationUser {...this.props} />
+        <NavigationLink
+          {...this.props}
+          text='Home'
+          textIcon='home'
+          pathname='/timeline'
+          requireAuth={false} />
+        <NavigationLink
+          {...this.props}
+          text='Star'
+          textIcon='star'
+          pathname='/stars'
+          requireAuth />
+        <NavigationLink
+          {...this.props}
+          text='You'
+          textIcon='person'
+          pathname='/user'
+          requireAuth />
       </ul>
     )
   }

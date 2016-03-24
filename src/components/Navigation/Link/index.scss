@@ -1,17 +1,17 @@
 @import 'mixins/index';
 
-.NavigationStars {
+.NavigationLink {
 
 }
 
-.NavigationStars__icon {
+.NavigationLink__icon {
   @include NavigationChildIcon;
 }
 
-.NavigationStars.isActive {
+.NavigationLink.isActive {
   @include NavigationChildIsActive;
 }
 
-.NavigationStars__text {
+.NavigationLink__text {
   @include NavigationChildText;
 }
