@@ -47,6 +47,9 @@ export default class Post extends React.Component {
         <div className={styles.Post__container}>
           <div>{item.content}</div>
           <Star {...this.props} />
+
+          // ここにURLやTEXTをpropとしておくる。Sharersではそれを表示するだけでロジックはない
+          // ここでも、渡すだけで後はSharersに任せる。
           <Sharers {...this.props}
             isShow={this.state.isSharerShow}
             toggleShow={::this.toggleSharerShow} />
