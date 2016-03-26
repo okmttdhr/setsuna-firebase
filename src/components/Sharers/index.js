@@ -38,10 +38,10 @@ export default class Sharers extends React.Component {
         <div className={styles.Sharers__overlay} onClick={::this.toggleShow}></div>
         <div className={styles.Sharers__contentWp} onClick={(e) => { e.stopPropagation() }}>
           <div className={styles.Sharers__content}>
-            <SharerFacebook />
+            <SharerFacebook {...this.props} />
             <SharerTwitter {...this.props} />
-            <SharerHatebu />
-            <SharerLine />
+            <SharerHatebu {...this.props} />
+            <SharerLine {...this.props} />
           </div>
         </div>
       </div>

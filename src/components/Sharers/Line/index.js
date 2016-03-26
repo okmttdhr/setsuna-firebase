@@ -2,6 +2,11 @@ import styles from './index.scss'
 import Sharer from 'sharer.npm.js'
 
 export default class SharerLine extends React.Component {
+  static propTypes = {
+    url: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string.isRequired,
+  }
+
   _share(e) {
     e.stopPropagation()
     const sharer = new Sharer(e.target)
@@ -9,13 +14,14 @@ export default class SharerLine extends React.Component {
   }
 
   render() {
+    const { url, title } = this.props
     return (
       <div
         className={styles.SharerLine}
         onClick={::this._share}
         data-sharer='line'
-        data-title='Sharer.js is the ultimate sharer js lib'
-        data-url='https://ellisonleao.github.io/sharer.js/'>
+        data-title={title}
+        data-url={`http://localhost:3000/#${url}`}>
         L
       </div>
     )
