@@ -20,12 +20,15 @@ export default class Post extends React.Component {
     return this.props.item.hasOwnProperty('post_id')
   }
 
-  _linkToPost() {
+  _getPostPath() {
     if (this._isItemTypeStar()) {
-      this.props.history.pushState(null, `/post/${this.props.item.post_id}`)
-    } else {
-      this.props.history.pushState(null, `/post/${this.props.item['.key']}`)
+      return `/post/${this.props.item.post_id}`
     }
+    return `/post/${this.props.item['.key']}`
+  }
+
+  _linkToPost() {
+    this.props.history.pushState(null, this._getPostPath())
   }
 
   toggleSharerShow() {
@@ -48,11 +51,15 @@ export default class Post extends React.Component {
           <div>{item.content}</div>
           <Star {...this.props} />
 
-          // ここにURLやTEXTをpropとしておくる。Sharersではそれを表示するだけでロジックはない
-          // ここでも、渡すだけで後はSharersに任せる。
+          {
+            // ここにURLやTEXTをpropとしておくる。Sharersではそれを表示するだけでロジックはない
+            // ここでも、渡すだけで後はSharersに任せる。
+          }
           <Sharers {...this.props}
             isShow={this.state.isSharerShow}
-            toggleShow={::this.toggleSharerShow} />
+            toggleShow={::this.toggleSharerShow}
+            url={this._getPostPath()}
+            title={item.content} />
         </div>
       </div>
     )

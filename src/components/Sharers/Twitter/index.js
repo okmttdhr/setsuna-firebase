@@ -2,6 +2,11 @@ import styles from './index.scss'
 import Sharer from 'sharer.npm.js'
 
 export default class SharerTwitter extends React.Component {
+  static propTypes = {
+    url: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string.isRequired,
+  }
+
   _share(e) {
     e.stopPropagation()
     const sharer = new Sharer(e.target)
@@ -9,15 +14,16 @@ export default class SharerTwitter extends React.Component {
   }
 
   render() {
+    const { title, url } = this.props
     return (
       <div
         className={styles.SharerTwitter}
         onClick={::this._share}
         data-sharer='twitter'
-        data-title='Checkout Sharer.js!'
+        data-title={title}
         data-via=''
         data-hashtags='setsuna'
-        data-url={`https://ellisonleao.github.io/sharer.js/`}>
+        data-url={`http://localhost:3000/#${url}`}>
         t
       </div>
     )
