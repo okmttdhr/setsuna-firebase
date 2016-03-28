@@ -6,5 +6,5 @@
     "**/.*",
     "**/node_modules/**"
   ],
-  "headers": [{}]
+  "headers": []
 }
