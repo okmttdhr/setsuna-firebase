@@ -1,6 +1,8 @@
 import styles from './index.scss'
 import classNames from 'classnames'
 import i18next from 'i18next'
+import Alert from 'react-s-alert';
+
 import utils from 'utils/index'
 import firebaseUtils from 'utils/firebase/index'
 
@@ -28,6 +30,16 @@ export class ModalPost extends React.Component {
       .then(() => {
         this.setState({ postContent: utils.changedValue(this.state.postContent, '') })
         this.props.toggleModalPost()
+        Alert.warning('<h1>Test message 1</h1>', {
+          position: 'top-right',
+          effect: 'scale',
+          onShow: function () {
+            console.log('aye!')
+          },
+          beep: false,
+          timeout: 'none',
+          offset: 100
+        })
       })
       .catch(() => {
         alert('保存できませんでした。時間が経ってから再度お試しください。')

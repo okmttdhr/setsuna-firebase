@@ -26,14 +26,14 @@ export class Navigation extends React.Component {
           <NavigationLink
             {...this.props}
             text='Log in'
-            textIcon='home'
+            textIcon=''
             pathname='/timeline'
             requireAuth
             floatRight />
           <NavigationLink
             {...this.props}
             text='Sign in'
-            textIcon='home'
+            textIcon=''
             pathname='/timeline'
             requireAuth
             floatRight />

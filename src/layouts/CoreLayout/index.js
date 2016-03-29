@@ -1,4 +1,6 @@
 import 'styles/core.scss'
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import styles from './index.scss'
 
 import ReactFireMixin from 'reactfire'
@@ -6,6 +8,7 @@ import reactMixin from 'react-mixin'
 import Firebase from 'firebase'
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
+import Alert from 'react-s-alert';
 
 import config from 'utils/config'
 import Navigation from 'components/Navigation/index'
@@ -73,6 +76,7 @@ export class CoreLayout extends React.Component {
     )
     return (
       <div className={styles.CoreLayout}>
+        <Alert stack={{limit: 3}} />
         <Modals {...this.state} {...this.props} />
         <Navigation {...this.state} {...this.props} />
         <div className={styles.CoreLayout__viewContainer}>
