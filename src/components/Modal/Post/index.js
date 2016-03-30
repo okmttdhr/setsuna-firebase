@@ -1,3 +1,4 @@
+// ダミーコミット・・・念のため・・・。
 import styles from './index.scss'
 import classNames from 'classnames'
 import i18next from 'i18next'
