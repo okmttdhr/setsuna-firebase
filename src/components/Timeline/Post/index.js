@@ -2,7 +2,7 @@ import styles from './index.scss'
 import Star from 'components/Star/index'
 import Sharers from 'components/Sharers/index'
 
-export default class Post extends React.Component {
+export default class TimelinePost extends React.Component {
   static propTypes = {
     item: React.PropTypes.object,
     index: React.PropTypes.number.isRequired,
@@ -46,8 +46,8 @@ export default class Post extends React.Component {
     }
     const { item } = this.props
     return (
-      <div className={styles.Post} onClick={::this._linkToPost} style={styleOpacity}>
-        <div className={styles.Post__container}>
+      <div className={styles.TimelinePost} onClick={::this._linkToPost} style={styleOpacity}>
+        <div className={styles.TimelinePost__container}>
           <div>{item.content}</div>
           <Star {...this.props} />
 

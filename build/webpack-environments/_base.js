@@ -15,7 +15,7 @@ const CSS_LOADER = !config.compiler_css_modules
     'css?modules',
     'sourceMap',
     'importLoaders=1',
-    'localIdentName=[name]__[local]___[hash:base64:5]'
+    'localIdentName=[local]'
   ].join('&')
 
 const webpackConfig = {
