@@ -1,8 +1,7 @@
-// ダミーコミット・・・念のため・・・。
 import styles from './index.scss'
 import classNames from 'classnames'
 import i18next from 'i18next'
-import Alert from 'react-s-alert';
+import Alert from 'react-s-alert'
 
 import utils from 'utils/index'
 import firebaseUtils from 'utils/firebase/index'
@@ -34,12 +33,12 @@ export class ModalPost extends React.Component {
         Alert.warning('<h1>Test message 1</h1>', {
           position: 'top-right',
           effect: 'scale',
-          onShow: function () {
+          onShow: () => {
             console.log('aye!')
           },
           beep: false,
           timeout: 'none',
-          offset: 100
+          offset: 100,
         })
       })
       .catch(() => {
