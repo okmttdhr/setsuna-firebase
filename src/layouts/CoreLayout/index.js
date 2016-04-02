@@ -76,7 +76,12 @@ export class CoreLayout extends React.Component {
     )
     return (
       <div className={styles.CoreLayout}>
-        <Alert stack={{ limit: 3 }} />
+        <Alert
+          stack={{ limit: 3 }}
+          position='top-right'
+          effect='scale'
+          timeout='none'
+          offset={100} />
         <Modals {...this.state} {...this.props} />
         <Navigation {...this.state} {...this.props} />
         <div className={styles.CoreLayout__viewContainer}>

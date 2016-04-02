@@ -32,14 +32,7 @@ export class ModalPost extends React.Component {
         this.setState({ postContent: utils.changedValue(this.state.postContent, '') })
         this.props.toggleModalPost()
         Alert.warning('<h1>Test message 1</h1>', {
-          position: 'top-right',
-          effect: 'scale',
-          onShow: () => {
-            console.log('aye!')
-          },
-          beep: false,
-          timeout: 'none',
-          offset: 100,
+          onShow: () => console.log('aye!'),
         })
       })
       .catch(() => {
