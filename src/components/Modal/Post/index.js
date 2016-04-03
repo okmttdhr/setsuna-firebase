@@ -1,4 +1,4 @@
-// batsubotanntokayaru
+// i want to make this close... I might have to read the source code of react-s-alert.
 import styles from './index.scss'
 import classNames from 'classnames'
 import i18next from 'i18next'
