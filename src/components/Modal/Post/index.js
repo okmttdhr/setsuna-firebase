@@ -26,12 +26,7 @@ export class ModalPost extends React.Component {
   }
 
   _showAlert() {
-    Alert.warning('<h1>Test message 1</h1>', {
-      onShow: () => console.log('aye!'),
-    })
-    setTimeout(() => {
-      Alert.closeAll()
-    }, 2000)
+    Alert.warning('<h1>Test message 1</h1>')
   }
 
   _createPost(e) {
@@ -41,7 +36,7 @@ export class ModalPost extends React.Component {
       .then(() => {
         this.setState({ postContent: utils.changedValue(this.state.postContent, '') })
         this.props.toggleModalPost()
-        this._showAlert()
+        setTimeout(() => this._showAlert(), 500)
       })
       .catch(() => {
         alert('保存できませんでした。時間が経ってから再度お試しください。')
