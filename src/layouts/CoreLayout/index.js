@@ -13,6 +13,7 @@ import Alert from 'react-s-alert'
 import config from 'utils/config'
 import Navigation from 'components/Navigation/index'
 import Modals from 'components/Modals/index'
+import CustomAlert from 'components/CustomAlert/index'
 
 const firebaseRef = new Firebase(config.firebaseRef())
 
@@ -80,7 +81,8 @@ export class CoreLayout extends React.Component {
           position='top-right'
           effect='slide'
           offset={100}
-          timeout={3000} />
+          timeout={3000}
+          contentTemplate={CustomAlert} />
         <Modals {...this.state} {...this.props} />
         <Navigation {...this.state} {...this.props} />
         <div className={styles.CoreLayout__viewContainer}>

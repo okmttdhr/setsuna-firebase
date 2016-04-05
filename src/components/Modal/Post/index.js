@@ -1,5 +1,3 @@
-// i want to make this close... I might have to read the source code of react-s-alert.
-// start now...
 import styles from './index.scss'
 import classNames from 'classnames'
 import i18next from 'i18next'
@@ -26,7 +24,7 @@ export class ModalPost extends React.Component {
   }
 
   _showAlert() {
-    Alert.warning('<h1>Test message 1</h1>')
+    Alert.info('投稿完了')
   }
 
   _createPost(e) {
