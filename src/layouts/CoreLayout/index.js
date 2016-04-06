@@ -1,7 +1,7 @@
 import 'styles/core.scss'
 import 'react-s-alert/dist/s-alert-default.css'
 import 'react-s-alert/dist/s-alert-css-effects/slide.css'
-import styles from './index.scss'
+import './index.scss'
 
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
@@ -76,7 +76,7 @@ export class CoreLayout extends React.Component {
       { userFirebase: this.state.userFirebase }
     )
     return (
-      <div className={styles.CoreLayout}>
+      <div className='CoreLayout'>
         <Alert
           position='top-right'
           effect='slide'
@@ -85,7 +85,7 @@ export class CoreLayout extends React.Component {
           contentTemplate={CustomAlert} />
         <Modals {...this.state} {...this.props} />
         <Navigation {...this.state} {...this.props} />
-        <div className={styles.CoreLayout__viewContainer}>
+        <div className='CoreLayout__viewContainer'>
           {children}
         </div>
       </div>
