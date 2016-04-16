@@ -38,7 +38,7 @@ export class Modals extends React.Component {
       height: '185px',
     }
     return (
-      <div className={styles.Modals}>
+      <div className='Modals'>
         <Modal isShow={application.isModalLoginShow} toggleShow={::this._toggleModalLogin}>
           <ModalLogin {...this.props} />
         </Modal>
