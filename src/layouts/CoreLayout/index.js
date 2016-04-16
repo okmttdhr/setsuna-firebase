@@ -1,5 +1,3 @@
-// little Firebase stuff, and so on
-
 import 'styles/core.scss'
 import 'react-s-alert/dist/s-alert-default.css'
 import 'react-s-alert/dist/s-alert-css-effects/slide.css'
@@ -35,19 +33,8 @@ export class CoreLayout extends React.Component {
 
   componentDidMount() {
     this._onAuth()
-    const options = {
-      init: {
-        fallbackLng: 'en',
-        resources: {
-          en: require('utils/i18n/resources/en'),
-          ja: require('utils/i18n/resources/ja'),
-        },
-      },
-    }
-
-    i18next
-      .use(LanguageDetector)
-      .init(options.init)
+    this._setLang()
+    setTimeout(() => this._watchConnected(), 3000)
   }
 
   _isBinded(bindVar) {
@@ -69,6 +56,32 @@ export class CoreLayout extends React.Component {
       if (this.props.location.pathname === '/') {
         this.props.history.pushState(null, '/timeline')
       }
+    })
+  }
+
+  _setLang() {
+    const options = {
+      init: {
+        fallbackLng: 'en',
+        resources: {
+          en: require('utils/i18n/resources/en'),
+          ja: require('utils/i18n/resources/ja'),
+        },
+      },
+    }
+
+    i18next
+      .use(LanguageDetector)
+      .init(options.init)
+  }
+
+  _watchConnected() {
+    const firebaseRefConnected = new Firebase(`${config.firebaseRef()}.info/connected`)
+    firebaseRefConnected.on('value', (snap) => {
+      if (!snap.val()) {
+        Alert.info(i18next.t('connected__false'))
+      }
+      Alert.info(i18next.t('connected__true'))
     })
   }
 
