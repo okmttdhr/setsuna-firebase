@@ -48,3 +48,10 @@
 
 .HomeView__explain__text {
 }
+
+@media (max-width: $screenSm) {
+  .HomeView__firstView {
+    margin-top: 0;
+    background-size: auto 100%;
+  }
+}

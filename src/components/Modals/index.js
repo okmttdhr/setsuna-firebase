@@ -1,4 +1,4 @@
-import styles from './index.scss'
+import './index.scss'
 import { connect } from 'react-redux'
 
 import applicationActions from 'actions/application'

@@ -8,7 +8,9 @@ const mapStateToProps = (state) => ({
 
 export class HomeView extends React.Component {
   static propTypes = {
+    userFirebase: React.PropTypes.object,
     toggleModalLogin: React.PropTypes.func.isRequired,
+    history: React.PropTypes.object.isRequired,
   }
 
   constructor() {
@@ -19,7 +21,10 @@ export class HomeView extends React.Component {
   }
 
   _getStarted() {
-    this.props.toggleModalLogin()
+    if (!this.props.userFirebase) {
+      this.props.toggleModalLogin()
+    }
+    this.props.history.pushState(null, '/timeline')
   }
 
   render() {
