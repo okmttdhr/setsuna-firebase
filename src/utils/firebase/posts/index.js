@@ -11,7 +11,7 @@ export function create(userId, content) {
       created_at: Firebase.ServerValue.TIMESTAMP,
     }, (err) => {
       if (err) {
-        return reject()
+        return reject(err)
       }
       return resolve()
     })

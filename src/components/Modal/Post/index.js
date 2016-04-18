@@ -37,7 +37,7 @@ export class ModalPost extends React.Component {
         setTimeout(() => this._showAlert(), 500)
       })
       .catch(() => {
-        alert('保存できませんでした。時間が経ってから再度お試しください。')
+        Alert.info(i18next.t('error__post__create'))
       })
   }
 
