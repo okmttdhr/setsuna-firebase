@@ -1,3 +1,4 @@
+@import "mixins/index";
 @import "mixins/btn";
 @import "mixins/util";
 @import "variables";
@@ -10,16 +11,9 @@
   @include clearfix;
 }
 
-.ModalPost__textarea {
-  width: 100%;
-  height: 80px;
-  padding: 10px;
-  border-color: #ddd;
-  font-size: 14px;
-  resize: none;
-  &:focus {
-    outline: none;
-  }
+.ModalPost__input {
+  @include mdInput;
+  background: $mdBaseColorOpacity01;
 }
 
 .ModalPost__submit {
@@ -35,5 +29,8 @@
 @media (max-width: $screenSm) {
   .ModalPost {
     padding-top: 30px;
+  }
+  .ModalPost__input {
+    background: #fff;
   }
 }

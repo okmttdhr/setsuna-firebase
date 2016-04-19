@@ -23,6 +23,7 @@ export class HomeView extends React.Component {
   _getStarted() {
     if (!this.props.userFirebase) {
       this.props.toggleModalLogin()
+      return
     }
     this.props.history.pushState(null, '/timeline')
   }

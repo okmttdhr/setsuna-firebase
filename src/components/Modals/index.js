@@ -35,7 +35,7 @@ export class Modals extends React.Component {
     const { application } = this.props
     const contentStyleMd = {
       backgroundColor: '#ECEDF8',
-      height: '185px',
+      height: '130px',
     }
     return (
       <div className='Modals'>
