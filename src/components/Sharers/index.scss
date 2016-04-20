@@ -64,6 +64,7 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity .2s ease, visibility .2s ease;
+  transform-style: preserve-3d;
   @include overlay;
 }
 
