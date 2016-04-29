@@ -1,5 +1,7 @@
 import styles from './index.scss'
 import { connect } from 'react-redux'
+import i18next from 'i18next'
+
 import applicationActions from 'actions/application'
 
 const mapStateToProps = (state) => ({
@@ -33,9 +35,11 @@ export class HomeView extends React.Component {
       <div className={styles.HomeView}>
         <div className={styles.HomeView__firstView}>
           <div className={styles.HomeView__firstView__text}>
-            Let bygones be bygones
+            {i18next.t('HomeView__firstView__text')}
           </div>
-          <div className={styles.HomeView__startBtn} onClick={::this._getStarted}>Get Started</div>
+          <div className={styles.HomeView__startBtn} onClick={::this._getStarted}>
+            {i18next.t('get_started')}
+          </div>
         </div>
         <div className={styles.HomeView__explain}>
           <div className={styles.HomeView__explain__content}>

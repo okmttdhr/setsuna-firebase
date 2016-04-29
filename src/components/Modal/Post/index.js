@@ -24,7 +24,7 @@ export class ModalPost extends React.Component {
   }
 
   _showAlert() {
-    Alert.info('投稿完了')
+    Alert.info(i18next.t('post__success'))
   }
 
   _createPost(e) {
