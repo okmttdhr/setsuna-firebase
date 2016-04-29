@@ -15,7 +15,7 @@ const CSS_LOADER = !config.compiler_css_modules
     'css?modules',
     'sourceMap',
     'importLoaders=1',
-    'localIdentName=[local]'
+    'localIdentName=[local]',
   ].join('&')
 
 const webpackConfig = {
@@ -23,14 +23,14 @@ const webpackConfig = {
   target: 'web',
   entry: {
     app: [
-      paths.base(config.dir_client) + '/main.js'
+      `${paths.base(config.dir_client)}/main.js`,
     ],
-    vendor: config.compiler_vendor
+    vendor: config.compiler_vendor,
   },
   output: {
     filename: `[name].[${config.compiler_hash_type}].js`,
     path: paths.base(config.dir_dist),
-    publicPath: config.compiler_public_path
+    publicPath: config.compiler_public_path,
   },
   plugins: [
     new webpack.DefinePlugin(config.globals),
@@ -43,26 +43,23 @@ const webpackConfig = {
       filename: 'index.html',
       inject: 'body',
       minify: {
-        collapseWhitespace: true
-      }
+        collapseWhitespace: true,
+      },
     }),
-    new webpack.ProvidePlugin(config.compiler_globals)
+    new webpack.ProvidePlugin(config.compiler_globals),
   ],
   resolve: {
     root: paths.base(config.dir_client),
     extensions: ['', '.js', '.jsx'],
-    alias: {
-      'i18next': 'i18next/lib/index.js',
-      'i18next-browser-languagedetector': 'i18next-browser-languagedetector/lib/index.js'
-    }
+    alias: {},
   },
   module: {
     preLoaders: [
       {
         test: /\.js$/,
         loader: 'eslint',
-        exclude: /node_modules/
-      }
+        exclude: /node_modules/,
+      },
     ],
     loaders: [
       {
@@ -75,12 +72,12 @@ const webpackConfig = {
         query: {
           cacheDirectory: true,
           plugins: ['transform-runtime'],
-          presets: ['es2015', 'react', 'stage-0']
-        }
+          presets: ['es2015', 'react', 'stage-0'],
+        },
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json',
       },
       {
         test: /\.scss$/,
@@ -88,16 +85,16 @@ const webpackConfig = {
           'style',
           CSS_LOADER,
           'postcss',
-          'sass'
-        ]
+          'sass',
+        ],
       },
       {
         test: /\.css$/,
         loaders: [
           'style',
           CSS_LOADER,
-          'postcss'
-        ]
+          'postcss',
+        ],
       },
       /* eslint-disable */
       { test: /\.woff(\?.*)?$/,  loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
@@ -107,10 +104,10 @@ const webpackConfig = {
       { test: /\.svg(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml' },
       { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' }
       /* eslint-enable */
-    ]
+    ],
   },
   sassLoader: {
-    includePaths: paths.client('styles')
+    includePaths: paths.client('styles'),
   },
   postcss: [
     cssnano({
@@ -118,17 +115,17 @@ const webpackConfig = {
       autoprefixer: {
         add: true,
         remove: true,
-        browsers: ['last 2 versions']
+        browsers: ['last 2 versions'],
       },
       safe: true,
       discardComments: {
-        removeAll: true
-      }
-    })
+        removeAll: true,
+      },
+    }),
   ],
   eslint: {
-    configFile: paths.base('.eslintrc')
-  }
+    configFile: paths.base('.eslintrc'),
+  },
 }
 
 // when we don't know the public path (we know it only when HMR is enabled) we
