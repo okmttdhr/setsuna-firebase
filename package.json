@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "compile": "node -r dotenv/config --harmony bin/compile",
+    "copy:404": "cp dist/index.html dist/404.html",
     "lint": "eslint . ./",
     "lint:fix": "npm run lint -- --fix",
     "start": "npm run dev:no-debug",
@@ -14,8 +15,8 @@
     "dev:no-debug": "npm run dev -- --no_debug",
     "test": "node -r dotenv/config ./node_modules/karma/bin/karma start bin/karma.js",
     "test:dev": "npm run test -- --watch",
-    "deploy:p": "NODE_ENV=production npm run test && npm run clean && npm run compile -- --no_debug && $(npm bin)/firebase deploy",
-    "deploy:s": "NODE_ENV=staging npm run test && npm run clean && npm run compile -- --no_debug && $(npm bin)/firebase deploy -f setsuna-staging"
+    "deploy:p": "NODE_ENV=production npm run test && npm run clean && npm run compile -- --no_debug && npm run copy:404 && $(npm bin)/firebase deploy",
+    "deploy:s": "NODE_ENV=staging npm run test && npm run clean && npm run compile -- --no_debug && npm run copy:404 && $(npm bin)/firebase deploy -f setsuna-staging"
   },
   "repository": {
     "type": "git",

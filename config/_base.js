@@ -29,7 +29,7 @@ const config = {
   compiler_enable_hmr      : false,
   compiler_globals         : {
     'React' : 'react',
-    'ReactDOM' : 'react-dom'
+    'ReactDOM' : 'react-dom',
   },
   compiler_source_maps     : true,
   compiler_hash_type       : 'hash',
@@ -48,7 +48,7 @@ const config = {
     'react-router',
     'redux',
     'redux-actions',
-    'redux-simple-router'
+    'redux-simple-router',
   ],
 
   // ----------------------------------
@@ -57,8 +57,8 @@ const config = {
   coverage_enabled   : !argv.watch,
   coverage_reporters : [
     { type : 'text-summary' },
-    { type : 'html', dir : 'coverage' }
-  ]
+    { type : 'html', dir : 'coverage' },
+  ],
 }
 
 /************************************************
@@ -75,7 +75,7 @@ Edit at Your Own Risk
 // ------------------------------------
 config.globals = {
   'process.env'  : {
-    'NODE_ENV' : JSON.stringify(config.env)
+    'NODE_ENV' : JSON.stringify(config.env),
   },
   'NODE_ENV'     : config.env,
   '__DEV__'      : config.env === 'development',
