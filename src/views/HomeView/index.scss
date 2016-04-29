@@ -9,9 +9,10 @@
   width: 100%;
   height: calc(100vh - 55px);
   margin-top: 55px;
+  color: $mdColorBlack;
   position: absolute;
   top: 0px;
-  background-image: url('../../images/12145202_892485744174682_1581726300_n.jpg');
+  background-image: url('../../images/HomeView__firstView.jpg');
   background-position: center;
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -27,7 +28,7 @@
   @include baseBtnLargeLayout;
   margin: 0 auto;
   color: #fff;
-  background-color: $mdBaseColor;
+  background-color: $mdColorBase;
   &:hover {
     opacity: 0.8;
   }

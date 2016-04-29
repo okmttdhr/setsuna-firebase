@@ -13,14 +13,14 @@
 
 .ModalPost__input {
   @include mdInput;
-  background: $mdBaseColorOpacity01;
+  background: $mdColorBaseOpacity01;
 }
 
 .ModalPost__submit {
   @include baseBtnLayout;
 
   color: #fff;
-  background: $mdBaseColor;
+  background: $mdColorBase;
 
   float: right;
   margin-top: 9px;
