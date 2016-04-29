@@ -87,7 +87,7 @@ export class PostsView extends React.Component {
 
   render() {
     const contentStyleMd = {
-      height: '150px',
+      height: '200px',
     }
     return (
       <div className={styles.PostsView}>
@@ -97,8 +97,10 @@ export class PostsView extends React.Component {
           contentStyleMd={contentStyleMd}>
           <ModalTutorial {...this.props}>
             <div>
-              {i18next.t('ModalTutorial')}
-              <div className='ModalPost__submit' onClick={::this._showModalPost}>投稿する</div>
+              {i18next.t('ModalTutorial__PostsView')}
+              <div className='ModalPost__submit' onClick={::this._showModalPost}>
+                {i18next.t('post')}
+              </div>
             </div>
           </ModalTutorial>
         </Modal>

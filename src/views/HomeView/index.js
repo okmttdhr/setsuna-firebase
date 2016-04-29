@@ -43,6 +43,7 @@ export class HomeView extends React.Component {
         </div>
         <div className={styles.HomeView__explain}>
           <div className={styles.HomeView__explain__content}>
+            {i18next.t('ModalTutorial__PostsView')}
             <div className={styles.HomeView__explain__picture}>
               写真
             </div>

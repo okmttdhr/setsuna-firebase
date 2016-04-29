@@ -6,9 +6,10 @@ module.exports = {
     error__post__create: `
       We couldn't save your post. Please try again later within 150 characters.
     `,
+    post: 'Post',
     post__success: 'Posted successfully.',
     get_started: 'Get Started',
-    ModalTutorial: `
+    ModalTutorial__PostsView: `
       "せつな"へようこその文章。未翻訳。
     `,
     User__logout: 'Logout',
