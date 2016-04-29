@@ -3,7 +3,7 @@ module.exports = {
     key: 'こんにちは',
     connected__true: 'オンラインになりました。',
     connected__false: '現在オフラインです。通信環境を整えてからリロードしてください。',
-    error__post__create: '保存できませんでした。時間が経ってから、150字以内で再度お試しください。',
+    error__post__create: '投稿できませんでした。時間が経ってから、150字以内で再度お試しください。',
     post: '投稿する',
     post__success: '投稿が完了しました。',
     get_started: 'はじめる',

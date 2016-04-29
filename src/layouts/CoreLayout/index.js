@@ -80,6 +80,7 @@ export class CoreLayout extends React.Component {
     firebaseRefConnected.on('value', (snap) => {
       if (!snap.val()) {
         Alert.info(i18next.t('connected__false'))
+        return
       }
       Alert.info(i18next.t('connected__true'))
     })
@@ -95,7 +96,6 @@ export class CoreLayout extends React.Component {
         <Alert
           position='top-right'
           effect='slide'
-          offset={100}
           timeout={3000}
           contentTemplate={CustomAlert} />
         <Modals {...this.state} {...this.props} />
