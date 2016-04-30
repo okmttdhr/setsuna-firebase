@@ -50,6 +50,10 @@
     box-shadow: 0 0px 5px 0 rgba(0,0,0,0.14), 0 0px 5px 0 rgba(0,0,0,0.12), 0 0px 4px -1px rgba(0,0,0,0.2);
   }
 
+  .Navigation--top {
+    display: none;    
+  }
+
   .Navigation__list {
     display: flex;
     justify-content: space-between;

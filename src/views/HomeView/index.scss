@@ -52,6 +52,7 @@
 
 @media (max-width: $screenSm) {
   .HomeView__firstView {
+    height: 100vh;
     margin-top: 0;
     background-size: auto 100%;
   }

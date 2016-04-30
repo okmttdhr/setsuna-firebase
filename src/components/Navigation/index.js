@@ -1,6 +1,7 @@
-import styles from './index.scss'
+import './index.scss'
 
 import { connect } from 'react-redux'
+import classNames from 'classnames'
 
 import userActions from 'actions/user'
 import applicationActions from 'actions/application'
@@ -21,7 +22,7 @@ export class Navigation extends React.Component {
   _renderNavigation() {
     if (this.props.location.pathname === '/') {
       return (
-        <ul className={styles.Navigation__list}>
+        <ul className='Navigation__list'>
           <NavigationLogo {...this.props} />
           <NavigationLink
             {...this.props}
@@ -41,7 +42,7 @@ export class Navigation extends React.Component {
       )
     }
     return (
-      <ul className={styles.Navigation__list}>
+      <ul className='Navigation__list'>
         <NavigationPost {...this.props} />
         <NavigationLink
           {...this.props}
@@ -66,7 +67,10 @@ export class Navigation extends React.Component {
 
   render() {
     return (
-      <div className={styles.Navigation}>
+      <div className={classNames({
+        Navigation: true,
+        'Navigation--top': this.props.location.pathname === '/',
+      })}>
         {this._renderNavigation()}
       </div>
     )
