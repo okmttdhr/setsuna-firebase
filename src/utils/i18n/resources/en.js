@@ -4,6 +4,7 @@ module.exports = {
     connected__true: 'You\'re reconnected.',
     connected__false: 'You\'re disconnected. Reload this page when you\'re reconnected.',
     error__404: 'Page not found. Return to home.',
+    error__404__posts: 'Posts not found. Please try again later',
     error__post__create: `
       We couldn't save your post. Please try again later within 150 characters.
     `,
@@ -11,6 +12,11 @@ module.exports = {
     post__success: 'Posted successfully.',
     get_started: 'Get Started',
     welcome: `Thank you for using "Setsuna".`,
+    login: 'Log in',
+    signup: 'Sign up',
+    home: 'Home',
+    star: 'Star',
+    user: 'User',
     ModalTutorial__PostsView: `
       "Setsuna" is the SNS that you can see only recent 100 posts anonymously.
       You can post anything because nobody knows who posted it. Share your secrets here.

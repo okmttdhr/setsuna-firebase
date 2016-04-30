@@ -9,6 +9,7 @@ export const user = {
 }
 
 export const posts = {
+  isLoading: true,
   errorMessage: '',
 }
 

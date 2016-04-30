@@ -9,6 +9,7 @@ import config from 'utils/config'
 import postsActions from 'actions/posts'
 import tutorialActions from 'actions/tutorial'
 import applicationActions from 'actions/application'
+import { WAIT_TIME } from 'constants'
 
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
@@ -23,10 +24,15 @@ const mapStateToProps = (state) => ({
 export class PostsView extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object,
+
     tutorial: React.PropTypes.object.isRequired,
     toggleTutorialHasDone: React.PropTypes.func.isRequired,
     toggleModalPost: React.PropTypes.func.isRequired,
     toggleModalLogin: React.PropTypes.func.isRequired,
+
+    posts: React.PropTypes.object.isRequired,
+    requestPosts: React.PropTypes.func.isRequired,
+    requestPostsDone: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -40,6 +46,7 @@ export class PostsView extends React.Component {
   componentDidMount() {
     this._getPosts()
     this._getStars(this.props.userFirebase)
+    setTimeout(() => this.props.requestPostsDone(), WAIT_TIME)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -85,6 +92,16 @@ export class PostsView extends React.Component {
     this.props.toggleModalPost()
   }
 
+  _renderTimeline() {
+    if (this.props.posts.isLoading && this.state.postsFirebase.length === 0) {
+      return <Loading />
+    }
+    if (this.state.postsFirebase.length === 0) {
+      return i18next.t('error__404__posts')
+    }
+    return <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />
+  }
+
   render() {
     const contentStyleMd = {
       height: '200px',
@@ -107,9 +124,7 @@ export class PostsView extends React.Component {
           </ModalTutorial>
         </Modal>
         <div className={styles.PostsView__container}>
-          {this.state.postsFirebase.length === 0
-            ? <Loading />
-            : <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />}
+          {this._renderTimeline()}
         </div>
       </div>
     )

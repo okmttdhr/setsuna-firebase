@@ -13,13 +13,13 @@ const karmaConfig = {
       pattern: `./${config.dir_test}/**/*.js`,
       watched: false,
       served: true,
-      included: true
-    }
+      included: true,
+    },
   ],
   singleRun: !argv.watch,
   frameworks: ['mocha', 'chai-sinon', 'chai-as-promised', 'chai'],
   preprocessors: {
-    [`${config.dir_test}/**/*.js`]: ['webpack']
+    [`${config.dir_test}/**/*.js`]: ['webpack'],
   },
   reporters: ['spec'],
   browsers: ['PhantomJS'],
@@ -29,16 +29,16 @@ const karmaConfig = {
     plugins: webpackConfig.plugins
       .filter(plugin => !plugin.__KARMA_IGNORE__),
     module: {
-      loaders: webpackConfig.module.loaders
+      loaders: webpackConfig.module.loaders,
     },
-    sassLoader: webpackConfig.sassLoader
+    sassLoader: webpackConfig.sassLoader,
   },
   webpackMiddleware: {
-    noInfo: true
+    noInfo: true,
   },
   coverageReporter: {
-    reporters: config.coverage_reporters
-  }
+    reporters: config.coverage_reporters,
+  },
 }
 
 if (config.coverage_enabled) {
@@ -46,7 +46,7 @@ if (config.coverage_enabled) {
   karmaConfig.webpack.module.preLoaders = [{
     test: /\.(js|jsx)$/,
     include: new RegExp(config.dir_client),
-    loader: 'isparta'
+    loader: 'isparta',
   }]
 }
 

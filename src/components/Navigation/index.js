@@ -2,6 +2,7 @@ import './index.scss'
 
 import { connect } from 'react-redux'
 import classNames from 'classnames'
+import i18next from 'i18next'
 
 import userActions from 'actions/user'
 import applicationActions from 'actions/application'
@@ -26,14 +27,14 @@ export class Navigation extends React.Component {
           <NavigationLogo {...this.props} />
           <NavigationLink
             {...this.props}
-            text='Log in'
+            text={i18next.t('login')}
             textIcon=''
             pathname='/timeline'
             requireAuth
             floatRight />
           <NavigationLink
             {...this.props}
-            text='Sign in'
+            text={i18next.t('signup')}
             textIcon=''
             pathname='/timeline'
             requireAuth
@@ -46,18 +47,18 @@ export class Navigation extends React.Component {
         <NavigationPost {...this.props} />
         <NavigationLink
           {...this.props}
-          text='Home'
+          text={i18next.t('home')}
           textIcon='home'
           pathname='/timeline'/>
         <NavigationLink
           {...this.props}
-          text='Star'
+          text={i18next.t('star')}
           textIcon='star'
           pathname='/stars'
           requireAuth />
         <NavigationLink
           {...this.props}
-          text='You'
+          text={i18next.t('user')}
           textIcon='person'
           pathname='/user'
           requireAuth />
