@@ -1,0 +1,14 @@
+@import "mixins/index";
+@import "variables";
+
+.NotFoundView {
+  @include baseContainer;
+}
+
+.NotFoundView__link {
+  text-decoration: none;
+  color: $mdColorBlack;
+  &:hover {
+    text-decoration: underline;
+  }
+}
