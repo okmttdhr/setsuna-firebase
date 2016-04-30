@@ -3,4 +3,7 @@
 .CustomAlert {
   background-color: $mdColorBase;
   z-index: 5000;
+  &.s-alert-error {
+    background-color: $mdColorPink;
+  }
 }

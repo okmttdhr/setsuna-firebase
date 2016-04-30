@@ -83,10 +83,12 @@ export class CoreLayout extends React.Component {
     const firebaseRefConnected = new Firebase(`${config.firebaseRef()}.info/connected`)
     firebaseRefConnected.on('value', (snap) => {
       if (!snap.val()) {
-        Alert.info(i18next.t('connected__false'))
+        Alert.error(i18next.t('connected__false'), {
+          timeout: 'none',
+        })
         return
       }
-      Alert.info(i18next.t('connected__true'))
+      Alert.closeAll()
     })
   }
 
