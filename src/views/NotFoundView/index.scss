@@ -2,7 +2,7 @@
 @import "variables";
 
 .NotFoundView {
-  @include baseContainer;
+  @include baseContainerText;
 }
 
 .NotFoundView__link {

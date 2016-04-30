@@ -97,6 +97,8 @@ export class PostsView extends React.Component {
           contentStyleMd={contentStyleMd}>
           <ModalTutorial {...this.props}>
             <div>
+              {i18next.t('welcome')}
+              <br/><br/>
               {i18next.t('ModalTutorial__PostsView')}
               <div className='ModalPost__submit' onClick={::this._showModalPost}>
                 {i18next.t('post')}

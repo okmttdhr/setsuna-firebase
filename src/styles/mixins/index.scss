@@ -48,6 +48,14 @@
   }
 }
 
+// テキストのみのコンテナ
+@mixin baseContainerText {
+  @include baseContainer
+  @media (max-width: $screenSm) {
+    width: 80%;
+  }
+}
+
 // visibilityやopacityのtransitionなどは各コンポーネントで操作する
 @mixin overlay {
   width: 100vw;

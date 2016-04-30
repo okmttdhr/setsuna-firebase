@@ -38,14 +38,11 @@ export class HomeView extends React.Component {
             {i18next.t('get_started')}
           </div>
         </div>
-        <div className={styles.HomeView__explain}>
-          <div className={styles.HomeView__explain__content}>
-            {i18next.t('ModalTutorial__PostsView')}
-            <div className={styles.HomeView__explain__picture}>
-              写真
-            </div>
-            <div className={styles.HomeView__explain__text}>
-              テキスト
+        <div className='HomeView__explain'>
+          <div className='HomeView__explain__content'>
+            <div className='HomeView__explain__text'>
+              <i className='material-icons HomeView__explain__text__icon'>beach_access</i>
+              {i18next.t('ModalTutorial__PostsView')}
             </div>
           </div>
         </div>

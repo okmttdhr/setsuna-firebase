@@ -10,8 +10,10 @@ module.exports = {
     post: 'Post',
     post__success: 'Posted successfully.',
     get_started: 'Get Started',
+    welcome: `Thank you for using "Setsuna".`,
     ModalTutorial__PostsView: `
-      "せつな"へようこその文章。未翻訳。
+      "Setsuna" is the SNS that you can see only recent 100 posts anonymously.
+      You can post anything because nobody knows who posted it. Share your secrets here.
     `,
     User__logout: 'Logout',
     TimelineHeader__placeholder: 'Enter to Flush!',

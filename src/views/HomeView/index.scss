@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins/index";
 @import "mixins/btn";
 
 .HomeView {
@@ -43,11 +44,15 @@
   justify-content: center;
 }
 
-.HomeView__explain__picture {
-  margin-right: 100px;
+.HomeView__explain__text {
+  @include baseContainerText
+  color: $mdColorBlack;
+  line-height: 1.6;
 }
 
-.HomeView__explain__text {
+.HomeView__explain__text__icon {
+  font-size: 20px;
+  color: $mdColorBase;
 }
 
 @media (max-width: $screenSm) {
