@@ -84,7 +84,7 @@ export class UserView extends React.Component {
           contentStyleMd={contentStyleMd}>
           <ModalTutorial {...this.props}>
             <div>
-              ここはあなたの情報が表示される非公開のページです。あなた以外の人はアクセスできませんのでご安心ください。
+              ここはあなたの情報が表示される非公開のページです。あなた以外の人がアクセスすることはできません。
             </div>
           </ModalTutorial>
         </Modal>
