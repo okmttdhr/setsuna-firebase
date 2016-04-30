@@ -7,10 +7,8 @@ export class ModalLogin extends React.Component {
     toggleModalLogin: React.PropTypes.func.isRequired,
   }
 
-  _loginWithOAuthPopup(provider) {
-    firebaseUtils.users.loginWithOAuthPopup(provider)
-      .then((authData) => firebaseUtils.users.create(authData))
-      .then(() => this.props.toggleModalLogin())
+  _loginWithOAuthRedirect(provider) {
+    firebaseUtils.users.loginWithOAuthRedirect(provider)
       .catch(() => {
         alert('ログインできませんでした。時間が経ってから再度お試しください。')
       })
@@ -27,7 +25,7 @@ export class ModalLogin extends React.Component {
             [styles.ModalLogin__SocialBtn]: true,
             [styles['ModalLogin__SocialBtn--Facebook']]: true,
           })}
-          onClick={() => this._loginWithOAuthPopup('facebook')}>
+          onClick={() => this._loginWithOAuthRedirect('facebook')}>
           Login with Facebook
         </div>
         <div
@@ -35,7 +33,7 @@ export class ModalLogin extends React.Component {
             [styles.ModalLogin__SocialBtn]: true,
             [styles['ModalLogin__SocialBtn--Twitter']]: true,
           })}
-          onClick={() => this._loginWithOAuthPopup('twitter')}>
+          onClick={() => this._loginWithOAuthRedirect('twitter')}>
           Login with Twitter
         </div>
         <div
@@ -43,7 +41,7 @@ export class ModalLogin extends React.Component {
             [styles.ModalLogin__SocialBtn]: true,
             [styles['ModalLogin__SocialBtn--Google']]: true,
           })}
-          onClick={() => this._loginWithOAuthPopup('google')}>
+          onClick={() => this._loginWithOAuthRedirect('google')}>
           Login with Google
         </div>
       </div>

@@ -11,6 +11,7 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import Alert from 'react-s-alert'
 
 import config from 'utils/config'
+import firebaseUtils from 'utils/firebase/index'
 import Navigation from 'components/Navigation/index'
 import Modals from 'components/Modals/index'
 import CustomAlert from 'components/CustomAlert/index'
@@ -50,12 +51,15 @@ export class CoreLayout extends React.Component {
         }
         return
       }
-      const uid = authData.auth.uid
-      const firebaseRefUsers = new Firebase(`${config.firebaseRef()}users/${uid}`)
-      this.bindAsObject(firebaseRefUsers, 'userFirebase')
-      if (this.props.location.pathname === '/') {
-        this.props.history.pushState(null, '/timeline')
-      }
+      firebaseUtils.users.create(authData)
+        .then(() => {
+          const uid = authData.auth.uid
+          const firebaseRefUsers = new Firebase(`${config.firebaseRef()}users/${uid}`)
+          this.bindAsObject(firebaseRefUsers, 'userFirebase')
+          if (this.props.location.pathname === '/') {
+            this.props.history.pushState(null, '/timeline')
+          }
+        })
     })
   }
 

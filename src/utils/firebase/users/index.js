@@ -17,18 +17,17 @@ export function create(authData) {
 }
 
 /**
- * 指定されたプロバイダーでポップアップログイン
+ * 指定されたプロバイダーでログイン
  *
  * @param {String} provider - ex. google, facebookなど
  * @return {Object}
  */
-export function loginWithOAuthPopup(provider) {
+export function loginWithOAuthRedirect(provider) {
   return new Promise((resolve, reject) => {
-    firebaseRef.authWithOAuthPopup(provider, (err, authData) => {
+    firebaseRef.authWithOAuthRedirect(provider, (err, authData) => {
       if (err || !authData) {
         return reject()
       }
-      return resolve(authData)
     }, { scope: 'email' })
   })
 }
@@ -42,6 +41,6 @@ export function logout() {
 
 export default {
   create,
-  loginWithOAuthPopup,
+  loginWithOAuthRedirect,
   logout,
 }
