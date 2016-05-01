@@ -21,7 +21,7 @@ module.exports = {
     tryAgainLater: 'Please try again later',
     ModalTutorial__PostsView: `
       "Setsuna" is the SNS that you can see only recent 100 posts anonymously.
-      You can post anything because nobody knows who posted it. Share your secrets here.
+      You can post anything because nobody knows who posted it. Share your secrets now.
     `,
     ModalTutorial__StarsView: 'This is the page for your starred posts.',
     ModalTutorial__UserView: 'This is your personal page. Nobody cannot access here but you.',
