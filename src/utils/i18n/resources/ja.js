@@ -21,6 +21,8 @@ module.exports = {
       "せつな"は、最新100件の投稿だけを完全に匿名でみることができるSNSです。
       投稿するのももちろん匿名なので、どんなことでも書くことができます。あなたが普段言えない本音を投稿してみましょう。
     `,
+    ModalTutorial__StarsView: 'ここはスター(お気に入り)が表示されるページです。',
+    ModalTutorial__UserView: 'ここはあなたの情報が表示される非公開のページです。あなた以外の人がアクセスすることはできません。',
     User__logout: 'ログアウト',
     TimelineHeader__placeholder: 'Enterで水に流す',
     Star__delete__confirm: 'スターを削除しますか？',

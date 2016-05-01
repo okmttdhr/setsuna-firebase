@@ -1,5 +1,6 @@
 import styles from './index.scss'
 import classNames from 'classnames'
+import i18next from 'i18next'
 
 export default class NavigationPost extends React.Component {
   static propTypes = {
@@ -27,7 +28,7 @@ export default class NavigationPost extends React.Component {
           [styles.NavigationPost__icon]: true,
           'material-icons': true,
         })}>edit</i>
-        <div className={styles.NavigationPost__text}>Post</div>
+        <div className={styles.NavigationPost__text}>{i18next.t('post')}</div>
       </li>
     )
   }

@@ -90,7 +90,7 @@ export class StarsView extends React.Component {
 
   render() {
     const contentStyleMd = {
-      height: '150px',
+      height: '75px',
     }
     return (
       <div className={styles.StarsView}>
@@ -100,7 +100,7 @@ export class StarsView extends React.Component {
           contentStyleMd={contentStyleMd}>
           <ModalTutorial {...this.props}>
             <div>
-              ここはスターが表示されるページです。
+              {i18next.t('ModalTutorial__StarsView')}
             </div>
           </ModalTutorial>
         </Modal>

@@ -95,7 +95,7 @@ export class UserView extends React.Component {
 
   render() {
     const contentStyleMd = {
-      height: '150px',
+      height: '75px',
     }
     return (
       <div className={styles.UserView}>
@@ -105,7 +105,7 @@ export class UserView extends React.Component {
           contentStyleMd={contentStyleMd}>
           <ModalTutorial {...this.props}>
             <div>
-              ここはあなたの情報が表示される非公開のページです。あなた以外の人がアクセスすることはできません。
+              {i18next.t('ModalTutorial__UserView')}
             </div>
           </ModalTutorial>
         </Modal>

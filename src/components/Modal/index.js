@@ -1,4 +1,4 @@
-import styles from './index.scss'
+import './index.scss'
 import classNames from 'classnames'
 import config from 'utils/config'
 
@@ -17,19 +17,19 @@ export class Modal extends React.Component {
     return (
       <div
         className={classNames({
-          [styles.Modal]: true,
-          [styles.isShow]: this.props.isShow,
+          Modal: true,
+          isShow: this.props.isShow,
         })}>
-        <div className={styles.Modal__overlay} onClick={this.props.toggleShow}></div>
+        <div className='Modal__overlay' onClick={this.props.toggleShow}></div>
         <div
-          className={styles.Modal__content}
+          className='Modal__content'
           style={contentStyle}
           onClick={(e) => e.stopPropagation()}>
           {this.props.children}
         </div>
         <i
           className={classNames({
-            [styles.Modal__close]: true,
+            Modal__close: true,
             'material-icons': true,
           })}
           onClick={this.props.toggleShow}>
