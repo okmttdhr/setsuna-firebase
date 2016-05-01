@@ -1,6 +1,22 @@
 @import 'variables';
+@import 'mixins/index';
+
+$CoreLayout__overlay--center: calc(50vh - 27px);
 
 .CoreLayout {}
+
+.CoreLayout__overlay {
+  @include overlay;
+  z-index: 9999;
+  background: #fff;
+  padding-top: $CoreLayout__overlay--center;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+
+.CoreLayout__overlay--hide {
+  visibility: hidden;
+  opacity: 0;
+}
 
 .CoreLayout__viewContainer {
   margin-top: 75px;

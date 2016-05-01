@@ -10,8 +10,10 @@ import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import Alert from 'react-s-alert'
 
+import { WAIT_TIME } from 'constants'
 import config from 'utils/config'
 import firebaseUtils from 'utils/firebase/index'
+import Loading from 'components/Loading/index'
 import Navigation from 'components/Navigation/index'
 import Modals from 'components/Modals/index'
 import CustomAlert from 'components/CustomAlert/index'
@@ -34,7 +36,10 @@ export class CoreLayout extends React.Component {
 
   componentDidMount() {
     this._onAuth()
-    setTimeout(() => this._watchConnected(), 3000)
+    setTimeout(() => {
+      this._watchConnected()
+      document.querySelector('.CoreLayout__overlay').classList.add('CoreLayout__overlay--hide')
+    }, WAIT_TIME)
   }
 
   _isBinded(bindVar) {
@@ -106,6 +111,9 @@ export class CoreLayout extends React.Component {
           contentTemplate={CustomAlert} />
         <Modals {...this.state} {...this.props} />
         <Navigation {...this.state} {...this.props} />
+        <div className='CoreLayout__overlay'>
+          <Loading />
+        </div>
         <div className='CoreLayout__viewContainer'>
           {children}
         </div>
