@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import i18next from 'i18next'
 
 import config from 'utils/config'
-import postsActions from 'actions/posts'
+import starsActions from 'actions/stars'
 import tutorialActions from 'actions/tutorial'
 import { WAIT_TIME } from 'constants'
 
@@ -16,7 +16,7 @@ import Modal from 'components/Modal/index'
 import ModalTutorial from 'components/Modal/Tutorial/index'
 
 const mapStateToProps = (state) => ({
-  posts: state.posts,
+  stars: state.stars,
   tutorial: state.tutorial,
 })
 
@@ -27,9 +27,9 @@ export class StarsView extends React.Component {
     tutorial: React.PropTypes.object.isRequired,
     toggleTutorialHasDone: React.PropTypes.func.isRequired,
 
-    posts: React.PropTypes.object.isRequired,
-    requestPosts: React.PropTypes.func.isRequired,
-    requestPostsDone: React.PropTypes.func.isRequired,
+    stars: React.PropTypes.object.isRequired,
+    requestStars: React.PropTypes.func.isRequired,
+    requestStarsDone: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -41,8 +41,8 @@ export class StarsView extends React.Component {
 
   componentDidMount() {
     this._getStars(this.props.userFirebase)
-    this.props.requestPosts()
-    setTimeout(() => this.props.requestPostsDone(), WAIT_TIME)
+    this.props.requestStars()
+    setTimeout(() => this.props.requestStarsDone(), WAIT_TIME)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -79,7 +79,7 @@ export class StarsView extends React.Component {
   }
 
   _renderTimeline() {
-    if (this.props.posts.isLoading && this.state.starsFirebase.length === 0) {
+    if (this.props.stars.isLoading && this.state.starsFirebase.length === 0) {
       return <Loading />
     }
     if (this.state.starsFirebase.length === 0) {
@@ -114,6 +114,6 @@ export class StarsView extends React.Component {
 
 const StarsViewWithMixin = reactMixin.decorate(ReactFireMixin)(StarsView)
 export default connect(mapStateToProps, {
-  ...postsActions,
+  ...starsActions,
   ...tutorialActions,
 })(StarsViewWithMixin)

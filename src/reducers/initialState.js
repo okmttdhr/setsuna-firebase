@@ -9,7 +9,12 @@ export const user = {
 }
 
 export const posts = {
-  isLoading: true,
+  isLoading: false,
+  errorMessage: '',
+}
+
+export const stars = {
+  isLoading: false,
   errorMessage: '',
 }
 
