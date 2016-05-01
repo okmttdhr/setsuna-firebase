@@ -1,4 +1,4 @@
-import styles from './index.scss'
+import './index.scss'
 import { connect } from 'react-redux'
 import i18next from 'i18next'
 
@@ -29,13 +29,13 @@ export class HomeView extends React.Component {
 
   render() {
     return (
-      <div className={styles.HomeView}>
-        <div className={styles.HomeView__firstView}>
-          <div className={styles.HomeView__firstView__text}>
+      <div className='HomeView'>
+        <div className='HomeView__firstView'>
+          <div className='HomeView__firstView__text'>
             {i18next.t('HomeView__firstView__text')}
           </div>
-          <div className={styles.HomeView__startBtn} onClick={::this._getStarted}>
-            {i18next.t('get_started')}
+          <div className='HomeView__startBtn' onClick={::this._getStarted}>
+            {i18next.t('getStarted')}
           </div>
         </div>
         <div className='HomeView__explain'>
@@ -45,6 +45,13 @@ export class HomeView extends React.Component {
               {i18next.t('ModalTutorial__PostsView')}
             </div>
           </div>
+        </div>
+        <div className='HomeView__posts'>
+          <a href='/#/timeline' className='HomeView__posts__link'>
+            <div className='HomeView__posts__link__btn'>
+              {i18next.t('seePosts')}
+            </div>
+          </a>
         </div>
       </div>
     )

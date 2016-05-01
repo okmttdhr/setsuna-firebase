@@ -9,7 +9,7 @@ module.exports = {
     error__post__create: '投稿できませんでした。時間が経ってから、150字以内で再度お試しください。',
     post: '投稿する',
     post__success: '投稿が完了しました。',
-    get_started: 'はじめる',
+    getStarted: 'はじめる',
     welcome: `"せつな"をご利用いただきありがとうございます。`,
     login: 'ログイン',
     signup: '登録',
@@ -17,6 +17,7 @@ module.exports = {
     star: 'スター',
     user: 'ユーザー',
     tryAgainLater: '時間が経ってから、再度お試しください。',
+    seePosts: 'せつなを見る',
     ModalTutorial__PostsView: `
       "せつな"は、最新100件の投稿だけを完全に匿名でみることができるSNSです。
       投稿するのももちろん匿名なので、どんなことでも書くことができます。あなたが普段言えない本音を投稿してみましょう。

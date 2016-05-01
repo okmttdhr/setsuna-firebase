@@ -2,6 +2,18 @@
 @import "mixins/index";
 @import "mixins/btn";
 
+$contentSpace: 100px;
+
+@mixin HomeView__btn--center {
+  @include baseBtnLargeLayout;
+  margin: 0 auto;
+  color: #fff;
+  background-color: $mdColorBase;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 .HomeView {
   margin-top: calc(100vh);
 }
@@ -26,17 +38,11 @@
 }
 
 .HomeView__startBtn {
-  @include baseBtnLargeLayout;
-  margin: 0 auto;
-  color: #fff;
-  background-color: $mdColorBase;
-  &:hover {
-    opacity: 0.8;
-  }
+  @include HomeView__btn--center;
 }
 
 .HomeView__explain {
-  padding: 100px 0;
+  padding: $contentSpace 0 $contentSpace 0;
 }
 
 .HomeView__explain__content {
@@ -53,6 +59,18 @@
 .HomeView__explain__text__icon {
   font-size: 20px;
   color: $mdColorBase;
+}
+
+.HomeView__posts {
+  padding-bottom: $contentSpace;
+}
+
+.HomeView__posts__link {
+  text-decoration: none;
+}
+
+.HomeView__posts__link__btn {
+  @include HomeView__btn--center;
 }
 
 @media (max-width: $screenSm) {
