@@ -41,10 +41,19 @@ export class ModalTutorialPosts extends React.Component {
     this.props.toggleModalPost()
   }
 
-  render() {
-    const contentStyleMd = {
+  _getStyleMd() {
+    if (i18next.language === 'ja') {
+      return {
+        height: '238px',
+      }
+    }
+    return {
       height: '194px',
     }
+  }
+
+  render() {
+    const contentStyleMd = this._getStyleMd()
     return (
       <Modal
         isShow={!this.props.tutorial.hasDone.in.PostsView}

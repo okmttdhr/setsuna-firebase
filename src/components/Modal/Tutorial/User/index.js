@@ -28,10 +28,19 @@ export class ModalTutorialUser extends React.Component {
     })
   }
 
-  render() {
-    const contentStyleMd = {
+  _getStyleMd() {
+    if (i18next.language === 'ja') {
+      return {
+        height: '100px',
+      }
+    }
+    return {
       height: '75px',
     }
+  }
+
+  render() {
+    const contentStyleMd = this._getStyleMd()
     return (
       <Modal
         isShow={!this.props.tutorial.hasDone.in.UserView}
