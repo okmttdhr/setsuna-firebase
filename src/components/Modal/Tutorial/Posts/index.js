@@ -1,5 +1,4 @@
 import './index.scss'
-import classNames from 'classnames'
 import i18next from 'i18next'
 import { connect } from 'react-redux'
 
@@ -59,10 +58,7 @@ export class ModalTutorialPosts extends React.Component {
         isShow={!this.props.tutorial.hasDone.in.PostsView}
         toggleShow={::this._toggleTutorialHasDone}
         contentStyleMd={contentStyleMd}>
-        <div
-          className={classNames({
-            ModalTutorialPosts: true,
-          })}>
+        <div className='ModalTutorialPosts'>
           <div>
             {i18next.t('welcome')}
             <br/><br/>
