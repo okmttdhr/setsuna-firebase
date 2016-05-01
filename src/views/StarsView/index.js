@@ -3,9 +3,12 @@ import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
 import { connect } from 'react-redux'
+import i18next from 'i18next'
 
 import config from 'utils/config'
+import postsActions from 'actions/posts'
 import tutorialActions from 'actions/tutorial'
+import { WAIT_TIME } from 'constants'
 
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
@@ -13,14 +16,20 @@ import Modal from 'components/Modal/index'
 import ModalTutorial from 'components/Modal/Tutorial/index'
 
 const mapStateToProps = (state) => ({
+  posts: state.posts,
   tutorial: state.tutorial,
 })
 
 export class StarsView extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object,
+
     tutorial: React.PropTypes.object.isRequired,
     toggleTutorialHasDone: React.PropTypes.func.isRequired,
+
+    posts: React.PropTypes.object.isRequired,
+    requestPosts: React.PropTypes.func.isRequired,
+    requestPostsDone: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -32,6 +41,8 @@ export class StarsView extends React.Component {
 
   componentDidMount() {
     this._getStars(this.props.userFirebase)
+    this.props.requestPosts()
+    setTimeout(() => this.props.requestPostsDone(), WAIT_TIME)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -53,6 +64,13 @@ export class StarsView extends React.Component {
     )
   }
 
+  _toggleTutorialHasDone() {
+    this.props.toggleTutorialHasDone({
+      type: 'in',
+      name: 'StarsView',
+    })
+  }
+
   _renderStar() {
     if (this.state.starsFirebase.length === 0) {
       return 'loading'
@@ -60,11 +78,14 @@ export class StarsView extends React.Component {
     return this.state.starsFirebase.map((item, index) => (<div key={index}>{item.content}</div>))
   }
 
-  _toggleTutorialHasDone() {
-    this.props.toggleTutorialHasDone({
-      type: 'in',
-      name: 'StarsView',
-    })
+  _renderTimeline() {
+    if (this.props.posts.isLoading && this.state.starsFirebase.length === 0) {
+      return <Loading />
+    }
+    if (this.state.starsFirebase.length === 0) {
+      return i18next.t('error__404__stars')
+    }
+    return <Timeline items={this.state.starsFirebase} {...this.state} {...this.props} />
   }
 
   render() {
@@ -84,9 +105,7 @@ export class StarsView extends React.Component {
           </ModalTutorial>
         </Modal>
         <div className={styles.StarsView__container}>
-          {this.state.starsFirebase.length === 0
-            ? <Loading />
-            : <Timeline items={this.state.starsFirebase} {...this.state} {...this.props} />}
+          {this._renderTimeline()}
         </div>
       </div>
     )
@@ -95,5 +114,6 @@ export class StarsView extends React.Component {
 
 const StarsViewWithMixin = reactMixin.decorate(ReactFireMixin)(StarsView)
 export default connect(mapStateToProps, {
+  ...postsActions,
   ...tutorialActions,
 })(StarsViewWithMixin)

@@ -43,6 +43,7 @@ export class UserView extends React.Component {
   componentDidMount() {
     this._getUserPosts(this.props.userFirebase)
     this._getStars(this.props.userFirebase)
+    this.props.requestPosts()
     setTimeout(() => this.props.requestPostsDone(), WAIT_TIME)
   }
 

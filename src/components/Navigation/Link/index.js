@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 export default class NavigationLink extends React.Component {
   static propTypes = {
-    text: React.PropTypes.string.isRequired,
+    text: React.PropTypes.string,
     textIcon: React.PropTypes.string.isRequired,
     pathname: React.PropTypes.string.isRequired,
     requireAuth: React.PropTypes.bool,

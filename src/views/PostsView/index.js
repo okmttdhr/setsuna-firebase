@@ -46,6 +46,7 @@ export class PostsView extends React.Component {
   componentDidMount() {
     this._getPosts()
     this._getStars(this.props.userFirebase)
+    this.props.requestPosts()
     setTimeout(() => this.props.requestPostsDone(), WAIT_TIME)
   }
 
@@ -97,7 +98,7 @@ export class PostsView extends React.Component {
       return <Loading />
     }
     if (this.state.postsFirebase.length === 0) {
-      return i18next.t('error__404__posts')
+      return i18next.t('error__404__posts') + i18next.t('tryAgainLater')
     }
     return <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />
   }
