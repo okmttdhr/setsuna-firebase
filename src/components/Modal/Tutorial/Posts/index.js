@@ -14,10 +14,11 @@ export class ModalTutorialPosts extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object,
 
-    tutorial: React.PropTypes.object.isRequired,
-    toggleTutorialHasDone: React.PropTypes.func.isRequired,
     toggleModalPost: React.PropTypes.func.isRequired,
     toggleModalLogin: React.PropTypes.func.isRequired,
+
+    tutorial: React.PropTypes.object.isRequired,
+    toggleTutorialHasDone: React.PropTypes.func.isRequired,
   }
 
   constructor() {

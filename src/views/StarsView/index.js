@@ -7,25 +7,19 @@ import i18next from 'i18next'
 
 import config from 'utils/config'
 import starsActions from 'actions/stars'
-import tutorialActions from 'actions/tutorial'
 import { WAIT_TIME } from 'constants'
 
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
-import Modal from 'components/Modal/index'
-import ModalTutorial from 'components/Modal/Tutorial/index'
+import ModalTutorialStars from 'components/Modal/Tutorial/Stars/index'
 
 const mapStateToProps = (state) => ({
   stars: state.stars,
-  tutorial: state.tutorial,
 })
 
 export class StarsView extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object,
-
-    tutorial: React.PropTypes.object.isRequired,
-    toggleTutorialHasDone: React.PropTypes.func.isRequired,
 
     stars: React.PropTypes.object.isRequired,
     requestStars: React.PropTypes.func.isRequired,
@@ -64,13 +58,6 @@ export class StarsView extends React.Component {
     )
   }
 
-  _toggleTutorialHasDone() {
-    this.props.toggleTutorialHasDone({
-      type: 'in',
-      name: 'StarsView',
-    })
-  }
-
   _renderStar() {
     if (this.state.starsFirebase.length === 0) {
       return 'loading'
@@ -89,21 +76,9 @@ export class StarsView extends React.Component {
   }
 
   render() {
-    const contentStyleMd = {
-      height: '75px',
-    }
     return (
       <div className={styles.StarsView}>
-        <Modal
-          isShow={!this.props.tutorial.hasDone.in.StarsView}
-          toggleShow={::this._toggleTutorialHasDone}
-          contentStyleMd={contentStyleMd}>
-          <ModalTutorial {...this.props}>
-            <div>
-              {i18next.t('ModalTutorial__StarsView')}
-            </div>
-          </ModalTutorial>
-        </Modal>
+        <ModalTutorialStars {...this.props} />
         <div className={styles.StarsView__container}>
           {this._renderTimeline()}
         </div>
@@ -115,5 +90,4 @@ export class StarsView extends React.Component {
 const StarsViewWithMixin = reactMixin.decorate(ReactFireMixin)(StarsView)
 export default connect(mapStateToProps, {
   ...starsActions,
-  ...tutorialActions,
 })(StarsViewWithMixin)
