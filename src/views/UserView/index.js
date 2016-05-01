@@ -6,27 +6,21 @@ import { connect } from 'react-redux'
 import i18next from 'i18next'
 
 import config from 'utils/config'
-import tutorialActions from 'actions/tutorial'
 import postsActions from 'actions/posts'
 import { WAIT_TIME } from 'constants'
 
 import UserSettings from 'components/User/Settings/index'
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
-import Modal from 'components/Modal/index'
-import ModalTutorial from 'components/Modal/Tutorial/index'
+import ModalTutorialUser from 'components/Modal/Tutorial/User/index'
 
 const mapStateToProps = (state) => ({
   posts: state.posts,
-  tutorial: state.tutorial,
 })
 
 export class UserView extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object,
-
-    tutorial: React.PropTypes.object.isRequired,
-    toggleTutorialHasDone: React.PropTypes.func.isRequired,
 
     posts: React.PropTypes.object.isRequired,
     requestPosts: React.PropTypes.func.isRequired,
@@ -76,13 +70,6 @@ export class UserView extends React.Component {
     )
   }
 
-  _toggleTutorialHasDone() {
-    this.props.toggleTutorialHasDone({
-      type: 'in',
-      name: 'UserView',
-    })
-  }
-
   _renderTimeline() {
     if (this.props.posts.isLoading && this.state.postsFirebase.length === 0) {
       return <Loading />
@@ -94,21 +81,9 @@ export class UserView extends React.Component {
   }
 
   render() {
-    const contentStyleMd = {
-      height: '75px',
-    }
     return (
       <div className={styles.UserView}>
-        <Modal
-          isShow={!this.props.tutorial.hasDone.in.UserView}
-          toggleShow={::this._toggleTutorialHasDone}
-          contentStyleMd={contentStyleMd}>
-          <ModalTutorial {...this.props}>
-            <div>
-              {i18next.t('ModalTutorial__UserView')}
-            </div>
-          </ModalTutorial>
-        </Modal>
+        <ModalTutorialUser {...this.props} />
         <div className={styles.UserView__container}>
           <UserSettings {...this.props} />
           {this._renderTimeline()}
@@ -121,5 +96,4 @@ export class UserView extends React.Component {
 const UserViewWithMixin = reactMixin.decorate(ReactFireMixin)(UserView)
 export default connect(mapStateToProps, {
   ...postsActions,
-  ...tutorialActions,
 })(UserViewWithMixin)
