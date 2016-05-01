@@ -3,9 +3,12 @@ import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
 import Firebase from 'firebase'
 import { connect } from 'react-redux'
+import i18next from 'i18next'
 
 import config from 'utils/config'
 import tutorialActions from 'actions/tutorial'
+import postsActions from 'actions/posts'
+import { WAIT_TIME } from 'constants'
 
 import UserSettings from 'components/User/Settings/index'
 import Timeline from 'components/Timeline/index'
@@ -14,14 +17,20 @@ import Modal from 'components/Modal/index'
 import ModalTutorial from 'components/Modal/Tutorial/index'
 
 const mapStateToProps = (state) => ({
+  posts: state.posts,
   tutorial: state.tutorial,
 })
 
 export class UserView extends React.Component {
   static propTypes = {
     userFirebase: React.PropTypes.object,
+
     tutorial: React.PropTypes.object.isRequired,
     toggleTutorialHasDone: React.PropTypes.func.isRequired,
+
+    posts: React.PropTypes.object.isRequired,
+    requestPosts: React.PropTypes.func.isRequired,
+    requestPostsDone: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -34,6 +43,7 @@ export class UserView extends React.Component {
   componentDidMount() {
     this._getUserPosts(this.props.userFirebase)
     this._getStars(this.props.userFirebase)
+    setTimeout(() => this.props.requestPostsDone(), WAIT_TIME)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -72,6 +82,16 @@ export class UserView extends React.Component {
     })
   }
 
+  _renderTimeline() {
+    if (this.props.posts.isLoading && this.state.postsFirebase.length === 0) {
+      return <Loading />
+    }
+    if (this.state.postsFirebase.length === 0) {
+      return i18next.t('error__404__posts')
+    }
+    return <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />
+  }
+
   render() {
     const contentStyleMd = {
       height: '150px',
@@ -90,9 +110,7 @@ export class UserView extends React.Component {
         </Modal>
         <div className={styles.UserView__container}>
           <UserSettings {...this.props} />
-          {this.state.postsFirebase.length === 0
-            ? <Loading />
-            : <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />}
+          {this._renderTimeline()}
         </div>
       </div>
     )
@@ -101,5 +119,6 @@ export class UserView extends React.Component {
 
 const UserViewWithMixin = reactMixin.decorate(ReactFireMixin)(UserView)
 export default connect(mapStateToProps, {
+  ...postsActions,
   ...tutorialActions,
 })(UserViewWithMixin)
