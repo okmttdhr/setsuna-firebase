@@ -34,7 +34,6 @@ export class CoreLayout extends React.Component {
 
   componentDidMount() {
     this._onAuth()
-    this._setLang()
     setTimeout(() => this._watchConnected(), 3000)
   }
 
@@ -93,6 +92,7 @@ export class CoreLayout extends React.Component {
   }
 
   render() {
+    this._setLang()
     const children = React.cloneElement(
       this.props.children,
       { userFirebase: this.state.userFirebase }
