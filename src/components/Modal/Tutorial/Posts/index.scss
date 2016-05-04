@@ -1,5 +1,9 @@
 @import 'variables';
 
+.ModalTutorialPosts {
+  color: $mdColorBlack;
+}
+
 @media (max-width: $screenSm) {
   .ModalTutorialPosts {
     padding-top: 30px;

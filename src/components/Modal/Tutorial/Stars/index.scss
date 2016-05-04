@@ -1,5 +1,9 @@
 @import 'variables';
 
+.ModalTutorialStars {
+  color: $mdColorBlack;
+}
+
 @media (max-width: $screenSm) {
   .ModalTutorialStars {
     padding-top: 30px;

@@ -31,10 +31,7 @@ export default class Sharers extends React.Component {
           [styles.isShow]: this.props.isShow,
         })}
         onClick={::this.toggleShow}>
-        <i className={classNames({
-          'material-icons': true,
-          [styles.Sharers__icon]: true,
-        })}>share</i>
+        <i className='material-icons Sharers__icon'>share</i>
         <div className={styles.Sharers__overlay} onClick={::this.toggleShow}></div>
         <div className={styles.Sharers__contentWp} onClick={(e) => { e.stopPropagation() }}>
           <div className={styles.Sharers__content}>
