@@ -1,7 +1,7 @@
 {
   "name": "setsuna-firebase",
   "version": "1.0.0",
-  "description": "Get started with React, Redux, and React-Router!",
+  "description": "anonymous stream with Firebase",
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist",
