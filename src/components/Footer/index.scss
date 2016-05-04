@@ -1,0 +1,14 @@
+.Footer {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.Footer__link--github {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../images/GitHubMark.png');
+  background-position: center;
+  background-size: 100%;
+}

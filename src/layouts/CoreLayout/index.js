@@ -17,6 +17,7 @@ import Loading from 'components/Loading/index'
 import Navigation from 'components/Navigation/index'
 import Modals from 'components/Modals/index'
 import CustomAlert from 'components/CustomAlert/index'
+import Footer from 'components/Footer/index'
 
 const firebaseRef = new Firebase(config.firebaseRef())
 
@@ -117,6 +118,7 @@ export class CoreLayout extends React.Component {
         <div className='CoreLayout__viewContainer'>
           {children}
         </div>
+        <Footer />
       </div>
     )
   }
