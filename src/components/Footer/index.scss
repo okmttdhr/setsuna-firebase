@@ -23,3 +23,9 @@
     text-decoration: underline;
   }
 }
+
+@media (max-width: $screenSm) {
+  .Footer {
+    margin: 80px 0;
+  }
+}
