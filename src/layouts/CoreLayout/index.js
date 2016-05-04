@@ -118,7 +118,7 @@ export class CoreLayout extends React.Component {
         <div className='CoreLayout__viewContainer'>
           {children}
         </div>
-        <Footer />
+        <Footer {...this.props} />
       </div>
     )
   }

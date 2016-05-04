@@ -20,6 +20,7 @@ $CoreLayout__overlay--center: calc(50vh - 27px);
 
 .CoreLayout__viewContainer {
   margin-top: 75px;
+  min-height: 100vh;
 }
 
 @media (max-width: $screenSm) {

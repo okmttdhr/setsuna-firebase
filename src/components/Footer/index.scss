@@ -1,3 +1,5 @@
+@import "variables";
+
 .Footer {
   display: flex;
   justify-content: center;
@@ -11,4 +13,12 @@
   background-image: url('../../images/GitHubMark.png');
   background-position: center;
   background-size: 100%;
+}
+
+.Footer__link--about {
+  text-decoration: none;
+  color: $mdColorBlack;
+  &:hover {
+    text-decoration: underline;
+  }
 }

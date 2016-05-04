@@ -1,7 +1,9 @@
 import './index.scss'
 
 export class Footer extends React.Component {
-  static propTypes = {}
+  static propTypes = {
+    location: React.PropTypes.object.isRequired,
+  }
 
   constructor() {
     super()
@@ -10,7 +12,10 @@ export class Footer extends React.Component {
   render() {
     return (
       <div className='Footer'>
-        <a className='Footer__link--github' href='https://github.com/okmttdhr/setsuna-firebase' target='_blank'></a>
+        {this.props.location.pathname === '/'
+          ? <a className='Footer__link Footer__link--github' href='https://github.com/okmttdhr/setsuna-firebase' target='_blank'></a>
+          : <a className='Footer__link Footer__link--about' href='/#/'>About</a>
+        }
       </div>
     )
   }
