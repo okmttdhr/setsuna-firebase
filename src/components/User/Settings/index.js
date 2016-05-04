@@ -78,10 +78,7 @@ export default class UserSettings extends React.Component {
           </select>
         </li>
         <li className={styles.UserSettings__list__logout} onClick={::this._logout}>
-          <i className={classNames({
-            [styles.UserSettings__list__icon]: true,
-            'material-icons': true,
-          })}>skip_next</i>
+          <i className='UserSettings__list__icon material-icons'>skip_next</i>
           <p className={styles.UserSettings__list__text}>{i18next.t('User__logout')}</p>
         </li>
       </ul>
