@@ -1,3 +1,5 @@
+@import "variables";
+
 .Star {
   display: inline-block;
   height: 20px;
@@ -5,4 +7,5 @@
 
 .Star__icon {
   font-size: 20px;
+  color: $mdColorAmber;
 }

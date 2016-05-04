@@ -1,4 +1,4 @@
-import styles from './index.scss'
+import './index.scss'
 import Star from 'components/Star/index'
 import Sharers from 'components/Sharers/index'
 
@@ -46,20 +46,19 @@ export default class TimelinePost extends React.Component {
     }
     const { item } = this.props
     return (
-      <div className={styles.TimelinePost} onClick={::this._linkToPost} style={styleOpacity}>
-        <div className={styles.TimelinePost__container}>
-          <div>{item.content}</div>
-          <Star {...this.props} />
-
-          {
-            // ここにURLやTEXTをpropとしておくる。Sharersではそれを表示するだけでロジックはない
-            // ここでも、渡すだけで後はSharersに任せる。
-          }
-          <Sharers {...this.props}
-            isShow={this.state.isSharerShow}
-            toggleShow={::this.toggleSharerShow}
-            url={this._getPostPath()}
-            title={item.content} />
+      <div className='TimelinePost' onClick={::this._linkToPost} style={styleOpacity}>
+        <div className='TimelinePost__container'>
+          <div className='TimelinePost__content'>{item.content}</div>
+          <span className='TimelinePost__star'>
+            <Star {...this.props} />
+          </span>
+          <span className='TimelinePost__sharers'>
+            <Sharers {...this.props}
+              isShow={this.state.isSharerShow}
+              toggleShow={::this.toggleSharerShow}
+              url={this._getPostPath()}
+              title={item.content} />
+          </span>
         </div>
       </div>
     )

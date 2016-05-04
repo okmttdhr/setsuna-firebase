@@ -18,6 +18,7 @@ module.exports = {
     user: 'ユーザー',
     tryAgainLater: '時間が経ってから、再度お試しください。',
     seePosts: 'せつなを見る',
+    aboutSetsuna: 'せつなとは',
     ModalTutorial__PostsView: `
       "せつな"は、最新100件の投稿だけを完全に匿名でみることができるSNSです。
       投稿するのももちろん匿名なので、どんなことでも書くことができます。あなたが普段言えない本音を投稿してみましょう。

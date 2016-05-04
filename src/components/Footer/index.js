@@ -1,4 +1,5 @@
 import './index.scss'
+import i18next from 'i18next'
 
 export class Footer extends React.Component {
   static propTypes = {
@@ -13,8 +14,8 @@ export class Footer extends React.Component {
     return (
       <div className='Footer'>
         {this.props.location.pathname === '/'
-          ? <a className='Footer__link Footer__link--github' href='https://github.com/okmttdhr/setsuna-firebase' target='_blank'></a>
-          : <a className='Footer__link Footer__link--about' href='/#/'>About</a>
+          ? <a className='Footer__link--github' href='https://github.com/okmttdhr/setsuna-firebase' target='_blank'></a>
+          : <a className='Footer__link--about' href='/#/'>{i18next.t('aboutSetsuna')}</a>
         }
       </div>
     )
