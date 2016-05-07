@@ -5,8 +5,10 @@ const firebaseRef = new Firebase(config.firebaseRef())
 
 export function create(authData) {
   return new Promise((resolve, reject) => {
-    firebaseRef.child('users').child(authData.uid).set({
-      ...authData,
+    const data = { ...authData }
+    data.auth.token.firebase = null
+    firebaseRef.child('users').child(data.uid).set({
+      ...data,
     }, (err) => {
       if (err) {
         return reject()
