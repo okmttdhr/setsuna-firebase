@@ -27,13 +27,13 @@ module.exports = {
     seePosts: 'せつなを見る',
     aboutSetsuna: 'せつなとは',
     ModalTutorial__PostsView: `
-      "せつな"は、100件の投稿だけを完全に匿名でみることができるSNSです。
+      "せつな"は、最新10件の投稿だけを完全に匿名でみることができるSNSです。
       投稿するのももちろん匿名なので、どんなことでも書くことができます。あなたが普段言えない本音を水に流してみましょう。
     `,
     ModalTutorial__StarsView: 'ここはスター(お気に入り)が表示されるページです。',
     ModalTutorial__UserView: 'ここはあなたの情報が表示される非公開のページです。あなた以外の人がアクセスすることはできません。',
     User__logout: 'ログアウト',
-    TimelineHeader__placeholder: '何を水に流しますか？',
+    TimelineHeader__placeholder: '今日は何を思いましたか？',
     Star__delete__confirm: 'スターを削除しますか？',
     HomeView__firstView__text: '今日を水に流そう。',
   },

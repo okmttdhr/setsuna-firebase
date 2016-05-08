@@ -30,13 +30,13 @@ module.exports = {
     aboutSetsuna: 'About Setsuna',
     ModalTutorial__PostsView: `
       "Setsuna" is the anonymous social networking website
-      which you can only see the latest 100 posts.
+      which you can only see the latest 10 posts.
       You can post anything because nobody knows who posted it. Share your secrets now.
     `,
     ModalTutorial__StarsView: 'This is the page for your starred posts.',
     ModalTutorial__UserView: 'This is your personal page. Only you can access here.',
     User__logout: 'Logout',
-    TimelineHeader__placeholder: 'What do you want to forget?',
+    TimelineHeader__placeholder: 'What\'s on your mind today?',
     Star__delete__confirm: 'Are you sure to delete star?',
     HomeView__firstView__text: 'Let bygones be bygones',
   },

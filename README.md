@@ -1,6 +1,6 @@
 # setsuna-firebase
 
-Setsuna is the anonymous social networking website which you can only see the latest 100 posts. 
+Setsuna is the anonymous social networking website which you can only see the latest 10 posts. 
 
 * <a href="https://setsuna.firebaseapp.com" target="_blank">Homepage</a>
 
