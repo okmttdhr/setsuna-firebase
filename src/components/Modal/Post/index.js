@@ -63,7 +63,7 @@ export class ModalPost extends React.Component {
             onChange={::this._changepostContent}/>
           <div className={classNames({
             ModalPost__submit: true,
-          })} onClick={::this._createPost}>投稿する</div>
+          })} onClick={::this._createPost}>{i18next.t('post')}</div>
         </form>
       </div>
     )

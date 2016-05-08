@@ -1,5 +1,6 @@
 import styles from './index.scss'
 import i18next from 'i18next'
+import Alert from 'react-s-alert'
 import classNames from 'classnames'
 import firebaseUtils from 'utils/firebase/index'
 
@@ -19,7 +20,7 @@ export default class UserSettings extends React.Component {
   _changeLang(e) {
     i18next.changeLanguage(e.target.value, (err) => {
       if (err) {
-        alert('言語の切り替えができませんでした。時間が経ってから再度お試しください。')
+        Alert.error(i18next.t('error__i18next__changeLanguage') + i18next.t('tryAgainLater'))
       }
       location.reload()
     })

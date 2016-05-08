@@ -1,11 +1,11 @@
 module.exports = {
   translation: {
-    key: 'こんにちは',
     connected__true: 'オンラインになりました。',
     connected__false: '現在オフラインです。通信環境を整えてからリロードしてください。',
     error__404: 'ページが見つかりません。ホームへお戻りください。',
     error__404__posts: '投稿が見つかりません。',
     error__404__stars: 'スターが見つかりません。',
+    error__i18next__changeLanguage: '言語の切り替えができませんでした。',
     error__posts__get: '投稿を取得できませんでした。',
     error__posts__create: '投稿できませんでした。時間が経ってから、150字以内で再度お試しください。',
     error__users__login: 'ログインできませんでした。',
