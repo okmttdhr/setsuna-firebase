@@ -8,7 +8,7 @@ import i18next from 'i18next'
 import config from 'utils/config'
 import postsActions from 'actions/posts'
 import applicationActions from 'actions/application'
-import { WAIT_TIME } from 'constants'
+import { WAIT_TIME } from 'utils/config'
 
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'

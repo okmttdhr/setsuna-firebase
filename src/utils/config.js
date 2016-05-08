@@ -1,6 +1,7 @@
 import * as secret from './secret'
 
-const SCREEN_SM = 768
+export const SCREEN_SM = 768
+export const WAIT_TIME = 5000
 
 export function firebaseRef() {
   let host = ''
@@ -24,6 +25,7 @@ export function firebaseRef() {
 
 export default {
   SCREEN_SM,
+  WAIT_TIME,
   firebaseRef,
   ...secret,
 }

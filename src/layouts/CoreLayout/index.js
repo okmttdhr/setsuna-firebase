@@ -10,7 +10,7 @@ import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import Alert from 'react-s-alert'
 
-import { WAIT_TIME } from 'constants'
+import { WAIT_TIME } from 'utils/config'
 import config from 'utils/config'
 import firebaseUtils from 'utils/firebase/index'
 import Loading from 'components/Loading/index'

@@ -7,7 +7,7 @@ import i18next from 'i18next'
 
 import config from 'utils/config'
 import starsActions from 'actions/stars'
-import { WAIT_TIME } from 'constants'
+import { WAIT_TIME } from 'utils/config'
 
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
