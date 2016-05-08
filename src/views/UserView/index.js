@@ -4,6 +4,7 @@ import reactMixin from 'react-mixin'
 import Firebase from 'firebase'
 import { connect } from 'react-redux'
 import i18next from 'i18next'
+import Alert from 'react-s-alert'
 
 import config from 'utils/config'
 import postsActions from 'actions/posts'
@@ -57,7 +58,8 @@ export class UserView extends React.Component {
     const refPosts = new Firebase(`${config.firebaseRef()}posts`)
     this.bindAsArray(
       refPosts.orderByChild('user_id').equalTo(userFirebase.auth.uid).limitToLast(10),
-      'postsFirebase'
+      'postsFirebase',
+      () => Alert.error(i18next.t('error__posts__get') + i18next.t('tryAgainLater'))
     )
   }
 

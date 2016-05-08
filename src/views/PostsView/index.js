@@ -4,6 +4,7 @@ import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
 import i18next from 'i18next'
+import Alert from 'react-s-alert'
 
 import config from 'utils/config'
 import postsActions from 'actions/posts'
@@ -56,7 +57,8 @@ export class PostsView extends React.Component {
     const refPosts = new Firebase(`${config.firebaseRef()}posts`)
     this.bindAsArray(
       refPosts.orderByChild('created_at').limitToLast(10),
-      'postsFirebase'
+      'postsFirebase',
+      () => Alert.error(i18next.t('error__posts__get') + i18next.t('tryAgainLater'))
     )
   }
 

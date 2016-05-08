@@ -6,10 +6,12 @@ module.exports = {
     error__404: 'Page not found. Return to home.',
     error__404__posts: 'Posts not found.',
     error__404__stars: 'Stars not found.',
+    error__posts__get: 'We couldn\'t get posts.',
     error__posts__create: `
       We couldn't save your post. Please try again later within 150 characters.
     `,
     error__users__login: 'You couldn\'t login.',
+    error__stars__get: 'We couldn\'t get stars.',
     error__stars__create: 'We couldn\'t add your star.',
     error__stars__destroy: 'We couldn\'t remove your star.',
     success__posts__create: 'Posted successfully.',
