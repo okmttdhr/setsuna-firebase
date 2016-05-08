@@ -14,8 +14,8 @@
     "dev:no-debug": "npm run dev -- --no_debug",
     "test": "node -r dotenv/config ./node_modules/karma/bin/karma start bin/karma.js",
     "test:dev": "npm run test -- --watch",
-    "deploy:p": "npm run test && npm run clean && NODE_ENV=production npm run compile -- --no_debug && npm run copy:404 && $(npm bin)/firebase deploy",
-    "deploy:s": "npm run test && npm run clean && NODE_ENV=staging npm run compile -- --no_debug && npm run copy:404 && $(npm bin)/firebase deploy"
+    "deploy": "npm run test && npm run clean && NODE_ENV=staging npm run compile -- --no_debug && npm run copy:404 && $(npm bin)/firebase deploy",
+    "deploy:p": "npm run test && npm run clean && NODE_ENV=production npm run compile -- --no_debug && npm run copy:404 && $(npm bin)/firebase deploy"
   },
   "repository": {
     "type": "git",
