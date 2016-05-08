@@ -7,24 +7,25 @@ export class Modal extends React.Component {
     isShow: React.PropTypes.bool.isRequired,
     toggleShow: React.PropTypes.func.isRequired,
     children: React.PropTypes.element.isRequired,
-    contentStyleMd: React.PropTypes.object,
-    contentStyleSm: React.PropTypes.object,
+    styleMdOverlay: React.PropTypes.object,
+    styleSmOverlay: React.PropTypes.object,
+    styleMdContent: React.PropTypes.object,
+    styleSmContent: React.PropTypes.object,
   }
 
   render() {
-    const contentStyle = window.innerWidth <= config.SCREEN_SM
-      ? this.props.contentStyleSm : this.props.contentStyleMd
+    const styleOverlay = window.innerWidth <= config.SCREEN_SM
+      ? this.props.styleSmOverlay : this.props.styleMdOverlay
+    const styleContent = window.innerWidth <= config.SCREEN_SM
+      ? this.props.styleSmContent : this.props.styleMdContent
     return (
       <div
         className={classNames({
           Modal: true,
           isShow: this.props.isShow,
         })}>
-        <div className='Modal__overlay' onClick={this.props.toggleShow}></div>
-        <div
-          className='Modal__content'
-          style={contentStyle}
-          onClick={(e) => e.stopPropagation()}>
+        <div className='Modal__overlay' style={styleOverlay} onClick={this.props.toggleShow}></div>
+        <div className='Modal__content' style={styleContent} onClick={(e) => e.stopPropagation()}>
           {this.props.children}
         </div>
         <i

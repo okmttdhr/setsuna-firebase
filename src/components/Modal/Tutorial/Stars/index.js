@@ -29,14 +29,14 @@ export class ModalTutorialStars extends React.Component {
   }
 
   render() {
-    const contentStyleMd = {
+    const styleMdContent = {
       height: '75px',
     }
     return (
       <Modal
         isShow={!this.props.tutorial.hasDone.in.StarsView}
         toggleShow={::this._toggleTutorialHasDone}
-        contentStyleMd={contentStyleMd}>
+        styleMdContent={styleMdContent}>
         <div className='ModalTutorialStars'>
           {i18next.t('ModalTutorial__StarsView')}
         </div>

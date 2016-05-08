@@ -52,12 +52,12 @@ export class ModalTutorialPosts extends React.Component {
   }
 
   render() {
-    const contentStyleMd = this._getStyleMd()
+    const styleMdContent = this._getStyleMd()
     return (
       <Modal
         isShow={!this.props.tutorial.hasDone.in.PostsView}
         toggleShow={::this._toggleTutorialHasDone}
-        contentStyleMd={contentStyleMd}>
+        styleMdContent={styleMdContent}>
         <div className='ModalTutorialPosts'>
           <div>
             {i18next.t('welcome')}

@@ -40,12 +40,12 @@ export class ModalTutorialUser extends React.Component {
   }
 
   render() {
-    const contentStyleMd = this._getStyleMd()
+    const styleMdContent = this._getStyleMd()
     return (
       <Modal
         isShow={!this.props.tutorial.hasDone.in.UserView}
         toggleShow={::this._toggleTutorialHasDone}
-        contentStyleMd={contentStyleMd}>
+        styleMdContent={styleMdContent}>
         <div className='ModalTutorialUser'>
           {i18next.t('ModalTutorial__UserView')}
         </div>

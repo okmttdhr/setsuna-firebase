@@ -33,7 +33,7 @@ export class Modals extends React.Component {
 
   render() {
     const { application } = this.props
-    const contentStyleMd = {
+    const styleMdContent = {
       height: '125px',
     }
     return (
@@ -44,7 +44,7 @@ export class Modals extends React.Component {
         <Modal
           isShow={application.isModalPostShow}
           toggleShow={::this._toggleModalPost}
-          contentStyleMd={contentStyleMd}>
+          styleMdContent={styleMdContent}>
           <ModalPost {...this.props} />
         </Modal>
       </div>
