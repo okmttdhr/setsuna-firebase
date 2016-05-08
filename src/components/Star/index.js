@@ -31,7 +31,7 @@ export default class Star extends React.Component {
         if (!confirm(i18next.t('Star__delete__confirm'))) return false
       }
       firebaseUtils.stars.destroy(userFirebase.auth.uid, starKey)
-        .then(() => Alert.info(i18next.t('success__stars__destroy')))
+        .then()
         .catch(() => Alert.error(i18next.t('error__stars__destroy') + i18next.t('tryAgainLater')))
     } else {
       firebaseUtils.stars.create(userFirebase.auth.uid, item)

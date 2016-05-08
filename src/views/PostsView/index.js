@@ -11,6 +11,7 @@ import postsActions from 'actions/posts'
 import applicationActions from 'actions/application'
 import { WAIT_TIME_LONG } from 'utils/config'
 
+import NotFoundView from 'views/NotFoundView/index'
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
 import ModalTutorialPosts from 'components/Modal/Tutorial/Posts/index'
@@ -76,7 +77,7 @@ export class PostsView extends React.Component {
       return <Loading />
     }
     if (this.state.postsFirebase.length === 0) {
-      return i18next.t('error__404__posts') + i18next.t('tryAgainLater')
+      return <NotFoundView text={i18next.t('error__404__posts') + i18next.t('tryAgainLater')} />
     }
     return <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />
   }

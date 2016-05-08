@@ -11,8 +11,6 @@ const mapStateToProps = (state) => ({
 
 export class ModalTutorialUser extends React.Component {
   static propTypes = {
-    userFirebase: React.PropTypes.object,
-
     tutorial: React.PropTypes.object.isRequired,
     toggleTutorialHasDone: React.PropTypes.func.isRequired,
   }

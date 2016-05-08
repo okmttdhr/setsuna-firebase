@@ -5,9 +5,12 @@
   @include baseContainerText;
 }
 
-.NotFoundView__link {
-  text-decoration: none;
+.NotFoundView__text {
   color: $mdColorBlack;
+}
+
+.NotFoundView__text--link {
+  text-decoration: none;
   &:hover {
     text-decoration: underline;
   }

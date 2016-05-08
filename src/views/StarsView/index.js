@@ -9,6 +9,7 @@ import config from 'utils/config'
 import starsActions from 'actions/stars'
 import { WAIT_TIME_LONG } from 'utils/config'
 
+import NotFoundView from 'views/NotFoundView/index'
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
 import ModalTutorialStars from 'components/Modal/Tutorial/Stars/index'
@@ -63,7 +64,7 @@ export class StarsView extends React.Component {
       return <Loading />
     }
     if (this.state.starsFirebase.length === 0) {
-      return i18next.t('error__404__stars')
+      return <NotFoundView text={i18next.t('error__404__stars')} />
     }
     return <Timeline items={this.state.starsFirebase} {...this.state} {...this.props} />
   }

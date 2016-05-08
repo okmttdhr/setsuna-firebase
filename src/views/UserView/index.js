@@ -10,6 +10,7 @@ import config from 'utils/config'
 import postsActions from 'actions/posts'
 import { WAIT_TIME_LONG } from 'utils/config'
 
+import NotFoundView from 'views/NotFoundView/index'
 import UserSettings from 'components/User/Settings/index'
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
@@ -77,7 +78,7 @@ export class UserView extends React.Component {
       return <Loading />
     }
     if (this.state.postsFirebase.length === 0) {
-      return i18next.t('error__404__posts')
+      return <NotFoundView text={i18next.t('error__404__posts')} />
     }
     return <Timeline items={this.state.postsFirebase} {...this.props} {...this.state} />
   }
