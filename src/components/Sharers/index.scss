@@ -34,7 +34,7 @@
   left: -6px;
   z-index: 910;
   padding: 10px;
-  background: #fff;
+  background: #e1e1e1;
   border-radius: 2px;
   transition: visibility .1s ease;
   &:before {
@@ -47,7 +47,7 @@
     height: 0;
     border-style: solid;
     border-width: 0 6px 6px;
-    border-color: transparent transparent #fff;
+    border-color: transparent transparent #e1e1e1;
   }
 }
 
@@ -62,11 +62,11 @@
 }
 
 .Sharers__overlay {
+  @include overlay;
   visibility: hidden;
   opacity: 0;
   transition: opacity .2s ease, visibility .2s ease;
-  transform-style: preserve-3d;
-  @include overlay;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: $screenSm) {
