@@ -1,0 +1,5 @@
+@import "mixins/index";
+
+.PostView__container {
+  @include baseContainer;  
+}

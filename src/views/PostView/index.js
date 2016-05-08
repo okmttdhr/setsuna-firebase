@@ -1,4 +1,4 @@
-import styles from './index.scss'
+import './index.scss'
 import { connect } from 'react-redux'
 import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
@@ -63,8 +63,10 @@ export class PostView extends React.Component {
 
   render() {
     return (
-      <div className={styles.PostView}>
-        {this._renderPost()}
+      <div className='PostView'>
+        <div className='PostView__container'>
+          {this._renderPost()}
+        </div>
       </div>
     )
   }

@@ -1,4 +1,4 @@
-import styles from './index.scss'
+import './index.scss'
 import { connect } from 'react-redux'
 import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
@@ -84,9 +84,9 @@ export class PostsView extends React.Component {
 
   render() {
     return (
-      <div className={styles.PostsView}>
+      <div className='PostsView'>
         <ModalTutorialPosts {...this.props} />
-        <div className={styles.PostsView__container}>
+        <div className='PostsView__container'>
           {this._renderTimeline()}
         </div>
       </div>
