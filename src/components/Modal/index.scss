@@ -62,6 +62,8 @@
     top: 100vh;
     bottom: auto;
     transition: top .3s ease, visibility 1s ease;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
   }
 
   .Modal__close {
