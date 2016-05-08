@@ -3,9 +3,7 @@ import classNames from 'classnames'
 import Sharer from 'sharer.npm.js'
 
 export default class SharerFacebook extends React.Component {
-  static propTypes = {
-    url: React.PropTypes.string.isRequired,
-  }
+  static propTypes = {}
 
   _share(e) {
     e.stopPropagation()
@@ -14,7 +12,6 @@ export default class SharerFacebook extends React.Component {
   }
 
   render() {
-    const { url } = this.props
     return (
       <div
         className={classNames({
@@ -22,7 +19,7 @@ export default class SharerFacebook extends React.Component {
         })}
         onClick={::this._share}
         data-sharer='facebook'
-        data-url={`http://localhost:3000/#${url}`}>
+        data-url={`https://${location.host}`}>
         f
       </div>
     )

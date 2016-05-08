@@ -56,7 +56,7 @@ export default class TimelinePost extends React.Component {
             <Sharers {...this.props}
               isShow={this.state.isSharerShow}
               toggleShow={::this.toggleSharerShow}
-              url={this._getPostPath()}
+              url={`https://${location.host}/#${this._getPostPath()}`}
               title={item.content} />
           </span>
         </div>

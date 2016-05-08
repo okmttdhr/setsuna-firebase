@@ -6,6 +6,7 @@ import { argv } from 'yargs'
 const debug = _debug('app:config:_base')
 const config = {
   env : process.env.NODE_ENV,
+  firebase_app_staging : process.env.FIREBASE_APP_STAGING,
 
   // ----------------------------------
   // Project Structure
@@ -28,8 +29,8 @@ const config = {
   compiler_css_modules     : true,
   compiler_enable_hmr      : false,
   compiler_globals         : {
-    'React' : 'react',
-    'ReactDOM' : 'react-dom',
+    React : 'react',
+    ReactDOM : 'react-dom',
   },
   compiler_source_maps     : true,
   compiler_hash_type       : 'hash',
@@ -39,7 +40,7 @@ const config = {
   compiler_stats           : {
     chunks : false,
     chunkModules : false,
-    colors : true
+    colors : true,
   },
   compiler_vendor : [
     'history',
@@ -75,14 +76,15 @@ Edit at Your Own Risk
 // ------------------------------------
 config.globals = {
   'process.env'  : {
-    'NODE_ENV' : JSON.stringify(config.env),
+    NODE_ENV : JSON.stringify(config.env),
+    FIREBASE_APP_STAGING : JSON.stringify(config.firebase_app_staging),
   },
-  'NODE_ENV'     : config.env,
-  '__DEV__'      : config.env === 'development',
-  '__PROD__'     : config.env === 'production',
-  '__DEBUG__'    : config.env === 'development' && !argv.no_debug,
-  '__DEBUG_NEW_WINDOW__' : !!argv.nw,
-  '__BASENAME__' : JSON.stringify(process.env.BASENAME || '/')
+  NODE_ENV     : config.env,
+  __DEV__      : config.env === 'development',
+  __PROD__     : config.env === 'production',
+  __DEBUG__    : config.env === 'development' && !argv.no_debug,
+  __DEBUG_NEW_WINDOW__ : !!argv.nw,
+  __BASENAME__ : JSON.stringify(process.env.BASENAME || '/'),
 }
 
 // ------------------------------------
@@ -113,7 +115,7 @@ config.utils_paths = (() => {
   return {
     base   : base,
     client : base.bind(null, config.dir_client),
-    dist   : base.bind(null, config.dir_dist)
+    dist   : base.bind(null, config.dir_dist),
   }
 })()
 

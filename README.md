@@ -29,8 +29,6 @@ Setsuna is the SNS that you can see only recent 100 posts anonymously. You can p
 ├── build                    # All build-related configuration
 │   └── webpack              # Environment-specific configuration files for webpack
 ├── config                   # Project configuration settings
-├── server                   # Express application (uses webpack middleware)
-│   └── main.js              # Server application entry point
 ├── src                      # Application source code
 │   ├── actions              # Redux actions
 │   ├── components           # Generic React Components
@@ -50,13 +48,20 @@ Setsuna is the SNS that you can see only recent 100 posts anonymously. You can p
 └── tests                    # Unit tests
 ```
 
+
+
 ## Testing
 
-* unit test with karma
-* component
-* action
-* reducer
+To add a unit test, simply create a `.spec.js` file anywhere in `~/tests`. I'm afraid that tests are not ready for this repository... But you need to add tests with a new feature. <a href="https://github.com/katowulf/mockfirebase" target="_blank">MockFirebase</a> would be useful for the unit testing with Firebase mock.
+
+* Actions
+* Components
+* Layouts
+* Reducers
+* Utils
+* Views
+
 
 ## Contributing
 
-* [setsuna-firebase/CONTRIBUTING.md](https://github.com/okmttdhr/setsuna-firebase/blob/master/.github/CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/okmttdhr/setsuna-firebase/blob/master/.github/CONTRIBUTING.md).

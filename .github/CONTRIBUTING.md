@@ -5,6 +5,11 @@
 git clone https://github.com/okmttdhr/setsuna-firebase.git
 cd setsuna-firebase
 npm install
+```
+
+Set `YOUR_FIREBASE_APP_NAME` in your `.env` file.
+
+```bash
 npm start
 ```
 

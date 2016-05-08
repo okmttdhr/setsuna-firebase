@@ -1,3 +1,14 @@
+@import 'mixins/index';
+@import "variables";
+
 .Post {
   padding: 20px 20px 18px;
+}
+
+.Post__content {
+  @include PostContent;
+}
+
+.Post__star {
+  @include PostStar;
 }

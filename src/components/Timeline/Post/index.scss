@@ -17,10 +17,9 @@
 }
 
 .TimelinePost__content {
-  color: $mdColorBlack;
-  margin-bottom: 5px;
+  @include PostContent;
 }
 
 .TimelinePost__star {
-  margin-right: 5px;
+  @include PostStar;
 }

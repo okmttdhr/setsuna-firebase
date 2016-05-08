@@ -21,7 +21,7 @@ export default class SharerLine extends React.Component {
         onClick={::this._share}
         data-sharer='line'
         data-title={title}
-        data-url={`http://localhost:3000/#${url}`}>
+        data-url={url}>
         L
       </div>
     )

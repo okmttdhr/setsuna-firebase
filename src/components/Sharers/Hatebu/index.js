@@ -2,9 +2,7 @@ import styles from './index.scss'
 import Sharer from 'sharer.npm.js'
 
 export default class SharerHatebu extends React.Component {
-  static propTypes = {
-    url: React.PropTypes.string.isRequired,
-  }
+  static propTypes = {}
 
   _share(e) {
     e.stopPropagation()
@@ -13,13 +11,12 @@ export default class SharerHatebu extends React.Component {
   }
 
   render() {
-    const { url } = this.props
     return (
       <div
         className={styles.SharerHatebu}
         onClick={::this._share}
         data-sharer='hatenabookmark'
-        data-url={`http://localhost:3000/#${url}`}>
+        data-url={`https://${location.host}`}>
         B!
       </div>
     )

@@ -23,7 +23,7 @@ export default class SharerTwitter extends React.Component {
         data-title={title}
         data-via=''
         data-hashtags='setsuna'
-        data-url={`http://localhost:3000/#${url}`}>
+        data-url={url}>
         t
       </div>
     )
