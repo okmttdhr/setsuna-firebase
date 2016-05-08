@@ -1,12 +1,8 @@
 import './index.scss'
-import { connect } from 'react-redux'
 import i18next from 'i18next'
 import Alert from 'react-s-alert'
 
-import applicationActions from 'actions/application'
 import firebaseUtils from 'utils/firebase/index'
-
-const mapStateToProps = () => ({})
 
 export default class Star extends React.Component {
   static propTypes = {
@@ -78,7 +74,3 @@ export default class Star extends React.Component {
     )
   }
 }
-
-export default connect(mapStateToProps, {
-  ...applicationActions,
-})(Star)

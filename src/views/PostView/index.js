@@ -1,11 +1,16 @@
 import styles from './index.scss'
+import { connect } from 'react-redux'
 import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
 import reactMixin from 'react-mixin'
+
 import config from 'utils/config'
+import applicationActions from 'actions/application'
 
 import Loading from 'components/Loading/index'
 import Post from 'components/Post/index'
+
+const mapStateToProps = () => ({})
 
 export class PostView extends React.Component {
   static propTypes = {
@@ -65,4 +70,7 @@ export class PostView extends React.Component {
   }
 }
 
-export default reactMixin.decorate(ReactFireMixin)(PostView)
+const PostViewWithMixin = reactMixin.decorate(ReactFireMixin)(PostView)
+export default connect(mapStateToProps, {
+  ...applicationActions,
+})(PostViewWithMixin)
