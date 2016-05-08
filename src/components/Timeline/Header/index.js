@@ -1,5 +1,6 @@
 import styles from './index.scss'
 import i18next from 'i18next'
+import Alert from 'react-s-alert'
 import utils from 'utils/index'
 import firebaseUtils from 'utils/firebase/index'
 
@@ -25,9 +26,10 @@ export default class TimelineHeader extends React.Component {
     firebaseUtils.posts.create(this.props.userFirebase.auth.uid, this.state.postContent.value)
       .then(() => {
         this.setState({ postContent: utils.changedValue(this.state.postContent, null) })
+        setTimeout(() => Alert.info(i18next.t('success__posts__create')), 500)
       })
       .catch(() => {
-        alert('保存できませんでした。時間が経ってから再度お試しください。')
+        Alert.error(i18next.t('error__posts__create'))
       })
   }
 

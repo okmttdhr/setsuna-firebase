@@ -1,12 +1,19 @@
 import './index.scss'
-import firebaseUtils from 'utils/firebase/index'
+import { connect } from 'react-redux'
 import i18next from 'i18next'
+import Alert from 'react-s-alert'
+
+import applicationActions from 'actions/application'
+import firebaseUtils from 'utils/firebase/index'
+
+const mapStateToProps = () => ({})
 
 export default class Star extends React.Component {
   static propTypes = {
     item: React.PropTypes.object,
     userFirebase: React.PropTypes.object,
     starsFirebase: React.PropTypes.array,
+    toggleModalLogin: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -21,23 +28,19 @@ export default class Star extends React.Component {
     e.stopPropagation()
     const { userFirebase, item } = this.props
     if (!userFirebase) {
-      return alert('ログインしてください')
+      return this.props.toggleModalLogin()
     }
     if (isStarred) {
       if (this._isItemTypeStar()) {
         if (!confirm(i18next.t('Star__delete__confirm'))) return false
       }
       firebaseUtils.stars.destroy(userFirebase.auth.uid, starKey)
-        .then()
-        .catch(() => {
-          alert('starが削除できませんでした。時間が経ってから再度お試しください。')
-        })
+        .then(() => Alert.info(i18next.t('success__stars__destroy')))
+        .catch(() => Alert.error(i18next.t('error__stars__destroy') + i18next.t('tryAgainLater')))
     } else {
       firebaseUtils.stars.create(userFirebase.auth.uid, item)
-        .then()
-        .catch(() => {
-          alert('starが保存できませんでした。時間が経ってから再度お試しください。')
-        })
+        .then(() => Alert.info(i18next.t('success__stars__create')))
+        .catch(() => Alert.error(i18next.t('error__stars__create') + i18next.t('tryAgainLater')))
     }
   }
 
@@ -75,3 +78,7 @@ export default class Star extends React.Component {
     )
   }
 }
+
+export default connect(mapStateToProps, {
+  ...applicationActions,
+})(Star)

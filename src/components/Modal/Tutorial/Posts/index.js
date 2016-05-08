@@ -73,7 +73,6 @@ export class ModalTutorialPosts extends React.Component {
   }
 }
 
-export default ModalTutorialPosts
 export default connect(mapStateToProps, {
   ...tutorialActions,
 })(ModalTutorialPosts)

@@ -6,11 +6,16 @@ module.exports = {
     error__404: 'Page not found. Return to home.',
     error__404__posts: 'Posts not found.',
     error__404__stars: 'Stars not found.',
-    error__post__create: `
+    error__posts__create: `
       We couldn't save your post. Please try again later within 150 characters.
     `,
+    error__users__login: 'You couldn\'t login.',
+    error__stars__create: 'We couldn\'t add your star.',
+    error__stars__destroy: 'We couldn\'t remove your star.',
+    success__posts__create: 'Posted successfully.',
+    success__stars__create: 'Added a star successfully.',
+    success__stars__destroy: 'Removed a star successfully.',
     post: 'Post',
-    post__success: 'Posted successfully.',
     getStarted: 'Get Started',
     welcome: `Thank you for using "Setsuna".`,
     login: 'Log in',

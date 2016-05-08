@@ -23,10 +23,6 @@ export class ModalPost extends React.Component {
     }
   }
 
-  _showAlert() {
-    Alert.info(i18next.t('post__success'))
-  }
-
   _createPost(e) {
     e.preventDefault()
     if (!this._isInputValid()) return
@@ -34,10 +30,10 @@ export class ModalPost extends React.Component {
       .then(() => {
         this.setState({ postContent: utils.changedValue(this.state.postContent, '') })
         this.props.toggleModalPost()
-        setTimeout(() => this._showAlert(), 500)
+        setTimeout(() => Alert.info(i18next.t('success__posts__create')), 500)
       })
       .catch(() => {
-        Alert.info(i18next.t('error__post__create'))
+        Alert.error(i18next.t('error__posts__create'))
       })
   }
 

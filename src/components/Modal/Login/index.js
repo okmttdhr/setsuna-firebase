@@ -1,5 +1,8 @@
 import styles from './index.scss'
 import classNames from 'classnames'
+import i18next from 'i18next'
+import Alert from 'react-s-alert'
+
 import firebaseUtils from 'utils/firebase/index'
 
 export class ModalLogin extends React.Component {
@@ -10,7 +13,7 @@ export class ModalLogin extends React.Component {
   _loginWithOAuthRedirect(provider) {
     firebaseUtils.users.loginWithOAuthRedirect(provider)
       .catch(() => {
-        alert('ログインできませんでした。時間が経ってから再度お試しください。')
+        Alert.error(i18next.t('error__users__login') + i18next.t('tryAgainLater'))
       })
   }
 
