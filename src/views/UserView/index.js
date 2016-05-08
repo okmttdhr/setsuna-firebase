@@ -8,7 +8,7 @@ import Alert from 'react-s-alert'
 
 import config from 'utils/config'
 import postsActions from 'actions/posts'
-import { WAIT_TIME } from 'utils/config'
+import { WAIT_TIME_LONG } from 'utils/config'
 
 import UserSettings from 'components/User/Settings/index'
 import Timeline from 'components/Timeline/index'
@@ -39,7 +39,7 @@ export class UserView extends React.Component {
     this._getUserPosts(this.props.userFirebase)
     this._getStars(this.props.userFirebase)
     this.props.requestPosts()
-    setTimeout(() => this.props.requestPostsDone(), WAIT_TIME)
+    setTimeout(() => this.props.requestPostsDone(), WAIT_TIME_LONG)
   }
 
   componentWillReceiveProps(nextProps) {

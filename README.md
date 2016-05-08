@@ -1,6 +1,6 @@
 # setsuna-firebase
 
-Setsuna is the SNS that you can see only recent 100 posts anonymously. You can post anything because nobody knows who posted it. Share your secrets now.
+Setsuna is the anonymous social networking website which you can only see the latest 100 posts. 
 
 * <a href="https://setsuna.firebaseapp.com" target="_blank">Homepage</a>
 

@@ -7,7 +7,7 @@ import i18next from 'i18next'
 
 import config from 'utils/config'
 import starsActions from 'actions/stars'
-import { WAIT_TIME } from 'utils/config'
+import { WAIT_TIME_LONG } from 'utils/config'
 
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
@@ -36,7 +36,7 @@ export class StarsView extends React.Component {
   componentDidMount() {
     this._getStars(this.props.userFirebase)
     this.props.requestStars()
-    setTimeout(() => this.props.requestStarsDone(), WAIT_TIME)
+    setTimeout(() => this.props.requestStarsDone(), WAIT_TIME_LONG)
   }
 
   componentWillReceiveProps(nextProps) {

@@ -9,7 +9,7 @@ import Alert from 'react-s-alert'
 import config from 'utils/config'
 import postsActions from 'actions/posts'
 import applicationActions from 'actions/application'
-import { WAIT_TIME } from 'utils/config'
+import { WAIT_TIME_LONG } from 'utils/config'
 
 import Timeline from 'components/Timeline/index'
 import Loading from 'components/Loading/index'
@@ -40,7 +40,7 @@ export class PostsView extends React.Component {
     this._getPosts()
     this._getStars(this.props.userFirebase)
     this.props.requestPosts()
-    setTimeout(() => this.props.requestPostsDone(), WAIT_TIME)
+    setTimeout(() => this.props.requestPostsDone(), WAIT_TIME_LONG)
   }
 
   componentWillReceiveProps(nextProps) {
