@@ -7,7 +7,7 @@ export default class Timeline extends React.Component {
     items: React.PropTypes.array.isRequired,
   }
 
-  _renderItems() {
+  _renderPosts() {
     const items = []
     this.props.items.map((item, index) => (
       items.unshift(<Post key={index} index={index} item={item} {...this.props} />)
@@ -19,7 +19,7 @@ export default class Timeline extends React.Component {
     return (
       <div className={styles.Timeline}>
         <Header {...this.props} />
-        {this._renderItems()}
+        {this._renderPosts()}
       </div>
     )
   }
