@@ -7,7 +7,7 @@ export function create(uId, item) {
   return new Promise((resolve, reject) => {
     firebaseRef.child('stars').child(uId).push({
       post_id: item['.key'],
-      user_id: item.user_id,
+      user_id: item.user_id || null,
       content: item.content,
       created_at: Firebase.ServerValue.TIMESTAMP,
     }, (err) => {

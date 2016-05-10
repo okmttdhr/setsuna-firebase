@@ -23,7 +23,8 @@ export default class TimelineHeader extends React.Component {
   _createPost(e) {
     e.preventDefault()
     if (!this._isInputValid()) return
-    firebaseUtils.posts.create(this.props.userFirebase.auth.uid, this.state.postContent.value)
+    const userId = this.props.userFirebase ? this.props.userFirebase.auth.uid : null
+    firebaseUtils.posts.create(userId, this.state.postContent.value)
       .then(() => {
         this.setState({ postContent: utils.changedValue(this.state.postContent, null) })
         setTimeout(() => Alert.info(i18next.t('success__posts__create')), 500)
@@ -34,9 +35,7 @@ export default class TimelineHeader extends React.Component {
   }
 
   _changepostContent(e) {
-    this.setState({
-      postContent: utils.changedValue(this.state.postContent, e.target.value),
-    })
+    this.setState({ postContent: utils.changedValue(this.state.postContent, e.target.value) })
   }
 
   _isInputValid() {

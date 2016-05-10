@@ -15,9 +15,6 @@ export default class NavigationPost extends React.Component {
 
   _toggleModalPost(e) {
     e.stopPropagation()
-    if (!this.props.userFirebase) {
-      return this.props.toggleModalLogin()
-    }
     this.props.toggleModalPost()
   }
 
