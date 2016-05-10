@@ -9,7 +9,7 @@ export default class Star extends React.Component {
     item: React.PropTypes.object,
     userFirebase: React.PropTypes.object,
     starsFirebase: React.PropTypes.array,
-    toggleModalLogin: React.PropTypes.func.isRequired,
+    toggleModalLogin: React.PropTypes.func,
   }
 
   constructor() {
